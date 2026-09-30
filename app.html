@@ -2,7 +2,7 @@
 <html lang="ko" data-theme="민트">
 <head>
 <meta charset="utf-8">
-<meta name="pe-web" content="3.1.7 · 2026-10-01 08:41 · server api 1">
+<meta name="pe-web" content="3.1.8 · 2026-10-01 08:50 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -350,7 +350,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.1.7', needs: 1, built: '2026-10-01 08:41', history: [{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
+    version: '3.1.8', needs: 1, built: '2026-10-01 08:50', history: [{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -1156,6 +1156,10 @@ function 학생짧게(s) { return s.학년 + '-' + s.반 + ' ' + s.번호 + '번
 .opt input{width:17px;height:17px;accent-color:var(--warn);margin-top:3px;}
 .reset-box{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;}
 .reset-box b{display:block;margin-bottom:4px;}
+.reset-box .rs-head{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.reset-box .rs-head b{margin:0;}
+.reset-box .rs-all{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-2);font-weight:700;cursor:pointer;white-space:nowrap;}
+.rs-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px;}
 </style>
 
 <div class="mroot hide" data-mod="core" data-role="T" id="core_T">
@@ -1799,17 +1803,44 @@ MODS.core.teacher = (function () {
     $('rsBody').innerHTML = '<div class="unit">불러오는 중…</div>';
     api('t_resetInfo', TOKEN).then(function (info) {
       RS = info;
-      var h = '';
+      // 한꺼번에 고르기: 모든 기록(명단은 남김) · 명단까지 전부 · 선택 해제 — 모듈마다 "이 모듈 모두"
+      var h = '<div class="rs-tools"><button class="mini soft" type="button" id="rsAllRec"><i class="ti ti-checks"></i>모든 기록 선택 (명단은 남김)</button>' +
+        '<button class="mini soft" type="button" id="rsAllEvery"><i class="ti ti-checks"></i>명단까지 전부 선택</button>' +
+        '<button class="mini ghost" type="button" id="rsNone"><i class="ti ti-square"></i>선택 해제</button><span class="unit" id="rsCount"></span></div>';
       Object.keys(info.모듈).forEach(function (key) {
         var m = modInfo(key), items = info.모듈[key];
         if (items && items.오류) { h += '<div class="reset-box"><b>' + esc(m.이름) + '</b><span class="unit">' + esc(items.오류) + '</span></div>'; return; }
-        h += '<div class="reset-box"><b><i class="ti ti-' + m.아이콘 + '"></i> ' + esc(m.이름) + '</b>' +
+        h += '<div class="reset-box"><div class="rs-head"><b><i class="ti ti-' + m.아이콘 + '"></i> ' + esc(m.이름) + '</b>' +
+          ((items || []).length > 1 ? '<label class="rs-all"><input type="checkbox" data-rs-all="' + key + '">이 모듈 모두</label>' : '') + '</div>' +
           (items || []).map(function (it) { return '<label class="opt"><input type="checkbox" data-rs="' + key + '" value="' + esc(it.key) + '"><span>' + esc(it.이름) + ' <span class="unit">' + esc(it.수) + '건</span></span></label>'; }).join('') +
           '</div>';
       });
       h += '<div class="reset-box"><b><i class="ti ti-users"></i> 공통</b><label class="opt"><input type="checkbox" id="rs학생"><span>학생 명단 전체 <span class="unit">' + info.학생 + '명</span> — 모든 모듈의 기록도 함께 지우는 것이 안전합니다</span></label></div>';
       $('rsBody').innerHTML = h;
+      rsBind();
     }).catch(handleErr);
+  }
+  /* 모듈별 "이 모듈 모두"(일부만 고르면 반쯤 표시) · 위쪽 한꺼번에 고르기 · 고른 수 */
+  function rsBind() {
+    var body = $('rsBody'), items = function (k) { return Array.prototype.slice.call(body.querySelectorAll('[data-rs' + (k ? '="' + k + '"' : '') + ']')); };
+    var sync = function () {
+      Array.prototype.forEach.call(body.querySelectorAll('[data-rs-all]'), function (a) {
+        var its = items(a.getAttribute('data-rs-all')), on = its.filter(function (c) { return c.checked; }).length;
+        a.checked = on > 0 && on === its.length; a.indeterminate = on > 0 && on < its.length;
+      });
+      var n = items().filter(function (c) { return c.checked; }).length, st = $('rs학생') && $('rs학생').checked;
+      $('rsCount').textContent = (n || st) ? '고른 것 ' + n + '개' + (st ? ' + 학생 명단' : '') : '';
+    };
+    Array.prototype.forEach.call(body.querySelectorAll('[data-rs-all]'), function (a) {
+      a.onchange = function () { var on = a.checked; items(a.getAttribute('data-rs-all')).forEach(function (c) { c.checked = on; }); sync(); };
+    });
+    items().forEach(function (c) { c.onchange = sync; });
+    if ($('rs학생')) $('rs학생').onchange = sync;
+    var setAll = function (on, roster) { items().forEach(function (c) { c.checked = on; }); if ($('rs학생')) $('rs학생').checked = !!roster; sync(); };
+    $('rsAllRec').onclick = function () { setAll(true, false); };
+    $('rsAllEvery').onclick = function () { setAll(true, true); };
+    $('rsNone').onclick = function () { setAll(false, false); };
+    sync();
   }
   $('rsRefresh').onclick = renderReset;
   $('btnResetAll').onclick = function () {
@@ -1819,7 +1850,8 @@ MODS.core.teacher = (function () {
     });
     var 학생 = $('rs학생') && $('rs학생').checked;
     if (!any && !학생) { setStatus('rsStatus', '지울 자료를 골라 주세요.', 'err'); return; }
-    if (!confirm('선택한 자료를 지웁니다. 되돌릴 수 없습니다. 계속할까요?')) return;
+    var 개수 = $('rsBody').querySelectorAll('[data-rs]:checked').length;
+    if (!confirm('고른 자료 ' + 개수 + '개' + (학생 ? ' + 학생 명단 전체' : '') + '를 지웁니다. 되돌릴 수 없습니다. 계속할까요?')) return;
     var btn = this; btn.disabled = true; setStatus('rsStatus', '지우는 중…');
     api('t_resetAll', TOKEN, { 모듈: 모듈, 학생: 학생 }, $('rsConfirm').value).then(function (r) {
       btn.disabled = false;
