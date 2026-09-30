@@ -2,7 +2,7 @@
 <html lang="ko" data-theme="민트">
 <head>
 <meta charset="utf-8">
-<meta name="pe-web" content="3.1.0 · 2026-09-30 16:49 · server api 1">
+<meta name="pe-web" content="3.1.1 · 2026-09-30 17:26 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -350,7 +350,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.1.0', needs: 1, built: '2026-09-30 16:49',
+    version: '3.1.1', needs: 1, built: '2026-09-30 17:26', history: [{"version":"3.1.1","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n설정 → 업데이트 칸에 새 화면 판과 \"새 화면에서 바뀐 것\"이 함께 보여요."},{"version":"3.0.1","date":"2026-09-30","notes":"학생용 주소 QR. 껍데기에 doPost 가 없는 학교에서도 큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — GitHub 한 곳에서 화면, 학교 시트에 저장. 학교 주소 기억, 다른 학교로 바꾸기."}],
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -1665,6 +1665,8 @@ MODS.core.teacher = (function () {
   /* ---------- 업데이트 (새 버전 알림) ---------- */
   /* 이번 판에서 바뀐 것 + 지난 판 보기 (APP_HISTORY — 온라인·오프라인 공통) */
   function historyHtml() {
+    var wh = (WEB.history || [])[0], wl = function (t) { return String(t || '').split('\n').filter(Boolean).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join(''); };
+    var web = wh ? '<div class="note ok" style="align-items:flex-start"><i class="ti ti-device-tablet"></i><div><b>새 화면 v' + esc(wh.version) + '에서 바뀐 것</b> <span class="unit">' + esc(wh.date) + ' · 학교에서 따로 올릴 것 없음</span><ul style="margin:6px 0 0;padding-left:18px">' + wl(wh.notes) + '</ul></div></div>' : '';
     var hist = D.판내역 || [], cur = findOne(hist, function (x) { return x.version === D.버전; });
     var lines = function (t) { return String(t || '').split('\n').filter(Boolean).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join(''); };
     var h = '';
@@ -1672,12 +1674,12 @@ MODS.core.teacher = (function () {
     var past = hist.filter(function (x) { return x.version !== D.버전; });
     if (past.length) h += '<details style="margin:6px 0 10px"><summary class="unit" style="cursor:pointer">지난 판 보기 (' + past.length + ')</summary>' +
       past.map(function (x) { return '<div style="margin:8px 0 0 4px"><b>v' + esc(x.version) + '</b> <span class="unit">' + esc(x.date || '') + (x.lib ? ' · 라이브러리 ' + esc(x.lib) : '') + '</span><ul style="margin:3px 0 0;padding-left:18px;font-size:12.5px">' + lines(x.notes) + '</ul></div>'; }).join('') + '</details>';
-    return h;
+    return web + h;
   }
   function renderUpdate(u) {
     var box = $('setUpdate'); if (!box) return;
-    if (!u) { box.innerHTML = '<div class="unit" style="margin-bottom:8px">지금 버전 <b>v' + esc(D.버전) + '</b> · 이 판에서는 새 버전 알림을 쓰지 않습니다.</div>' + historyHtml(); return; }
-    var h = '<div class="unit" style="margin-bottom:8px">지금 버전 <b>v' + esc(u.현재) + '</b>' + (u.최신 ? ' · 저장소 최신 v' + esc(u.최신) : '') + (u.확인시각 ? ' · 확인 ' + esc(String(u.확인시각).slice(5, 16)) : '') + '</div>';
+    if (!u) { box.innerHTML = '<div class="unit" style="margin-bottom:8px">서버 <b>v' + esc(D.버전) + '</b> · 새 화면 <b>v' + esc(WEB.version) + '</b> · 이 판에서는 새 버전 알림을 쓰지 않습니다.</div>' + historyHtml(); return; }
+    var h = '<div class="unit" style="margin-bottom:8px">서버 <b>v' + esc(u.현재) + '</b> · 새 화면 <b>v' + esc(WEB.version) + '</b>' + (u.최신 ? ' · 저장소 최신 v' + esc(u.최신) : '') + (u.확인시각 ? ' · 확인 ' + esc(String(u.확인시각).slice(5, 16)) : '') + '</div>';
     h += historyHtml();
     if (u.오류) h += '<div class="note warn"><i class="ti ti-alert-triangle"></i><div>업데이트 정보를 읽지 못했습니다: ' + esc(u.오류) + '</div></div>';
     else if (u.새버전) h += '<div class="note"><i class="ti ti-sparkles"></i><div><b>새 버전 v' + esc(u.최신) + '</b>' + (u.날짜 ? ' (' + esc(u.날짜) + ')' : '') + (u.라이브러리버전 ? ' · 라이브러리 버전 ' + esc(u.라이브러리버전) : '') + (u.메모 ? '<br>' + esc(u.메모).replace(/\n/g, '<br>') : '') + '</div></div>' +
