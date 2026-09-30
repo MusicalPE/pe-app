@@ -2,7 +2,7 @@
 <html lang="ko" data-theme="민트">
 <head>
 <meta charset="utf-8">
-<meta name="pe-web" content="3.0.1 · 2026-09-30 15:36 · server api 1">
+<meta name="pe-web" content="3.0.1 · 2026-09-30 16:16 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -350,7 +350,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.0.1', needs: 1, built: '2026-09-30 15:36',
+    version: '3.0.1', needs: 1, built: '2026-09-30 16:16',
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -1564,19 +1564,18 @@ MODS.core.teacher = (function () {
       $('btnQrPrint').onclick = function () { printQr(url, s); };
     }).catch(function (e) { var box = $('setQrImg'); if (box) box.textContent = e.message; });
   }
+  /* 인쇄: 공통 인쇄 틀(App.html 의 body.printing + .print-area — 명렬표와 같은 방식)을 씀. 앱 인쇄 규칙이 나머지를 모두 숨기므로 따로 CSS 를 두지 않음 */
   function printQr(url, s) {
-    var st = $('qrPrintCss');
-    if (!st) { st = document.createElement('style'); st.id = 'qrPrintCss'; st.textContent = '#qrPrint{display:none}@media print{body.qr-printing>*:not(#qrPrint){display:none!important}body.qr-printing #qrPrint{display:flex!important}}'; document.head.appendChild(st); }
-    var d = $('qrPrint'); if (!d) { d = document.createElement('div'); d.id = 'qrPrint'; document.body.appendChild(d); }
-    d.style.cssText = 'flex-direction:column;align-items:center;justify-content:center;gap:14px;min-height:90vh;text-align:center;font-family:inherit';
-    d.innerHTML = (s.학교명 ? '<div style="font-size:22px;font-weight:800;color:#555">' + esc(s.학교명) + '</div>' : '') +
-      '<div style="font-size:40px;font-weight:900">' + esc(s.학생용이름 || '체육 활동 기록장') + '</div>' +
-      '<div style="width:520px;height:520px">' + qrSvg(url, 8).replace('<svg ', '<svg style="width:100%;height:100%" ') + '</div>' +
-      '<div style="font-size:18px;font-weight:700">카메라로 찍으면 열려요</div><div style="font-size:11px;color:#777;word-break:break-all;max-width:640px">' + esc(url) + '</div>';
-    document.body.classList.add('qr-printing');
-    var done = function () { document.body.classList.remove('qr-printing'); window.removeEventListener('afterprint', done); };
+    var d = $('qrPrint'); if (!d) { d = document.createElement('div'); d.id = 'qrPrint'; d.className = 'print-area'; d.style.display = 'none'; document.body.appendChild(d); }
+    d.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;min-height:92vh;text-align:center">' +
+      (s.학교명 ? '<div style="font-size:22px;font-weight:800;color:#555">' + esc(s.학교명) + '</div>' : '') +
+      '<div style="font-size:40px;font-weight:900;color:#000">' + esc(s.학생용이름 || '체육 활동 기록장') + '</div>' +
+      '<div style="width:120mm;height:120mm">' + qrSvg(url, 8).replace('<svg ', '<svg style="width:100%;height:100%" ') + '</div>' +
+      '<div style="font-size:18px;font-weight:700;color:#000">카메라로 찍으면 열려요</div><div style="font-size:11px;color:#777;word-break:break-all;max-width:160mm">' + esc(url) + '</div></div>';
+    document.body.classList.add('printing');
+    var done = function () { document.body.classList.remove('printing'); window.removeEventListener('afterprint', done); };
     window.addEventListener('afterprint', done);
-    window.print();   // afterprint 에서 원래대로 (인쇄할 때만 쓰는 표시라 늦게 지워져도 화면엔 영향 없음)
+    window.print();
   }
   /* ---------- 화면 방식 (기존 | 새 화면) — v3.0 ----------
      새 화면(GitHub)이 준비됐는지는 새 화면 주소의 ready.json 으로 확인합니다. 준비 전에는 "새 화면"을 고를 수 없어요. */
