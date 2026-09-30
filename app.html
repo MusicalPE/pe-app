@@ -2,7 +2,7 @@
 <html lang="ko" data-theme="민트">
 <head>
 <meta charset="utf-8">
-<meta name="pe-web" content="3.1.6 · 2026-09-30 23:44 · server api 1">
+<meta name="pe-web" content="3.1.7 · 2026-10-01 08:41 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -350,7 +350,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.1.6', needs: 1, built: '2026-09-30 23:44', history: [{"version":"3.1.6","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내게 했어요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
+    version: '3.1.7', needs: 1, built: '2026-10-01 08:41', history: [{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -503,17 +503,29 @@ button.say i{font-size:18px;}
   }
   /* 한꺼번에 보내는 요청 수 제한: 로그인 직후 모듈 여러 개가 동시에 자료를 부르면 구글이 요청마다 학교 프로그램을 새로 띄우느라
      모두 같이 느려짐(한 번에 6~7개 → 각 25~35초). 3개씩 차례로 보내면 이미 떠 있는 것을 다시 써서 빨라짐 */
-  var MAX_FLIGHT = 3, flight = 0, waitQ = [];
+  var MAX_FLIGHT = 3, flight = 0, waitQ = [], lastTouch = 0;
+  /* 사용자가 누른 것부터: 누르고 곧바로 생긴 요청과, 방금 연 모듈의 줄 서 있던 요청은 맨 앞으로 + 비워 둔 한 자리로 바로 보냄 */
+  ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { window.addEventListener(ev, function () { lastTouch = Date.now(); }, true); });
   function limited(fn, args) {
     return new Promise(function (res, rej) {
-      var run = function () {
+      var item = { fn: String(fn), run: function () {
         flight++;
         call(fn, args).then(function (r) { flight--; next(); res(r); }, function (e) { flight--; next(); rej(e); });
-      };
-      if (flight < MAX_FLIGHT) run(); else waitQ.push(run);
+      } };
+      var urgent = Date.now() - lastTouch < 800;
+      if (flight < MAX_FLIGHT || (urgent && flight < MAX_FLIGHT + 1)) item.run();
+      else if (urgent) waitQ.unshift(item); else waitQ.push(item);
     });
   }
-  function next() { if (waitQ.length && flight < MAX_FLIGHT) waitQ.shift()(); }
+  function next() { if (waitQ.length && flight < MAX_FLIGHT) waitQ.shift().run(); }
+  /** 모듈 화면을 열 때(showPage): 그 모듈(이름 앞머리 fit_·rope_ …)의 기다리던 요청을 맨 앞으로, 자리가 없으면 한 자리 더 써서 바로 */
+  WEB.promote = function (modKey) {
+    var pre = modKey === 'core' ? 't_' : String(modKey || '').toLowerCase() + '_';
+    var mine = waitQ.filter(function (x) { return x.fn.indexOf(pre) === 0; });
+    if (!mine.length) return;
+    waitQ = mine.concat(waitQ.filter(function (x) { return mine.indexOf(x) < 0; }));
+    if (flight < MAX_FLIGHT + 1) waitQ.shift().run();
+  };
   WEB.call = limited;
 
   /* ---------- 연결 (학교 주소가 정해질 때까지 모든 요청이 기다림) ---------- */
@@ -966,6 +978,7 @@ function navReveal_(full) {
 /** 페이지 보여 주기. full = 'PAPS:input' */
 function showPage(full) {
   var p = full.split(':'), key = p[0], page = p.slice(1).join(':');
+  if (window.WEB && WEB.promote) WEB.promote(key);
   var r = ROLE === '교사' ? 'teacher' : 'student';
   var mod = MODS[key] && MODS[key][r];
   if (!mod) return;
