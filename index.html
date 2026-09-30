@@ -2,7 +2,7 @@
 <html lang="ko" data-theme="민트">
 <head>
 <meta charset="utf-8">
-<meta name="pe-web" content="3.1.3 · 2026-09-30 19:03 · server api 1">
+<meta name="pe-web" content="3.1.4 · 2026-09-30 23:11 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -350,7 +350,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.1.3', needs: 1, built: '2026-09-30 19:03', history: [{"version":"3.1.3","date":"2026-09-30","notes":"핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2, 위쪽 돌아가기 줄도 얇게."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
+    version: '3.1.4', needs: 1, built: '2026-09-30 23:11', history: [{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -12808,7 +12808,9 @@ try {
     chime(); setTimeout(chime,380);
   }
   function hideAll(){ ['mgSetup','mgPlay','mgDone'].forEach(id=>$(id).hidden=true); }
-  function toHub(){
+  function toHub(fromPop){
+    // 휴대폰 "뒤로" 로 들어온 게 아니면, 열 때 넣어 둔 기록 한 칸을 되돌려 뒤로가기 줄을 맞춤
+    if(fromPop!==true){ try{ if(history.state&&history.state.mg) history.back(); }catch(e){} }
     let sum=null;
     if(E.running){ closeUnit(true); if(E.pending) settlePeer(false); sum=summary(false); }
     stopGame(); hideAll();
@@ -13743,6 +13745,8 @@ try {
     const g=GAMES.find(x=>x.id===gameId); if(!g) throw new Error('게임을 찾지 못했어요: '+gameId);
     H.hooks=hooks||{};
     OV.classList.remove('hide'); document.body.classList.add('mg-open');
+    // 휴대폰·태블릿 "뒤로" 를 누르면 페이지를 떠나는 대신 게임을 닫게 (그만하기와 같음 → 음악도 멈춤)
+    try{ if(!(history.state&&history.state.mg)) history.pushState({mg:1},''); }catch(e){}
     openSetup(g);
     const ex=$('mgExtra'); ex.innerHTML=H.hooks.extraHTML||''; ex.hidden=!H.hooks.extraHTML;
     if(H.hooks.onOpen) try{ H.hooks.onOpen(ex); }catch(e){ console.error(e); }
@@ -13751,6 +13755,13 @@ try {
   function doneHTML(html){ $('mgDoneExtra').innerHTML=html||''; }
   function list(){ return GAMES.map(g=>({id:g.id,name:g.name,grade:g.grade,dur:g.dur,desc:g.desc,how:g.how,lit:g.lit,featured:!!g.featured})); }
   const glyph=g=>`<span class="mat4 glyph mg-glyph" aria-hidden="true">${MAT.map(c=>`<i style="--c:${COLORS[c].hex}" class="${g.lit.includes(c)?'':'off'}"></i>`).join('')}</span>`;
+  window.addEventListener('popstate',()=>{
+    if(OV.classList.contains('hide')) return;
+    if(E.running && H.hooks.confirmExit && !confirm(H.hooks.confirmExit)){ try{ history.pushState({mg:1},''); }catch(e){} return; }
+    toHub(true);
+  });
+  // 페이지를 떠나면(탭 닫기·다른 주소) 음악을 확실히 멈춤
+  window.addEventListener('pagehide',()=>{ try{ music.stop(); }catch(e){} });
   window.MATGAME={ open, close:toHub, setPeer, doneHTML, list, glyph:(id)=>{ const g=GAMES.find(x=>x.id===id); return g?glyph(g):''; },
     setBank:(rows)=>{ H.bank=Array.isArray(rows)?rows:[]; }, setPics:(rows)=>{ H.pics=(Array.isArray(rows)?rows:[]).filter(p=>p&&p.src&&Array.isArray(p.cs)&&p.cs.length); }, picsCount:()=>H.pics.length, isOpen:()=>!OV.classList.contains('hide'), running:()=>E.running,
     COLORS, MAT, QGEN, PE_QUIZ, summary:()=>summary(false),
