@@ -2,7 +2,7 @@
 <html lang="ko" data-theme="민트">
 <head>
 <meta charset="utf-8">
-<meta name="pe-web" content="3.1.1 · 2026-09-30 17:26 · server api 1">
+<meta name="pe-web" content="3.1.2 · 2026-09-30 17:30 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -350,7 +350,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.1.1', needs: 1, built: '2026-09-30 17:26', history: [{"version":"3.1.1","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n설정 → 업데이트 칸에 새 화면 판과 \"새 화면에서 바뀐 것\"이 함께 보여요."},{"version":"3.0.1","date":"2026-09-30","notes":"학생용 주소 QR. 껍데기에 doPost 가 없는 학교에서도 큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — GitHub 한 곳에서 화면, 학교 시트에 저장. 학교 주소 기억, 다른 학교로 바꾸기."}],
+    version: '3.1.2', needs: 1, built: '2026-09-30 17:30', history: [{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -382,7 +382,22 @@ button.say i{font-size:18px;}
   var fromUrl = cleanUrl(q.get('app'));
   if (fromUrl && okAppUrl(fromUrl)) { WEB.app = fromUrl; ls(KEY, fromUrl); }
   else { var saved = ls(KEY); if (saved && okAppUrl(saved)) WEB.app = saved; }
-  if (q.has('app')) { try { history.replaceState(null, '', location.pathname + (WEB.page ? '?page=' + WEB.page : '')); } catch (e) {} }
+  if (q.has('app') || q.has('_v') || q.has('v')) { try { history.replaceState(null, '', location.pathname + (WEB.page ? '?page=' + WEB.page : '')); } catch (e) {} }
+
+  /* ---------- 새 판 저절로 받기 ----------
+     GitHub 는 파일을 몇 분 기억해 두어 옛 판이 뜰 수 있음 → 열 때 ready.json(늘 새로 읽음)의 판 번호와 비교해,
+     다르면 새 주소(?_v=판)로 한 번 다시 열어 새 파일을 받음. 같은 판으로 두 번은 안 함(무한 새로고침 방지). 로그인 전이라 잃는 것 없음 */
+  (function checkFresh() {
+    var base = location.href.replace(/[?#].*$/, '').replace(/[^\/]*$/, '');   // …/pe-app/ (index.html 로 열어도)
+    if (!/^https:/.test(base) && !/^http:\/\/(localhost|127\.0\.0\.1)/.test(base)) return;
+    fetch(base + 'ready.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
+      if (!j || !j.version || j.version === WEB.version) return;
+      var k = 'peapp.fresh.' + j.version;
+      try { if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, '1'); } catch (e) { return; }
+      if (typeof TOKEN !== 'undefined' && TOKEN) return;   // 이미 로그인해서 쓰는 중이면 건드리지 않음 (다음에 열 때)
+      location.replace(base + '?_v=' + encodeURIComponent(j.version) + (WEB.page ? '&page=' + WEB.page : ''));
+    }).catch(function () {});
+  })();
   if (WEB.app) { var th = ls(THEME + WEB.app); if (th) document.documentElement.setAttribute('data-theme', th); }
 
   /* ---------- 주고받기 ---------- */
@@ -1579,7 +1594,7 @@ MODS.core.teacher = (function () {
         : '<div class="unit" style="margin-bottom:10px">웹 앱으로 배포하면 접속 주소가 여기에 나타납니다.</div>') +
         (url ? screenModeHtml(s) : '') +
         (D.시트URL ? '<a href="' + esc(D.시트URL) + '" target="_blank" rel="noopener"><button class="soft" type="button"><i class="ti ti-table"></i>스프레드시트 열기</button></a>' : '') +
-        '<div class="unit" style="margin-top:10px">서버 버전 ' + esc(D.버전) + ' · 새 화면 ' + esc(WEB.version) + '</div>';
+        '<div class="unit" style="margin-top:10px">버전 ' + esc(WEB.version) + '</div>';
       if (url) { checkNewScreen(s); drawQr(url, s); }
       renderUpdate(D.업데이트);
     }).catch(handleErr);
@@ -1665,24 +1680,22 @@ MODS.core.teacher = (function () {
   /* ---------- 업데이트 (새 버전 알림) ---------- */
   /* 이번 판에서 바뀐 것 + 지난 판 보기 (APP_HISTORY — 온라인·오프라인 공통) */
   function historyHtml() {
-    var wh = (WEB.history || [])[0], wl = function (t) { return String(t || '').split('\n').filter(Boolean).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join(''); };
-    var web = wh ? '<div class="note ok" style="align-items:flex-start"><i class="ti ti-device-tablet"></i><div><b>새 화면 v' + esc(wh.version) + '에서 바뀐 것</b> <span class="unit">' + esc(wh.date) + ' · 학교에서 따로 올릴 것 없음</span><ul style="margin:6px 0 0;padding-left:18px">' + wl(wh.notes) + '</ul></div></div>' : '';
-    var hist = D.판내역 || [], cur = findOne(hist, function (x) { return x.version === D.버전; });
+    var hist = D.판내역 || [], cur = (WEB.history || [])[0];
     var lines = function (t) { return String(t || '').split('\n').filter(Boolean).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join(''); };
     var h = '';
     if (cur) h += '<div class="note ok" style="align-items:flex-start"><i class="ti ti-sparkles"></i><div><b>이번 판 v' + esc(cur.version) + '에서 바뀐 것</b> <span class="unit">' + esc(cur.date || '') + (cur.lib ? ' · 라이브러리 버전 ' + esc(cur.lib) : '') + '</span><ul style="margin:6px 0 0;padding-left:18px">' + lines(cur.notes) + '</ul></div></div>';
-    var past = hist.filter(function (x) { return x.version !== D.버전; });
+    var past = (WEB.history || []).slice(1);
     if (past.length) h += '<details style="margin:6px 0 10px"><summary class="unit" style="cursor:pointer">지난 판 보기 (' + past.length + ')</summary>' +
       past.map(function (x) { return '<div style="margin:8px 0 0 4px"><b>v' + esc(x.version) + '</b> <span class="unit">' + esc(x.date || '') + (x.lib ? ' · 라이브러리 ' + esc(x.lib) : '') + '</span><ul style="margin:3px 0 0;padding-left:18px;font-size:12.5px">' + lines(x.notes) + '</ul></div>'; }).join('') + '</details>';
-    return web + h;
+    return h;
   }
   function renderUpdate(u) {
     var box = $('setUpdate'); if (!box) return;
-    if (!u) { box.innerHTML = '<div class="unit" style="margin-bottom:8px">서버 <b>v' + esc(D.버전) + '</b> · 새 화면 <b>v' + esc(WEB.version) + '</b> · 이 판에서는 새 버전 알림을 쓰지 않습니다.</div>' + historyHtml(); return; }
-    var h = '<div class="unit" style="margin-bottom:8px">서버 <b>v' + esc(u.현재) + '</b> · 새 화면 <b>v' + esc(WEB.version) + '</b>' + (u.최신 ? ' · 저장소 최신 v' + esc(u.최신) : '') + (u.확인시각 ? ' · 확인 ' + esc(String(u.확인시각).slice(5, 16)) : '') + '</div>';
+    if (!u) { box.innerHTML = '<div class="unit" style="margin-bottom:8px">지금 버전 <b>v' + esc(WEB.version) + '</b></div>' + historyHtml(); return; }
+    var h = '<div class="unit" style="margin-bottom:8px">지금 버전 <b>v' + esc(WEB.version) + '</b>' + (u.확인시각 ? ' · 확인 ' + esc(String(u.확인시각).slice(5, 16)) : '') + '</div>';
     h += historyHtml();
     if (u.오류) h += '<div class="note warn"><i class="ti ti-alert-triangle"></i><div>업데이트 정보를 읽지 못했습니다: ' + esc(u.오류) + '</div></div>';
-    else if (u.새버전) h += '<div class="note"><i class="ti ti-sparkles"></i><div><b>새 버전 v' + esc(u.최신) + '</b>' + (u.날짜 ? ' (' + esc(u.날짜) + ')' : '') + (u.라이브러리버전 ? ' · 라이브러리 버전 ' + esc(u.라이브러리버전) : '') + (u.메모 ? '<br>' + esc(u.메모).replace(/\n/g, '<br>') : '') + '</div></div>' +
+    else if (u.새버전) h += '<div class="note"><i class="ti ti-sparkles"></i><div><b>학교 프로그램(라이브러리) 새 버전 v' + esc(u.최신) + '</b>' + (u.날짜 ? ' (' + esc(u.날짜) + ')' : '') + (u.라이브러리버전 ? ' · 라이브러리 버전 ' + esc(u.라이브러리버전) : '') + (u.메모 ? '<br>' + esc(u.메모).replace(/\n/g, '<br>') : '') + '</div></div>' +
       '<div class="note sun"><i class="ti ti-list-numbers"></i><div><b>적용 순서 (2분)</b><br>1. 스프레드시트 → 확장 프로그램 → <b>Apps Script</b><br>2. 왼쪽 "라이브러리" 아래 <b>PE</b> 를 눌러 버전을 <b>' + (u.라이브러리버전 ? esc(u.라이브러리버전) : '가장 큰 숫자') + '</b> 로 바꾸고 저장<br>3. 오른쪽 위 <b>배포 → 배포 관리</b> → 연필 → 버전 "새 버전" → 배포<br><span class="unit">자료도 주소도 그대로입니다. 끝나면 이 화면을 새로 고치세요.</span></div></div>';
     else h += '<div class="note ok"><i class="ti ti-circle-check"></i><div>최신 버전입니다.</div></div>';
     h += '<div class="chks" style="margin-top:8px"><button class="ghost mini" id="btnUpdCheck"><i class="ti ti-refresh"></i>새 버전 확인</button><span class="status" id="updStatus"></span></div>' +
