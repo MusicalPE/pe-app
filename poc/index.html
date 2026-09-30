@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>체육교사 보조 프로그램 · 새 화면 시험</title>
+<style>
+  :root{--bg:#F4FBF8;--card:#fff;--line:#D5E9E1;--ink:#12302A;--muted:#5E7A73;--accent:#12B886;--accent2:#0B7A5A;--ok:#12B886;--bad:#E5484D;--warn:#F59F00;--soft:#EAF7F2}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 "Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+  header h1{font-size:22px;margin:0}
+  header p{margin:4px 0 0;color:var(--muted);font-size:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:14px}
+  .card h2{font-size:17px;margin:0 0 6px;display:flex;align-items:center;gap:8px}
+  .card p{margin:6px 0;color:var(--muted);font-size:14px}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:99px;background:var(--soft);color:var(--accent2);font-size:14px;font-weight:800;flex:none}
+  .st{margin-left:auto;font-size:13px;font-weight:800;border-radius:99px;padding:2px 10px;background:#EEF1F0;color:var(--muted)}
+  .st.ok{background:#DDF6EC;color:var(--accent2)} .st.bad{background:#FDE4E4;color:var(--bad)} .st.run{background:#FFF3D6;color:#9A6400}
+  button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:9px 15px;background:var(--accent);color:#fff;cursor:pointer}
+  button.gray{background:#E6EEEB;color:var(--ink)}
+  button:disabled{opacity:.45;cursor:default}
+  input,select{font:inherit;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#fff;color:var(--ink);max-width:100%}
+  input[type=text],input[type=url],input[type=password]{width:100%}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
+  pre{background:#F1F5F4;border-radius:10px;padding:10px 12px;white-space:pre-wrap;word-break:break-all;font-size:12.5px;margin:8px 0 0;max-height:260px;overflow:auto}
+  .school{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .school b{font-size:16px}
+  .muted{color:var(--muted);font-size:13px}
+  .bar{height:8px;background:#E6EEEB;border-radius:99px;overflow:hidden;margin-top:8px}
+  .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .15s}
+  img.echo{max-width:160px;max-height:160px;border-radius:10px;margin-top:8px;border:1px solid var(--line)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:8px}
+  td,th{border-bottom:1px solid var(--line);padding:6px 4px;text-align:left}
+  th{color:var(--muted);font-weight:700}
+  .banner{background:#DDF6EC;border:1px solid #BDE8D6;color:var(--accent2);border-radius:12px;padding:10px 14px;margin-top:14px;font-weight:700}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>새 화면 시험 <span class="muted">v3.0 · 0단계</span></h1>
+    <p>GitHub에 올린 화면이 학교 구글 시트(Apps Script)와 주고받을 수 있는지 확인하는 시험 페이지예요. 학생에게는 보여 주지 않아요.</p>
+  </header>
+
+  <div class="banner" id="fromBanner" hidden></div>
+
+  <!-- 학교 연결 -->
+  <div class="card" id="cSchool">
+    <h2><span class="num">1</span>학교 연결 <span class="st" id="st1">대기</span></h2>
+    <div id="noSchool">
+      <p>학교 앱 주소(웹앱 배포 주소, <b>…/exec</b> 로 끝나는 것)를 넣어 주세요. 이 기기에만 기억돼요.</p>
+      <div class="row"><input type="url" id="appUrl" placeholder="https://script.google.com/macros/s/…/exec"><button id="btnSave">연결</button></div>
+    </div>
+    <div id="hasSchool" hidden>
+      <div class="school"><b id="schoolName">…</b><span class="muted" id="schoolSub"></span><button class="gray" id="btnChange" style="margin-left:auto">다른 학교로 바꾸기</button></div>
+      <div class="row"><button id="btnPing">빈 요청 10번 재기</button><button class="gray" id="btnLimit">주소 길이 한계 재기</button></div>
+    </div>
+    <pre id="log1" hidden></pre>
+  </div>
+
+  <!-- 로그인 → 부팅 -->
+  <div class="card">
+    <h2><span class="num">2</span>교사 로그인 → 부팅 읽기 <span class="st" id="st2">대기</span></h2>
+    <p>지금 앱과 같은 교사 비밀번호예요. 로그인은 주소에 비밀번호가 남지 않게 POST 로 보내요.</p>
+    <div class="row"><input type="password" id="pw" placeholder="교사 비밀번호" style="max-width:220px" autocomplete="current-password"><button id="btnLogin">로그인</button><button class="gray" id="btnBoot" disabled>부팅 자료 3번 더 읽기</button></div>
+    <pre id="log2" hidden></pre>
+  </div>
+
+  <!-- 사진 POST -->
+  <div class="card">
+    <h2><span class="num">3</span>사진 1장 POST 올리기 <span class="st" id="st3">대기</span></h2>
+    <p>사진은 서버에 <b>저장하지 않아요</b>. 서버가 받은 크기·지문(SHA-256)이 이 기기에서 계산한 것과 같은지만 보고, 사진을 그대로 돌려받아 큰 응답도 확인해요.</p>
+    <div class="row">
+      <select id="src">
+        <option value="file">사진 고르기</option>
+        <option value="300">가짜 자료 0.3MB</option>
+        <option value="1000">가짜 자료 1MB</option>
+        <option value="5000">가짜 자료 5MB (영상 흉내)</option>
+        <option value="20000">가짜 자료 20MB (큰 영상 흉내)</option>
+      </select>
+      <input type="file" id="file" accept="image/*">
+    </div>
+    <div class="row"><button id="btnPost" disabled>POST 로 올리기</button><span class="muted" id="payInfo"></span></div>
+    <div id="echoBox"></div>
+    <pre id="log3" hidden></pre>
+  </div>
+
+  <!-- 조각 올리기 -->
+  <div class="card">
+    <h2><span class="num">4</span>조각 올리기 (doPost 가 없는 학교용) <span class="st" id="st4">대기</span></h2>
+    <p>같은 자료를 주소(GET) 여러 번에 나눠 보내고 서버에서 합쳐요. 조각 크기는 "주소 길이 한계 재기" 결과보다 작게 고르세요.</p>
+    <div class="row">
+      <label class="muted">조각 크기 <select id="chunk"><option>2000</option><option>4000</option><option selected>6000</option><option>12000</option><option>24000</option></select> 글자</label>
+      <label class="muted">동시에 <select id="par"><option>1</option><option>2</option><option selected>4</option><option>6</option><option>8</option></select> 개</label>
+      <button id="btnChunk" disabled>조각으로 올리기</button><button class="gray" id="btnStop" hidden>멈추기</button>
+    </div>
+    <div class="bar"><i id="prog"></i></div>
+    <pre id="log4" hidden></pre>
+  </div>
+
+  <!-- 넘겨주기 -->
+  <div class="card">
+    <h2><span class="num">5</span>학교 앱 주소 → 새 화면 넘겨주기 <span class="st" id="st5">대기</span></h2>
+    <p>아래 버튼으로 학교 앱 주소의 넘겨주기 화면을 열어요. 저절로 이 페이지로 돌아오는지, 버튼을 눌러야 오는지 확인해요. 돌아오면 맨 위에 어떻게 왔는지 표시돼요.</p>
+    <div class="row"><button id="btnGo" disabled>넘겨주기 화면 열기</button><button class="gray" id="btnBench" disabled>기존 방식 속도 재기 열기</button></div>
+    <p class="muted">"기존 방식 속도 재기"는 지금 앱과 같은 google.script.run 으로 같은 요청을 재요. 거기 나온 결과를 복사해 아래 결과와 함께 보내 주세요.</p>
+  </div>
+
+  <!-- 결과 -->
+  <div class="card">
+    <h2>결과 모음</h2>
+    <table id="sum"><tr><th>항목</th><th>결과</th></tr></table>
+    <div class="row"><button id="btnCopy">결과 복사</button><span class="muted" id="copied"></span></div>
+    <pre id="sumText" hidden></pre>
+  </div>
+  <p class="muted" style="text-align:center;margin-top:20px">Made by 음악적체육인 · pe-app 시험판 <span id="ver"></span></p>
+</div>
+
+<script>
+/* ================= 원격 실행기 (2단계 build-web.js 의 원형) =================
+   api(fn, ...args) → 학교 웹앱으로 fetch.
+   · 작은 요청: GET ?api=rpc&fn=&args=
+   · 큰 요청·비밀번호: POST (text/plain → 사전 확인 없음) → 안 되면 GET → 그래도 크면 조각 올리기
+   응답 { ok, data | error, ms }. ok:false 는 google.script.run 의 실패 처리기처럼 Error 로 던짐. */
+var PAGE_VER = 'poc-0.1';
+var STORE_KEY = 'peapp.school';
+var URL_MAX = 6000;            // GET 주소 최대 길이(한계 재기 결과로 조정)
+var POST_FIRST = /^(loginTeacher|loginStudent|changeTeacherPassword|s_changePin|t_setPin)$/;
+var UP_MARK = '__UP__';
+var S = { app: '', info: null, token: null, post: null, results: {} };
+
+function $(id) { return document.getElementById(id); }
+function transportErr(msg) { var e = new Error(msg); e.transport = true; return e; }
+function store(v) { try { if (v === undefined) return localStorage.getItem(STORE_KEY) || ''; if (v) localStorage.setItem(STORE_KEY, v); else localStorage.removeItem(STORE_KEY); } catch (e) { return ''; } }
+
+function okAppUrl(u) {
+  if (/^https:\/\/script\.google\.com\/(a\/macros\/[^\/]+\/)?macros\/s\/[A-Za-z0-9_-]+\/(exec|dev)$/.test(u)) return true;
+  return /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && /^http:\/\/(localhost|127\.0\.0\.1):\d+\/exec$/.test(u);   // 자동 시험용
+}
+function buildUrl(params) {
+  var u = new URL(S.app);
+  Object.keys(params).forEach(function (k) { u.searchParams.set(k, params[k]); });
+  return u.toString();
+}
+async function readJSON(r) {
+  var txt = await r.text(), j;
+  try { j = JSON.parse(txt); } catch (e) { throw transportErr('앱이 JSON 이 아닌 응답을 줬어요 (' + r.status + '): ' + txt.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 180)); }
+  return j;
+}
+async function get(params) {
+  var url = buildUrl(params), t0 = performance.now(), r;
+  if (url.length > URL_MAX * 4) throw new Error('주소가 너무 길어요 (' + url.length + '자)');
+  try { r = await fetch(url, { redirect: 'follow', cache: 'no-store' }); } catch (e) { throw transportErr('앱에 닿지 못했어요: ' + e.message); }
+  var j = await readJSON(r), rt = Math.round(performance.now() - t0);
+  if (!j.ok) { var e2 = new Error(j.error || '앱이 거절했어요'); e2.rt = rt; throw e2; }
+  return { data: j.data, ms: j.ms, rt: rt, len: url.length };
+}
+async function post(fn, args) {
+  var body = JSON.stringify({ fn: fn, args: args }), t0 = performance.now(), r;
+  try { r = await fetch(S.app, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: body, redirect: 'follow', cache: 'no-store' }); }
+  catch (e) { throw transportErr('POST 가 닿지 못했어요: ' + e.message); }
+  var j = await readJSON(r), rt = Math.round(performance.now() - t0);
+  if (!j.ok) { var e2 = new Error(j.error || '앱이 거절했어요'); e2.rt = rt; throw e2; }
+  return { data: j.data, ms: j.ms, rt: rt, len: body.length };
+}
+/** 가장 긴 글자 값을 찾아 표시로 바꿈 → { big, rest } */
+function pullBiggest(args) {
+  var copy = JSON.parse(JSON.stringify(args)), best = { len: -1 };
+  (function walk(o) {
+    Object.keys(o).forEach(function (k) {
+      var v = o[k];
+      if (typeof v === 'string' && v.length > best.len) best = { len: v.length, o: o, k: k };
+      else if (v && typeof v === 'object') walk(v);
+    });
+  })(copy);
+  var big = best.o[best.k]; best.o[best.k] = UP_MARK;
+  return { big: big, rest: copy };
+}
+function newId() { var a = crypto.getRandomValues(new Uint8Array(16)); return Array.prototype.map.call(a, function (b) { return 'abcdefghijklmnopqrstuvwxyz0123456789'[b % 36]; }).join(''); }
+
+/** 조각 올리기. opt: { size, par, onProgress, stopped() } */
+async function chunked(fn, args, opt) {
+  opt = opt || {};
+  var size = opt.size || 6000, par = opt.par || 4, pr = pullBiggest(args), big = pr.big;
+  var id = newId(), n = Math.max(1, Math.ceil(big.length / size)), done = 0, reqs = 0;
+  async function sendOne(i) {
+    for (var tryN = 0; tryN < 3; tryN++) {
+      if (opt.stopped && opt.stopped()) throw new Error('멈췄어요');
+      try { reqs++; await get({ api: 'up_chunk', id: id, i: i, d: big.slice(i * size, (i + 1) * size) }); return; }
+      catch (e) { if (tryN === 2) throw e; await new Promise(function (r) { setTimeout(r, 400 * (tryN + 1)); }); }
+    }
+  }
+  async function sendAll(list) {
+    var q = list.slice();
+    async function worker() { while (q.length) { var i = q.shift(); await sendOne(i); done++; if (opt.onProgress) opt.onProgress(done, n); } }
+    var ws = []; for (var w = 0; w < Math.min(par, list.length); w++) ws.push(worker());
+    await Promise.all(ws);
+  }
+  var all = []; for (var i = 0; i < n; i++) all.push(i);
+  await sendAll(all);
+  for (var round = 0; round < 3; round++) {
+    reqs++;
+    var c = await get({ api: 'up_commit', id: id, n: n, fn: fn, args: JSON.stringify(pr.rest) });
+    if (!c.data.missing) return { data: c.data.result, n: n, reqs: reqs };
+    done -= c.data.missing.length; await sendAll(c.data.missing);
+  }
+  throw new Error('조각이 계속 빠져서 합치지 못했어요');
+}
+
+/** 앱의 api() 와 같은 모양 */
+async function api(fn) {
+  var args = Array.prototype.slice.call(arguments, 1), argStr = JSON.stringify(args);
+  var small = buildUrl({ api: 'rpc', fn: fn, args: argStr }).length <= URL_MAX;
+  if (small && !POST_FIRST.test(fn)) return (await get({ api: 'rpc', fn: fn, args: argStr })).data;
+  if (S.post !== false) {
+    try { var r = (await post(fn, args)).data; S.post = true; return r; }
+    catch (e) { if (!e.transport) throw e; S.post = false; }
+  }
+  if (small) return (await get({ api: 'rpc', fn: fn, args: argStr })).data;
+  return (await chunked(fn, args)).data;
+}
+
+/* ================= 시험 화면 ================= */
+function st(n, cls, txt) { var el = $('st' + n); el.className = 'st ' + (cls || ''); el.textContent = txt; }
+function log(n, s, reset) { var el = $('log' + n); el.hidden = false; el.textContent = (reset ? '' : el.textContent + (el.textContent ? '\n' : '')) + s; el.scrollTop = el.scrollHeight; }
+function med(a) { var b = a.slice().sort(function (x, y) { return x - y; }); return b[Math.floor(b.length / 2)]; }
+function kb(n) { return n >= 1048576 ? (n / 1048576).toFixed(1) + 'MB' : Math.round(n / 1024) + 'KB'; }
+function result(key, text) { S.results[key] = text; drawSum(); }
+function drawSum() {
+  var rows = ['<tr><th>항목</th><th>결과</th></tr>'];
+  Object.keys(S.results).forEach(function (k) { rows.push('<tr><td>' + k + '</td><td>' + S.results[k].replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</td></tr>'); });
+  $('sum').innerHTML = rows.join('');
+}
+function sumText() {
+  var lines = ['[새 화면 시험 ' + PAGE_VER + '] ' + new Date().toLocaleString('ko-KR'), '브라우저: ' + navigator.userAgent];
+  Object.keys(S.results).forEach(function (k) { lines.push('· ' + k + ': ' + S.results[k]); });
+  return lines.join('\n');
+}
+
+async function connect() {
+  $('noSchool').hidden = true; $('hasSchool').hidden = false;
+  $('schoolName').textContent = '연결하는 중…'; $('schoolSub').textContent = '';
+  st(1, 'run', '확인 중');
+  try {
+    var r = await get({ api: 'info' }); S.info = r.data;
+    $('schoolName').textContent = (r.data.학교명 || '(학교명 없음)') + ' · ' + (r.data.제목 || '');
+    $('schoolSub').textContent = '서버 판 ' + r.data.판 + ' · ' + r.data.poc + ' · 모듈 ' + (r.data.모듈 || []).length + '개';
+    st(1, 'ok', '연결됨');
+    log(1, '학교 정보 받음: 왕복 ' + r.rt + 'ms (서버 안 ' + r.ms + 'ms)', true);
+    result('1. 학교 연결', '성공 · 판 ' + r.data.판 + ' · 왕복 ' + r.rt + 'ms (서버 ' + r.ms + 'ms)');
+    $('btnGo').disabled = false; $('btnBench').disabled = false;   // 올리기 버튼은 로그인 뒤에
+  } catch (e) {
+    st(1, 'bad', '실패'); $('schoolName').textContent = '연결하지 못했어요';
+    log(1, e.message + '\n→ 주소가 맞는지, 껍데기에 PoC.gs 를 넣고 "새 버전"으로 다시 배포했는지 확인해 주세요.', true);
+    result('1. 학교 연결', '실패 · ' + e.message);
+  }
+}
+
+$('btnSave').onclick = function () {
+  var u = $('appUrl').value.trim();
+  if (!okAppUrl(u)) { log(1, '주소 모양이 달라요. https://script.google.com/macros/s/…/exec 꼴이어야 해요.', true); return; }
+  S.app = u; store(u); connect();
+};
+$('btnChange').onclick = function () {
+  store(null); S.app = ''; S.token = null; S.info = null;
+  $('hasSchool').hidden = true; $('noSchool').hidden = false; $('appUrl').value = ''; st(1, '', '대기');
+};
+
+$('btnPing').onclick = async function () {
+  var b = this; b.disabled = true; log(1, '빈 요청 10번…');
+  try {
+    var t = [], sv = [];
+    for (var i = 0; i < 10; i++) { var r = await get({ api: 'ping' }); t.push(r.rt); sv.push(r.ms); }
+    var g = [];
+    for (var k = 0; k < 5; k++) { var r2 = await get({ api: 'rpc', fn: 'getLoginInfo', args: '[]' }); g.push(r2.rt); }
+    log(1, '빈 요청: 가운데값 ' + med(t) + 'ms (첫 번째 ' + t[0] + 'ms) · ' + t.join(', ') + '\n로그인 화면 자료(getLoginInfo) 5회: 가운데값 ' + med(g) + 'ms · ' + g.join(', '));
+    result('속도 · 빈 요청(fetch GET)', '가운데값 ' + med(t) + 'ms · ' + t.join(','));
+    result('속도 · getLoginInfo(fetch GET)', '가운데값 ' + med(g) + 'ms · ' + g.join(','));
+  } catch (e) { log(1, '오류: ' + e.message); }
+  b.disabled = false;
+};
+
+$('btnLimit').onclick = async function () {
+  var b = this; b.disabled = true; log(1, '주소 길이 한계 재기…');
+  var ok = 0;
+  for (var len of [2000, 4000, 8000, 12000, 16000, 24000, 32000]) {
+    try { var r = await get({ api: 'ping', pad: 'x'.repeat(len) }); ok = r.len; log(1, '  ' + r.len + '자 주소 → 됨'); }
+    catch (e) { log(1, '  ' + (len + S.app.length) + '자 주소 → 안 됨 (' + e.message.slice(0, 80) + ')'); break; }
+  }
+  result('주소 길이 한계', ok ? ok + '자까지 됨' : '2000자도 안 됨');
+  b.disabled = false;
+};
+
+$('btnLogin').onclick = async function () {
+  var b = this, pw = $('pw').value; if (!pw) { $('pw').focus(); return; }
+  b.disabled = true; st(2, 'run', '로그인 중');
+  try {
+    var t0 = performance.now();
+    var res = await api('loginTeacher', pw), rt = Math.round(performance.now() - t0);
+    if (!res.ok) { st(2, 'bad', '실패'); log(2, res.message, true); b.disabled = false; return; }
+    S.token = res.토큰;
+    var bt = res.boot || {}, size = JSON.stringify(res).length;
+    log(2, '로그인 + 부팅 자료: 왕복 ' + rt + 'ms · 응답 ' + kb(size) + ' · 통로 ' + (S.post ? 'POST' : 'GET') +
+      '\n학생 ' + (bt.학생 || []).length + '명 · 모듈 ' + (bt.모듈 || []).length + '개 · 서버 판 ' + bt.버전 + ' · 오늘 ' + bt.오늘, true);
+    st(2, 'ok', '성공');
+    result('2. 교사 로그인→부팅', '성공 · ' + rt + 'ms · ' + kb(size) + ' · ' + (S.post ? 'POST' : 'GET(POST 안 됨)') + ' · 학생 ' + (bt.학생 || []).length + '명');
+    $('btnBoot').disabled = false; $('btnPost').disabled = false; $('btnChunk').disabled = false;
+  } catch (e) { st(2, 'bad', '실패'); log(2, '오류: ' + e.message, true); result('2. 교사 로그인→부팅', '실패 · ' + e.message); }
+  b.disabled = false;
+};
+$('btnBoot').onclick = async function () {
+  var b = this; b.disabled = true;
+  try {
+    var t = [];
+    for (var i = 0; i < 3; i++) { var t0 = performance.now(); await api('t_boot', S.token); t.push(Math.round(performance.now() - t0)); }
+    log(2, 't_boot 3회: 가운데값 ' + med(t) + 'ms · ' + t.join(', '));
+    result('속도 · t_boot(fetch GET)', '가운데값 ' + med(t) + 'ms · ' + t.join(','));
+  } catch (e) { log(2, '오류: ' + e.message); }
+  b.disabled = false;
+};
+
+/* ---- 올릴 자료 만들기 ---- */
+function shrinkImage(file, maxPx, quality) {
+  return new Promise(function (resolve, reject) {
+    var url = URL.createObjectURL(file), img = new Image();
+    img.onload = function () {
+      var w = img.width, h = img.height, k = Math.min(1, maxPx / Math.max(w, h)), cv = document.createElement('canvas');
+      cv.width = Math.round(w * k); cv.height = Math.round(h * k);
+      cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+      URL.revokeObjectURL(url); resolve(cv.toDataURL('image/jpeg', quality).split(',')[1]);
+    };
+    img.onerror = function () { URL.revokeObjectURL(url); reject(new Error('이미지를 읽지 못했어요')); };
+    img.src = url;
+  });
+}
+function b64ToBytes(b64) { var s = atob(b64), a = new Uint8Array(s.length); for (var i = 0; i < s.length; i++) a[i] = s.charCodeAt(i); return a; }
+function bytesToB64(a) { var s = ''; for (var i = 0; i < a.length; i += 32768) s += String.fromCharCode.apply(null, a.subarray(i, i + 32768)); return btoa(s); }
+async function sha256(bytes) { var h = await crypto.subtle.digest('SHA-256', bytes); return Array.prototype.map.call(new Uint8Array(h), function (b) { return ('0' + b.toString(16)).slice(-2); }).join(''); }
+async function makePayload() {
+  var src = $('src').value;
+  if (src === 'file') {
+    var f = $('file').files[0]; if (!f) throw new Error('사진을 먼저 골라 주세요');
+    var b64 = await shrinkImage(f, 1600, 0.85);
+    return { 본문: b64, 타입: 'image/jpeg', 이름: f.name, 되돌려주기: true };
+  }
+  var n = Number(src) * 1024, a = new Uint8Array(n);
+  for (var i = 0; i < n; i += 65536) crypto.getRandomValues(a.subarray(i, Math.min(n, i + 65536)));
+  return { 본문: bytesToB64(a), 타입: 'application/octet-stream', 이름: '가짜' + src + 'KB.bin', 되돌려주기: false };
+}
+$('src').onchange = function () { $('file').hidden = this.value !== 'file'; };
+
+async function check(m, got, n) {
+  var mine = await sha256(b64ToBytes(m.본문)), bytes = b64ToBytes(m.본문).length;
+  var same = got.sha256 === mine && got.바이트 === bytes;
+  log(n, (same ? '✓ 서버가 받은 자료가 똑같아요' : '✗ 자료가 달라요!') + ' · ' + kb(bytes) + ' · 지문 ' + mine.slice(0, 12) + '…');
+  return same;
+}
+
+$('btnPost').onclick = async function () {
+  var b = this; b.disabled = true; st(3, 'run', '올리는 중'); $('echoBox').innerHTML = '';
+  try {
+    var m = await makePayload(); $('payInfo').textContent = 'base64 ' + kb(m.본문.length);
+    log(3, 'POST 로 보내는 중… (' + kb(m.본문.length) + ')', true);
+    var r = await post('poc_upload', [S.token, m]);
+    log(3, '왕복 ' + r.rt + 'ms (서버 안 ' + r.ms + 'ms)');
+    var same = await check(m, r.data, 3);
+    if (r.data.그림) { $('echoBox').innerHTML = '<img class="echo" alt="돌려받은 사진">'; $('echoBox').firstChild.src = r.data.그림; log(3, '돌려받은 응답 ' + kb(r.data.그림.length) + ' (큰 응답 OK)'); }
+    st(3, same ? 'ok' : 'bad', same ? '성공' : '자료 다름');
+    result('3. POST 올리기', (same ? '성공' : '자료 다름') + ' · ' + kb(m.본문.length) + ' · ' + r.rt + 'ms' + (r.data.그림 ? ' · 사진 돌려받기 OK' : ''));
+  } catch (e) {
+    st(3, 'bad', '실패'); log(3, '오류: ' + e.message + (e.transport ? '\n→ 껍데기에 doPost 가 없거나 새 버전으로 배포하지 않았을 수 있어요.' : ''));
+    result('3. POST 올리기', '실패 · ' + e.message);
+  }
+  b.disabled = false;
+};
+
+var STOP = false;
+$('btnStop').onclick = function () { STOP = true; };
+$('btnChunk').onclick = async function () {
+  var b = this; b.disabled = true; STOP = false; $('btnStop').hidden = false; st(4, 'run', '올리는 중'); $('prog').style.width = '0';
+  try {
+    var m = await makePayload(); m.되돌려주기 = false;
+    var size = +$('chunk').value, par = +$('par').value, t0 = performance.now();
+    log(4, kb(m.본문.length) + ' 를 ' + size + '자씩 ' + Math.ceil(m.본문.length / size) + '조각, 동시에 ' + par + '개…', true);
+    var r = await chunked('poc_upload', [S.token, m], { size: size, par: par, stopped: function () { return STOP; },
+      onProgress: function (d, n) { $('prog').style.width = Math.round(d / n * 100) + '%'; } });
+    var rt = Math.round(performance.now() - t0);
+    log(4, '끝: ' + (rt / 1000).toFixed(1) + '초 · 요청 ' + r.reqs + '번');
+    var same = await check(m, r.data, 4);
+    st(4, same ? 'ok' : 'bad', same ? '성공' : '자료 다름');
+    result('4. 조각 올리기', (same ? '성공' : '자료 다름') + ' · ' + kb(m.본문.length) + ' · ' + size + '자×' + r.n + '조각 · 동시 ' + par + ' · ' + (rt / 1000).toFixed(1) + '초');
+  } catch (e) { st(4, 'bad', '실패'); log(4, '오류: ' + e.message); result('4. 조각 올리기', '실패 · ' + e.message); }
+  $('btnStop').hidden = true; b.disabled = false;
+};
+
+$('btnGo').onclick = function () { window.open(S.app + '?poc=go', '_blank'); };
+$('btnBench').onclick = function () { window.open(S.app + '?poc=bench', '_blank'); };
+
+$('btnCopy').onclick = async function () {
+  var t = sumText(); $('sumText').hidden = false; $('sumText').textContent = t;
+  try { await navigator.clipboard.writeText(t); $('copied').textContent = '복사했어요'; } catch (e) { $('copied').textContent = '아래 글을 직접 복사해 주세요'; }
+};
+
+/* ---- 시작 ---- */
+(function start() {
+  $('ver').textContent = PAGE_VER;
+  var q = new URLSearchParams(location.search), a = q.get('app'), from = q.get('from');
+  if (a && okAppUrl(a)) { store(a); history.replaceState(null, '', location.pathname + (from ? '?from=' + from : '')); }
+  var how = { auto: '자동 이동으로', btn: '"새 화면으로 열기" 버튼으로', tab: '"새 탭으로 열기"로' }[from];
+  if (how) { $('fromBanner').hidden = false; $('fromBanner').textContent = '학교 앱 주소에서 ' + how + ' 넘어왔어요 ✓'; st(5, 'ok', '성공'); result('5. 넘겨주기', how + ' 넘어옴'); }
+  S.app = (a && okAppUrl(a)) ? a : store();
+  if (S.app && okAppUrl(S.app)) connect(); else { S.app = ''; $('file').hidden = false; }
+})();
+</script>
+</body>
+</html>
