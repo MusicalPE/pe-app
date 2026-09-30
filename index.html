@@ -2,7 +2,7 @@
 <html lang="ko" data-theme="민트">
 <head>
 <meta charset="utf-8">
-<meta name="pe-web" content="3.0.0 · 2026-09-30 15:13 · server api 1">
+<meta name="pe-web" content="3.0.1 · 2026-09-30 15:36 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -350,7 +350,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.0.0', needs: 1, built: '2026-09-30 15:13',
+    version: '3.0.1', needs: 1, built: '2026-09-30 15:36',
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -409,6 +409,11 @@ button.say i{font-size:18px;}
       .catch(function () { throw transportErr('POST 가 닿지 못했어요'); })
       .then(readJSON).then(unwrap);
   }
+  function b64url(str) {   // UTF-8 → 웹 안전 base64 (주소에 그대로 실림)
+    var u = new TextEncoder().encode(str), bin = '';
+    for (var i = 0; i < u.length; i += 32768) bin += String.fromCharCode.apply(null, u.subarray(i, i + 32768));
+    return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
   function newId() { var a = crypto.getRandomValues(new Uint8Array(16)); return Array.prototype.map.call(a, function (b) { return 'abcdefghijklmnopqrstuvwxyz0123456789'[b % 36]; }).join(''); }
   /** 가장 긴 글자 값 하나를 조각으로 보냄. 서버 자리는 하나뿐이라 다른 긴 값(썸네일 등)은 비움 */
   function pullBiggest(args) {
@@ -423,11 +428,14 @@ button.say i{font-size:18px;}
     if (!best) return null;
     var big = best.o[best.k]; best.o[best.k] = UP_MARK;
     others.forEach(function (x) { x.o[x.k] = ''; });
-    return { big: big, rest: copy };
+    return { big: big, rest: copy, dropped: others.length };
   }
   function chunked(fn, args) {
-    var pr = pullBiggest(args);
-    if (!pr) return Promise.reject(new Error('보낼 자료가 너무 커요.'));
+    // 서버 기능 2(라이브러리 38~): 인자 전체를 통째로 조각 → 무엇이든 온전히. 1(37): 가장 긴 글자 하나만 조각(썸네일 등은 빠짐)
+    // 긴 글자가 하나뿐이고 나머지가 작으면 그 글자만 조각(요청 수가 가장 적음), 아니면 서버 기능 2 에서 통째로
+    var pr = pullBiggest(args), whole = false;
+    if (WEB.info && WEB.info.SERVER_API >= 2 && (!pr || pr.dropped || JSON.stringify(pr.rest).length > 1500)) { whole = true; pr = { big: b64url(JSON.stringify(args)), rest: null }; }
+    if (!pr) return Promise.reject(new Error('저장할 내용이 많아서 보내지 못했어요. 선생님께 학교 프로그램(Shell.gs)에 doPost 한 줄을 넣어 달라고 말씀해 주세요.'));
     var big = pr.big, id = newId(), n = Math.max(1, Math.ceil(big.length / CHUNK));
     function one(i, tryN) {
       return get({ api: 'up_chunk', id: id, i: i, d: big.slice(i * CHUNK, (i + 1) * CHUNK) }).catch(function (e) {
@@ -443,7 +451,8 @@ button.say i{font-size:18px;}
     }
     var all = []; for (var i = 0; i < n; i++) all.push(i);
     function commit(round) {
-      return get({ api: 'up_commit', id: id, n: n, fn: fn, args: JSON.stringify(pr.rest) }).then(function (d) {
+      var cp = { api: 'up_commit', id: id, n: n, fn: fn }; if (whole) cp.whole = 1; else cp.args = JSON.stringify(pr.rest);
+      return get(cp).then(function (d) {
         if (!d.missing) return d.result;
         if (round >= 2) throw new Error('자료 조각이 빠져서 올리지 못했어요. 다시 해 주세요.');
         return sendAll(d.missing).then(function () { return commit(round + 1); });
@@ -1523,14 +1532,51 @@ MODS.core.teacher = (function () {
       var url = D.앱URL;
       $('setLinks').innerHTML = (url
         ? '<div class="field" style="margin-bottom:10px"><label>학생용 주소 (태블릿에 즐겨찾기)</label><input type="text" readonly value="' + esc(url) + '" onclick="this.select()"></div>' +
-          '<div class="field" style="margin-bottom:10px"><label>선생님용 주소 (선생님 탭이 먼저 열림)</label><input type="text" readonly value="' + esc(url + '?page=teacher') + '" onclick="this.select()"></div>'
+          '<div class="field" style="margin-bottom:10px"><label>선생님용 주소 (선생님 탭이 먼저 열림)</label><input type="text" readonly value="' + esc(url + '?page=teacher') + '" onclick="this.select()"></div>' +
+          '<div id="setQr" style="display:flex;gap:14px;align-items:center;margin:4px 0 14px;padding:12px;border:1px solid var(--line);border-radius:14px">' +
+          '<div id="setQrImg" style="width:112px;height:112px;flex:none;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-3);background:#fff;border-radius:8px">QR 만드는 중…</div>' +
+          '<div style="display:flex;flex-direction:column;gap:6px;align-items:flex-start"><b>학생용 주소 QR</b><span class="unit">새 태블릿·핸드폰 카메라로 찍으면 바로 열려요. 인쇄해서 교실에 붙여 두세요.</span>' +
+          '<button class="soft mini" type="button" id="btnQrPrint" disabled><i class="ti ti-printer"></i>QR 인쇄</button></div></div>'
         : '<div class="unit" style="margin-bottom:10px">웹 앱으로 배포하면 접속 주소가 여기에 나타납니다.</div>') +
         (url ? screenModeHtml(s) : '') +
         (D.시트URL ? '<a href="' + esc(D.시트URL) + '" target="_blank" rel="noopener"><button class="soft" type="button"><i class="ti ti-table"></i>스프레드시트 열기</button></a>' : '') +
         '<div class="unit" style="margin-top:10px">서버 버전 ' + esc(D.버전) + ' · 새 화면 ' + esc(WEB.version) + '</div>';
-      if (url) checkNewScreen(s);
+      if (url) { checkNewScreen(s); drawQr(url, s); }
       renderUpdate(D.업데이트);
     }).catch(handleErr);
+  }
+  /* ---------- 학생용 주소 QR (v3.0.1) — 학교마다 자기 주소로 그림. QR 도구는 처음 한 번 인터넷(cdnjs)에서 받음 ---------- */
+  var QR_LIB = 'https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js', qrLoading = null;
+  function loadQr() {
+    if (window.qrcode) return Promise.resolve();
+    if (!qrLoading) qrLoading = new Promise(function (res, rej) {
+      var sc = document.createElement('script'); sc.src = QR_LIB; sc.onload = function () { res(); }; sc.onerror = function () { qrLoading = null; rej(new Error('QR 도구를 받지 못했어요')); };
+      document.head.appendChild(sc);
+    });
+    return qrLoading;
+  }
+  function qrSvg(url, cell) { var q = qrcode(0, 'M'); q.addData(url); q.make(); return q.createSvgTag(cell, cell * 2); }
+  function drawQr(url, s) {
+    loadQr().then(function () {
+      var box = $('setQrImg'); if (!box) return;
+      box.innerHTML = qrSvg(url, 3); var svg = box.querySelector('svg'); if (svg) { svg.style.width = '100%'; svg.style.height = '100%'; }
+      $('btnQrPrint').disabled = false;
+      $('btnQrPrint').onclick = function () { printQr(url, s); };
+    }).catch(function (e) { var box = $('setQrImg'); if (box) box.textContent = e.message; });
+  }
+  function printQr(url, s) {
+    var st = $('qrPrintCss');
+    if (!st) { st = document.createElement('style'); st.id = 'qrPrintCss'; st.textContent = '#qrPrint{display:none}@media print{body.qr-printing>*:not(#qrPrint){display:none!important}body.qr-printing #qrPrint{display:flex!important}}'; document.head.appendChild(st); }
+    var d = $('qrPrint'); if (!d) { d = document.createElement('div'); d.id = 'qrPrint'; document.body.appendChild(d); }
+    d.style.cssText = 'flex-direction:column;align-items:center;justify-content:center;gap:14px;min-height:90vh;text-align:center;font-family:inherit';
+    d.innerHTML = (s.학교명 ? '<div style="font-size:22px;font-weight:800;color:#555">' + esc(s.학교명) + '</div>' : '') +
+      '<div style="font-size:40px;font-weight:900">' + esc(s.학생용이름 || '체육 활동 기록장') + '</div>' +
+      '<div style="width:520px;height:520px">' + qrSvg(url, 8).replace('<svg ', '<svg style="width:100%;height:100%" ') + '</div>' +
+      '<div style="font-size:18px;font-weight:700">카메라로 찍으면 열려요</div><div style="font-size:11px;color:#777;word-break:break-all;max-width:640px">' + esc(url) + '</div>';
+    document.body.classList.add('qr-printing');
+    var done = function () { document.body.classList.remove('qr-printing'); window.removeEventListener('afterprint', done); };
+    window.addEventListener('afterprint', done);
+    window.print();   // afterprint 에서 원래대로 (인쇄할 때만 쓰는 표시라 늦게 지워져도 화면엔 영향 없음)
   }
   /* ---------- 화면 방식 (기존 | 새 화면) — v3.0 ----------
      새 화면(GitHub)이 준비됐는지는 새 화면 주소의 ready.json 으로 확인합니다. 준비 전에는 "새 화면"을 고를 수 없어요. */
