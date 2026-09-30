@@ -2,7 +2,7 @@
 <html lang="ko" data-theme="민트">
 <head>
 <meta charset="utf-8">
-<meta name="pe-web" content="3.0.1 · 2026-09-30 16:35 · server api 1">
+<meta name="pe-web" content="3.1.0 · 2026-09-30 16:49 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -350,7 +350,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.0.1', needs: 1, built: '2026-09-30 16:35',
+    version: '3.1.0', needs: 1, built: '2026-09-30 16:49',
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -561,6 +561,45 @@ button.say i{font-size:18px;}
     d.firstChild.onclick = function () { if (confirm('이 기기에서 지금 학교 연결을 풀고 다른 학교 주소를 넣을까요?')) WEB.changeSchool(); };
     card.parentNode.insertBefore(d, card.nextSibling);
   }
+
+  /* ---------- 카메라 판정기를 앱 안에서 (v3.0 4단계) ----------
+     새 화면은 https 라 카메라를 앱 안에서 쓸 수 있음 → 새 탭 대신 앱 위 전체 화면 틀(iframe, allow=camera)에 판정기 페이지를 띄움.
+     판정 계산·기록 보내기는 판정기 페이지(v0.7.1) 그대로 — 판정기가 학교 앱의 ?api=rope_x_·fit_x_ 로 기록하는 길도 그대로라 라이브러리는 안 바뀜.
+     판정기의 "창 닫기"(window.close)는 이 틀을 닫음(같은 출처일 때). 닫으면 focus 신호를 보내 줄넘기·건강체력교실 화면이 기록을 다시 불러옴(기존 camReturn). */
+  var camCss = '#webCam{position:fixed;inset:0;z-index:9500;background:#000;display:flex;flex-direction:column}' +
+    '#webCam .bar{flex:none;display:flex;align-items:center;gap:10px;padding:8px max(12px,env(safe-area-inset-left));background:#14161C;border-bottom:1px solid #2C3140;color:#F2F3F7}' +
+    '#webCam .bar button{background:#F2F3F7;color:#000;border:0;border-radius:10px;padding:9px 14px;font:inherit;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:6px}' +
+    '#webCam .bar span{color:#9097A8;font-size:13px}#webCam iframe{flex:1;width:100%;border:0;background:#000}' +
+    'body.web-cam-open{overflow:hidden}';
+  WEB.cam = {
+    open: function (url) {
+      if (!/^https:\/\//.test(url) && !/^http:\/\/(localhost|127\.0\.0\.1)/.test(location.href)) return window.open(url, '_blank');
+      if ($id('webCam')) WEB.cam.close(true);
+      if (!$id('webCamCss')) { var st = document.createElement('style'); st.id = 'webCamCss'; st.textContent = camCss; document.head.appendChild(st); }
+      var d = document.createElement('div'); d.id = 'webCam';
+      d.innerHTML = '<div class="bar"><button type="button" id="webCamClose"><i class="ti ti-arrow-left"></i>앱으로 돌아가기</button><span>기록하기를 누른 뒤 돌아가면 방금 기록이 보여요</span></div>' +
+        '<iframe allow="camera; fullscreen; autoplay" allowfullscreen></iframe>';
+      document.body.appendChild(d); document.body.classList.add('web-cam-open');
+      var fr = d.querySelector('iframe');
+      fr.addEventListener('load', function () {
+        try { fr.contentWindow.close = function () { WEB.cam.close(); }; } catch (e) {}   // 다른 주소의 판정기면 막힘 → 위 버튼으로 닫음
+      });
+      fr.src = url;
+      try { history.pushState({ webCam: 1 }, ''); } catch (e) {}
+      $id('webCamClose').onclick = function () { WEB.cam.close(); };
+      return { closed: false };   // window.open 과 같은 약속(빈 값이 아니면 열린 것)
+    },
+    close: function (quiet, fromPop) {
+      var d = $id('webCam'); if (!d) return;
+      if (!fromPop) { try { if (history.state && history.state.webCam) history.back(); } catch (e) {} }
+      var fr = d.querySelector('iframe'); if (fr) fr.src = 'about:blank';   // 카메라 끄기
+      d.remove(); document.body.classList.remove('web-cam-open');
+      if (!quiet) setTimeout(function () { window.dispatchEvent(new Event('focus')); }, 50);   // 기록 다시 불러오기
+    },
+    isOpen: function () { return !!$id('webCam'); }
+  };
+  // 휴대폰·태블릿 "뒤로" 버튼으로도 닫히게
+  window.addEventListener('popstate', function () { if (WEB.cam.isOpen()) WEB.cam.close(false, true); });
 
   /* ---------- 시작 ---------- */
   function start() {
@@ -4409,12 +4448,15 @@ MODS.EVAL.student = (function () {
   }
 
   function init(ctx) { V = null; load(null); }              // 요청 수 배지를 위해 미리 불러옵니다
-  function reset() { V = null; THUMB = {}; picking = null; }
+  function reset() { LOADING = false; LOAD_WAIT = []; V = null; THUMB = {}; picking = null; }
+  /* 불러오는 중에 다른 화면을 눌러도 그 화면이 그려지게 기다리는 것들을 모아 둠 (예전엔 두 번째 요청이 버려져 빈 화면이 남았음) */
+  var LOAD_WAIT = [];
   function load(then) {
+    if (then) LOAD_WAIT.push(then);
     if (LOADING) return;
     LOADING = true;
-    api('eval_s_boot', TOKEN).then(function (v) { LOADING = false; setV(v); if (then) then(); })
-      .catch(function (e) { LOADING = false; handleErr(e); });
+    api('eval_s_boot', TOKEN).then(function (v) { LOADING = false; setV(v); var w = LOAD_WAIT; LOAD_WAIT = []; w.forEach(function (fn) { fn(); }); })
+      .catch(function (e) { LOADING = false; LOAD_WAIT = []; handleErr(e); });
   }
   function refresh() { return api('eval_s_view', TOKEN).then(setV); }
   function setV(v) { V = v; setNavCount('EVAL', 'check', (V.요청 || []).length); }
@@ -5541,8 +5583,11 @@ MODS.PAPS.student = (function () {
     { id: 'challenge', label: '내 도전', icon: 'flame' }
   ];
   function init(ctx) { D = null; CHAL종목 = null; 목표바뀜 = false; }
-  function reset() { D = null; CHAL종목 = null; 목표바뀜 = false; $('psCards').innerHTML = ''; }
+  function reset() { LOADING = false; LOAD_WAIT = []; D = null; CHAL종목 = null; 목표바뀜 = false; $('psCards').innerHTML = ''; }
+  /* 불러오는 중에 다른 화면을 눌러도 그 화면이 그려지게 기다리는 것들을 모아 둠 (예전엔 두 번째 요청이 버려져 빈 화면이 남았음) */
+  var LOAD_WAIT = [];
   function load(then) {
+    if (then) LOAD_WAIT.push(then);
     if (LOADING) return;
     LOADING = true;
     api('paps_s_boot', TOKEN).then(function (d) {
@@ -5553,8 +5598,8 @@ MODS.PAPS.student = (function () {
       D.회차.forEach(function (r) { if (D.기록[r] && Object.keys(D.기록[r]).length) 마지막 = r; });
       $('psRound').value = 마지막; 이전회차 = 마지막;
       $('psBtnGoal').classList.toggle('hide', !D.설정.목표입력);
-      if (then) then();
-    }).catch(function (e) { LOADING = false; handleErr(e); });
+      var w = LOAD_WAIT; LOAD_WAIT = []; w.forEach(function (fn) { fn(); });
+    }).catch(function (e) { LOADING = false; LOAD_WAIT = []; handleErr(e); });
   }
   function show(p) {
     pages.forEach(function (id) { $('paps_sp_' + id).classList.toggle('hide', id !== p); });
@@ -6951,11 +6996,14 @@ MODS.FIT.student = (function () {
   ];
 
   function init(ctx) { D = null; place = '교실'; event = null; PHOTO = null; load(null); }
-  function reset() { D = null; event = null; place = '교실'; PHOTO = null; clearPhoto(); $('fsDate').value = ''; }
+  function reset() { LOADING = false; LOAD_WAIT = []; D = null; event = null; place = '교실'; PHOTO = null; clearPhoto(); $('fsDate').value = ''; }
+  /* 불러오는 중에 다른 화면을 눌러도 그 화면이 그려지게 기다리는 것들을 모아 둠 (예전엔 두 번째 요청이 버려져 빈 화면이 남았음) */
+  var LOAD_WAIT = [];
   function load(then) {
+    if (then) LOAD_WAIT.push(then);
     if (LOADING) return;
     LOADING = true;
-    api('fit_s_boot', TOKEN).then(function (d) { LOADING = false; apply(d); if (then) then(); }).catch(function (e) { LOADING = false; handleErr(e); });
+    api('fit_s_boot', TOKEN).then(function (d) { LOADING = false; apply(d); var w = LOAD_WAIT; LOAD_WAIT = []; w.forEach(function (fn) { fn(); }); }).catch(function (e) { LOADING = false; LOAD_WAIT = []; handleErr(e); });
   }
   function show(p) {
     pages.forEach(function (id) { $('fit_sp_' + id).classList.toggle('hide', id !== p); });
@@ -7049,9 +7097,9 @@ MODS.FIT.student = (function () {
   }
   $('fsCam').onclick = function () {
     var c = D.판정기, u = c.주소 + (c.주소.indexOf('?') >= 0 ? '&' : '?') + 'target=fit&app=' + encodeURIComponent(D.앱URL) + '&t=' + encodeURIComponent(TOKEN) + '&sens=' + (c.민감도 || 10);
-    var w = window.open(u, '_blank'); if (!w) { setStatus('fsSaveStatus', '새 창이 막혔어요. 팝업을 허용해 주세요.', 'err'); return; }
+    var w = WEB.cam.open(u); if (!w) { setStatus('fsSaveStatus', '새 창이 막혔어요. 팝업을 허용해 주세요.', 'err'); return; }
     camOpened = Date.now();
-    setStatus('fsSaveStatus', '판정기 창에서 뛰고 "끝내고 기록하기"를 누르면 여기에 기록돼요. 이 화면으로 돌아오면 자동으로 새로 불러와요.', '');
+    setStatus('fsSaveStatus', '', '');
   };
   function camReturn() {
     if (!camOpened || Date.now() - camOpened > 3 * 3600 * 1000 || camReloading || document.hidden) return;
@@ -7790,7 +7838,7 @@ MODS.ROPE.teacher = (function () {
             <div class="status" id="rsSaveStatus" style="margin-top:8px"></div>
             <div class="hide" id="rsCamBox" style="margin-top:12px;border-top:1px dashed var(--line);padding-top:12px">
               <button class="bigsave" id="rsCam" style="background:var(--violet,#6b5bd2)"><i class="ti ti-camera"></i>카메라로 뛰기 (자동으로 세서 기록)</button>
-              <div class="unit" style="margin-top:6px">카메라가 몸의 움직임을 보고 진짜 뛴 횟수를 세요. 새 창이 열리고, 끝나면 여기에 바로 기록돼요. 위에서 종류를 골랐으면 그 종류로 기록됩니다.</div>
+              <div class="unit" style="margin-top:6px">카메라가 몸의 움직임을 보고 진짜 뛴 횟수를 세요. 판정기 화면이 열리고, 끝나면 여기에 바로 기록돼요. 위에서 종류를 골랐으면 그 종류로 기록됩니다.</div>
             </div>
           </div>
         </div>
@@ -7854,10 +7902,13 @@ MODS.ROPE.student = (function () {
   function qa(sel, root) { return Array.prototype.slice.call((root || ROOT).querySelectorAll(sel)); }
 
   function init(ctx) { D = null; PICKED = null; THUMB = {}; load(function () { setNavCount('ROPE', 'peer', D.짝요청수); }); }
-  function reset() { D = null; PICKED = null; THUMB = {}; $('rsCount').value = ''; }
+  function reset() { LOADING = false; LOAD_WAIT = []; D = null; PICKED = null; THUMB = {}; $('rsCount').value = ''; }
+  /* 불러오는 중에 다른 화면을 눌러도 그 화면이 그려지게 기다리는 것들을 모아 둠 (예전엔 두 번째 요청이 버려져 빈 화면이 남았음) */
+  var LOAD_WAIT = [];
   function load(then) {
+    if (then) LOAD_WAIT.push(then);
     if (LOADING) return; LOADING = true;
-    api('rope_s_boot', TOKEN).then(function (d) { LOADING = false; D = d; setNavCount('ROPE', 'peer', d.짝요청수); if (then) then(); }).catch(function (e) { LOADING = false; handleErr(e); });
+    api('rope_s_boot', TOKEN).then(function (d) { LOADING = false; D = d; setNavCount('ROPE', 'peer', d.짝요청수); var w = LOAD_WAIT; LOAD_WAIT = []; w.forEach(function (fn) { fn(); }); }).catch(function (e) { LOADING = false; LOAD_WAIT = []; handleErr(e); });
   }
   function show(p) {
     pages.forEach(function (id) { $('rope_sp_' + id).classList.toggle('hide', id !== p); });
@@ -7941,8 +7992,8 @@ MODS.ROPE.student = (function () {
     $('rsCam').onclick = function () {
       if (s.종류사용 && !TYPE) { setStatus('rsSaveStatus', '먼저 어떤 줄넘기를 할지 골라 주세요.', 'err'); return; }
       var u = camUrl + (camUrl.indexOf('?') >= 0 ? '&' : '?') + 'app=' + encodeURIComponent(D.앱URL) + '&t=' + encodeURIComponent(TOKEN) + '&sens=' + (s.판정기민감도 || 10) + (TYPE ? '&kind=' + encodeURIComponent(TYPE) : '');
-      var w = window.open(u, '_blank'); if (!w) { setStatus('rsSaveStatus', '새 창이 막혔어요. 팝업을 허용해 주세요.', 'err'); return; }
-      setStatus('rsSaveStatus', '판정기 창에서 뛰고 "끝내고 기록하기"를 누르면 여기에 기록돼요. 이 화면으로 돌아오면 자동으로 새로 불러와요.', '');
+      var w = WEB.cam.open(u); if (!w) { setStatus('rsSaveStatus', '새 창이 막혔어요. 팝업을 허용해 주세요.', 'err'); return; }
+      setStatus('rsSaveStatus', '', '');
       G_camOpened = Date.now();
     };
     // 짝 체크: 같은 반 친구 고르기
@@ -9014,12 +9065,15 @@ MODS.FMS.student = (function () {
     { id: 'badges', label: '받은 배지', icon: 'award' }
   ];
   function init(ctx) { V = null; skillId = null; pickedPeer = null; load(null); }   // 요청 수 배지를 위해 미리 불러옴
-  function reset() { V = null; skillId = null; pickedPeer = null; }
+  function reset() { LOADING = false; LOAD_WAIT = []; V = null; skillId = null; pickedPeer = null; }
+  /* 불러오는 중에 다른 화면을 눌러도 그 화면이 그려지게 기다리는 것들을 모아 둠 (예전엔 두 번째 요청이 버려져 빈 화면이 남았음) */
+  var LOAD_WAIT = [];
   function load(then) {
+    if (then) LOAD_WAIT.push(then);
     if (LOADING) return;
     LOADING = true;
-    api('fms_s_boot', TOKEN).then(function (v) { LOADING = false; FMSX.app = v.app; V = v; setNavCount('FMS', 'requests', (V.requests || []).length); if (then) then(); })
-      .catch(function (e) { LOADING = false; handleErr(e); });
+    api('fms_s_boot', TOKEN).then(function (v) { LOADING = false; FMSX.app = v.app; V = v; setNavCount('FMS', 'requests', (V.requests || []).length); var w = LOAD_WAIT; LOAD_WAIT = []; w.forEach(function (fn) { fn(); }); })
+      .catch(function (e) { LOADING = false; LOAD_WAIT = []; handleErr(e); });
   }
   function refresh() { return api('fms_s_view', TOKEN).then(function (v) { V = v; setNavCount('FMS', 'requests', (V.requests || []).length); }); }
   function pagesShow(id) { pages.forEach(function (p) { $('fms_sp_' + p).classList.toggle('hide', p !== id); }); scrollTopMain(); }
@@ -11802,10 +11856,13 @@ MODS.MAT.student = (function () {
   function qa(sel, root) { return Array.prototype.slice.call((root || ROOT).querySelectorAll(sel)); }
 
   function init(ctx) { D = null; load(); }
-  function reset() { D = null; if (window.MATGAME && MATGAME.isOpen()) MATGAME.close(); }
+  function reset() { LOADING = false; LOAD_WAIT = []; D = null; if (window.MATGAME && MATGAME.isOpen()) MATGAME.close(); }
+  /* 불러오는 중에 다른 화면을 눌러도 그 화면이 그려지게 기다리는 것들을 모아 둠 (예전엔 두 번째 요청이 버려져 빈 화면이 남았음) */
+  var LOAD_WAIT = [];
   function load(then) {
+    if (then) LOAD_WAIT.push(then);
     if (LOADING) return; LOADING = true;
-    api('mat_s_boot', TOKEN).then(function (d) { LOADING = false; D = d; if (window.MATGAME) MATGAME.setBank(d.문제 || []); if (then) then(); }).catch(function (e) { LOADING = false; handleErr(e); });
+    api('mat_s_boot', TOKEN).then(function (d) { LOADING = false; D = d; if (window.MATGAME) MATGAME.setBank(d.문제 || []); var w = LOAD_WAIT; LOAD_WAIT = []; w.forEach(function (fn) { fn(); }); }).catch(function (e) { LOADING = false; LOAD_WAIT = []; handleErr(e); });
   }
   function show(p) {
     pages.forEach(function (id) { $('mat_sp_' + id).classList.toggle('hide', id !== p); });
