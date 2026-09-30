@@ -2,7 +2,7 @@
 <html lang="ko" data-theme="민트">
 <head>
 <meta charset="utf-8">
-<meta name="pe-web" content="3.0.1 · 2026-09-30 16:16 · server api 1">
+<meta name="pe-web" content="3.0.1 · 2026-09-30 16:31 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -350,7 +350,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.0.1', needs: 1, built: '2026-09-30 16:16',
+    version: '3.0.1', needs: 1, built: '2026-09-30 16:31',
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -12298,6 +12298,13 @@ MODS.MAT.student = (function () {
 .mg-glyph i{background:var(--c);display:block}
 .mg-glyph i.off{opacity:.2}
 body.mg-open{overflow:hidden}
+/* Made by 도장 (앱 공통 도장과 같은 모양 — 게임 화면은 앱 도장을 덮으므로 여기에도). 게임하는 동안(#mgPlay)에는 숨김.
+   ※ build_engine.py 로 엔진을 다시 만들 때 이 블록과 아래 .mg-madeby 한 줄을 지키기 */
+#matOverlay .mg-madeby{position:absolute;right:18px;bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:8;display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:99px;
+  background:var(--panel);border:1px solid var(--line);color:var(--ink);font-size:12.5px;pointer-events:none;user-select:none}
+#matOverlay .mg-madeby .pre{color:var(--muted);font-weight:500}#matOverlay .mg-madeby .who{font-weight:800}#matOverlay .mg-madeby i{font-size:14px;color:var(--yellow)}
+#matOverlay:has(#mgPlay:not([hidden])) .mg-madeby{display:none}
+@media print{#matOverlay .mg-madeby{display:none}}
 </style>
 <div id="matOverlay" class="hide">
 <!-- 게임 설정 -->
@@ -12348,6 +12355,7 @@ body.mg-open{overflow:hidden}
   </div>
 </section>
 
+<div class="mg-madeby"><i class="ti ti-ball-basketball"></i><span class="pre">Made by</span><span class="who">음악적체육인</span></div>
 </div>
 <script>
 try {
