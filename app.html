@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="체육 기록장">
 <script>(function(){try{if(/[?&]page=teacher/.test(location.search))document.getElementById("webManifest").href="manifest-teacher.webmanifest";}catch(e){}})();</script>
-<meta name="pe-web" content="3.2.3 · 2026-10-03 19:06 · server api 1">
+<meta name="pe-web" content="3.2.4 · 2026-10-03 19:22 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -358,7 +358,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.2.3', needs: 1, built: '2026-10-03 19:06', history: [{"version":"3.2.3","date":"2026-10-03","notes":"선생님이 로그인하면 새 소식 창 — 새 화면이 바뀌면 \"이번에 바뀐 것\"을 한 번 보여 주고, 학교 프로그램(라이브러리) 새 버전이 나와 있으면 적용 방법도 함께 알려 줘요."},{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
+    version: '3.2.4', needs: 1, built: '2026-10-03 19:22', history: [{"version":"3.2.4","date":"2026-10-03","notes":"세특 초안에 \"AI로 다듬기\"(Gemini 키) — 학생마다 기록 사실로 서로 다른 문장, 한 명씩 또는 고른 학생·반 전체를 차례로. 학생을 골라 글 지우기. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.3","date":"2026-10-03","notes":"선생님이 로그인하면 새 소식 창 — 새 화면이 바뀌면 \"이번에 바뀐 것\"을 한 번 보여 주고, 학교 프로그램(라이브러리) 새 버전이 나와 있으면 적용 방법도 함께 알려 줘요."},{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -1222,6 +1222,9 @@ function 학생짧게(s) { return s.학년 + '-' + s.반 + ' ' + s.번호 + '번
 .sk-ev span b{color:var(--ink);margin-right:4px;}
 .sk-saved{font-size:12px;color:var(--ink-3);}
 .sk-saved.dirty{color:var(--sun-ink,#B7791F);font-weight:700;}
+.sk-row .panel-head .sk-pick{width:18px;height:18px;accent-color:var(--brand);margin:0 4px 0 0;}
+.sk-row.picked{outline:2px solid var(--brand);outline-offset:-1px;}
+.sk-row.busy textarea{opacity:.55;}
 </style>
 
 <div class="mroot hide" data-mod="core" data-role="T" id="core_T">
@@ -1278,6 +1281,22 @@ function 학생짧게(s) { return s.학년 + '-' + s.반 + ' ' + s.번호 + '번
       <button class="soft hide" id="skCopyAll"><i class="ti ti-table-export"></i>반 전체 표로 복사</button>
     </div>
     <div class="bar" style="padding-top:10px;padding-bottom:10px"><span class="unit" style="margin-right:4px">넣을 기록</span><div class="sk-mods" id="skMods"></div></div>
+    <div class="bar hide" id="skTools" style="padding-top:10px;padding-bottom:10px">
+      <label class="chk"><input type="checkbox" id="skAll"><span>모두 고르기</span></label>
+      <button class="mini" id="skAiRun"><i class="ti ti-sparkles"></i><span>반 전체 AI로 다듬기</span></button>
+      <button class="mini ghost" id="skClear" disabled><i class="ti ti-eraser"></i>고른 글 지우기</button>
+      <span class="status" id="skRunStatus"></span>
+      <div class="spacer"></div>
+      <span class="unit" id="skKeyState"></span><button class="mini ghost" id="skKeyBtn"><i class="ti ti-key"></i>AI 키</button>
+    </div>
+    <div class="panel hide" id="skKeyBox"><div class="panel-body">
+      <div class="bar" style="box-shadow:none;border:none;padding:0;margin:0 0 8px">
+        <div class="field" style="flex:1;min-width:220px"><label for="skKey">Gemini API 키</label><input type="password" id="skKey" placeholder="AIza…" autocomplete="off"></div>
+        <button class="mini" id="skKeySave"><i class="ti ti-device-floppy"></i>저장</button>
+        <button class="mini ghost" id="skKeyDel">키 지우기</button>
+      </div>
+      <div class="unit">키는 <b>aistudio.google.com</b> → 왼쪽 아래 열쇠 단추 → Create API key 에서 무료로 받아요. 줄넘기 응원 문구·매트 퀴즈와 같은 키라 한 번만 넣으면 돼요. AI에는 <b>활동 기록과 선생님이 쓴 글만</b> 보내고 학생 이름·성별·학교 이름은 보내지 않아요. 무료 키는 1분에 몇 번까지만 쓸 수 있어서 반 전체는 차례로 천천히 써요.</div>
+    </div></div>
     <div class="note"><i class="ti ti-info-circle"></i><div>기록에서 뽑은 <b>틀 문장</b>이라 학생끼리 비슷할 수 있어요. 수업에서 본 모습을 덧붙여 고쳐 써 주세요. 수행평가에 쓴 <b>특기사항</b>은 그대로 가져옵니다. 저장한 글이 있으면 그 글을 먼저 보여 주고, <b>초안으로</b>를 누르면 기록에서 다시 만들어요. 스포츠클럽은 창의적 체험활동에 더 맞아 기본으로 꺼 두었어요.</div></div>
     <div id="skList"></div>
     <div class="empty hide" id="skEmpty"><i class="ti ti-users"></i><strong>학생이 없습니다</strong>학년·반을 골라 불러오기를 눌러 주세요.</div>
@@ -2133,14 +2152,15 @@ MODS.core.teacher = (function () {
     }).catch(function (e) { btn.disabled = false; setStatus('nyStatus', ''); handleErr(e); });
   };
 
-  /* ================= 세특 초안 (v3.1) ================= */
-  var SK = null, SK_MODS = null;
+  /* ================= 세특 초안 (v3.1 · AI·지우기 v3.1.1) ================= */
+  var SK = null, SK_MODS = null, SK_RUN = null;
   function skBytes(t) { var n = 0; for (var i = 0; i < t.length; i++) { var c = t.charCodeAt(i); n += c === 10 ? 2 : (c < 128 ? 1 : 3); } return n; }
   function skCount(row) {
     var t = row.querySelector('textarea').value, lim = Number($('skLimit').value), b = skBytes(t), el = row.querySelector('.sk-cnt');
     el.textContent = t.length + '자 · ' + b + '/' + (lim * 3) + '바이트';
     el.classList.toggle('over', b > lim * 3);
   }
+  function skApi4() { return D.설정.SERVER_API === undefined || (D.설정.SERVER_API || 0) >= 4; }
   function renderSeteuk() {
     var gs = D.설정.학년범위, cs = range(1, D.설정.반범위);
     var g0 = $('skGrade').value || gs[0], c0 = $('skClass').value || 1;
@@ -2149,7 +2169,23 @@ MODS.core.teacher = (function () {
     if (!SK) $('skEmpty').classList.remove('hide');
     if (needApi3('skList')) { $('skEmpty').classList.add('hide'); $('skMake').disabled = true; }
   }
-  function skLoad(force) {
+  function skRows() { return Array.prototype.slice.call($('skList').querySelectorAll('.sk-row')); }
+  function skPicked() { return skRows().filter(function (r) { return r.querySelector('.sk-pick').checked; }); }
+  function skPickUi() {
+    var all = skRows(), p = skPicked();
+    all.forEach(function (r) { r.classList.toggle('picked', r.querySelector('.sk-pick').checked); });
+    $('skAll').checked = all.length > 0 && p.length === all.length; $('skAll').indeterminate = p.length > 0 && p.length < all.length;
+    $('skClear').disabled = !p.length || !!SK_RUN;
+    if (!SK_RUN) $('skAiRun').querySelector('span').textContent = p.length ? '고른 ' + p.length + '명 AI로 다듬기' : '반 전체 AI로 다듬기';
+  }
+  function skKeyUi() {
+    var has = !!(SK && SK.AI);
+    $('skKeyState').textContent = has ? 'AI 키 등록됨 ✓' : 'AI 키 없음';
+    $('skAiRun').disabled = !has && !SK_RUN;
+    $('skAiRun').title = has ? '' : 'AI 키를 먼저 넣어 주세요';
+    skRows().forEach(function (r) { var b = r.querySelector('[data-act=ai]'); if (b) b.disabled = !has; });
+  }
+  function skLoad() {
     var g = Number($('skGrade').value), c = Number($('skClass').value);
     var mods = SK_MODS ? SK_MODS.filter(function (m) { return m.켬; }).map(function (m) { return m.key; }) : null;
     $('skList').innerHTML = '<div class="unit" style="padding:10px 2px">기록을 모으는 중…</div>'; $('skEmpty').classList.add('hide');
@@ -2161,46 +2197,111 @@ MODS.core.teacher = (function () {
       });
       $('skEmpty').classList.toggle('hide', r.학생.length > 0);
       $('skCopyAll').classList.toggle('hide', !r.학생.length);
+      $('skTools').classList.toggle('hide', !r.학생.length || !skApi4());
+      $('skAll').checked = false; $('skAll').indeterminate = false;
       $('skList').innerHTML = r.학생.map(function (s) {
-        var text = s.저장 || s.초안;
+        var text = s.저장있음 ? s.저장 : s.초안;
         return '<div class="panel sk-row" data-id="' + esc(s.학생ID) + '">' +
-          '<div class="panel-head"><h3><span class="no">' + (s.번호 || '–') + '</span>' + esc(s.이름) + '</h3>' +
-          '<span class="sk-saved">' + (s.저장 ? '저장됨 ' + esc(s.수정일시) : (s.초안 ? '초안' : '기록 없음')) + '</span><div class="spacer"></div><span class="sk-cnt"></span>' +
+          '<div class="panel-head">' + (skApi4() ? '<input type="checkbox" class="sk-pick" title="고르기">' : '<input type="checkbox" class="sk-pick hide">') +
+          '<h3><span class="no">' + (s.번호 || '–') + '</span>' + esc(s.이름) + '</h3>' +
+          '<span class="sk-saved"></span><div class="spacer"></div><span class="sk-cnt"></span>' +
+          (skApi4() ? '<button class="mini ghost" data-act="ai" title="기록과 이 칸의 글로 AI가 새로 써요"><i class="ti ti-sparkles"></i>AI</button>' : '') +
           '<button class="mini ghost" data-act="regen" title="기록에서 다시 만든 초안으로 바꾸기"><i class="ti ti-refresh"></i>초안으로</button>' +
           '<button class="mini soft" data-act="copy"><i class="ti ti-copy"></i>복사</button>' +
           '<button class="mini" data-act="save"><i class="ti ti-device-floppy"></i>저장</button></div>' +
-          '<div class="panel-body"><textarea placeholder="이 학생은 이번 학년도 기록이 아직 없어요. 수업에서 본 모습을 직접 써 주세요.">' + esc(text) + '</textarea>' +
+          '<div class="panel-body"><textarea placeholder="' + (s.조각.length ? '비어 있어요. 직접 쓰거나 [초안으로]·[AI]를 눌러 주세요.' : '이번 학년도 기록이 아직 없어요. 수업에서 본 모습을 몇 마디 써 주시면 AI로 다듬을 수 있어요.') + '">' + esc(text) + '</textarea>' +
           (s.조각.length ? '<div class="sk-ev">' + s.조각.map(function (k) { return '<span><b>' + esc(k.이름) + '</b>' + esc(k.근거) + '</span>'; }).join('') + '</div>' : '') +
           '</div></div>';
       }).join('');
-      Array.prototype.forEach.call($('skList').querySelectorAll('.sk-row'), function (row) {
+      skRows().forEach(function (row) {
         var id = row.getAttribute('data-id'), s = findOne(SK.학생, function (x) { return x.학생ID === id; }), ta = row.querySelector('textarea'), lab = row.querySelector('.sk-saved');
-        var saved = s.저장 || '';
+        var saved = s.저장있음 ? s.저장 : null, how = '';
         var mark = function () {   // 저장한 글(없으면 처음 만든 초안)과 달라지면 "저장 안 됨"
-          var d = ta.value !== (saved !== '' ? saved : s.초안);
+          var d = ta.value !== (saved !== null ? saved : s.초안);
           lab.classList.toggle('dirty', d);
-          lab.textContent = d ? '저장 안 됨' : (saved ? '저장됨 ' + (s.수정일시 || '') : (s.초안 ? '초안' : '기록 없음'));
+          lab.textContent = d ? '저장 안 됨' : (saved !== null ? (saved ? '저장됨 ' + how + (s.수정일시 || '') : '비워 둠') : (s.초안 ? '초안' : '기록 없음'));
         };
         var save = function (quiet) {
           var v = ta.value;
           return api('t_seteukSave', TOKEN, id, v).then(function (x) {
             if (!x.ok) { toast(x.message, 'err'); return; }
-            saved = v; s.저장 = v; s.수정일시 = x.수정일시; lab.classList.remove('dirty'); lab.textContent = '저장됨 ' + x.수정일시;
+            saved = v; s.저장 = v; s.저장있음 = true; s.수정일시 = x.수정일시; mark();
             if (!quiet) toast(s.이름 + ' 저장했어요');
           }).catch(handleErr);
         };
-        ta.oninput = function () { skCount(row); mark(); };
+        row._sk = {
+          ai: function () {   // 한 학생 AI 다듬기 → 칸에 넣고 저장. 돌려주는 값: {ok, 바쁨}
+            var b = row.querySelector('[data-act=ai]');
+            if (b) b.disabled = true; row.classList.add('busy'); lab.classList.remove('dirty'); lab.textContent = 'AI가 쓰는 중…';
+            var mods = SK_MODS.filter(function (m) { return m.켬; }).map(function (m) { return m.key; });
+            return api('t_seteukAI', TOKEN, id, mods, Number($('skLimit').value), ta.value).then(function (x) {
+              if (b) b.disabled = false; row.classList.remove('busy');
+              if (!x.ok) { mark(); toast(s.이름 + ': ' + x.message, 'err'); return x; }
+              ta.value = x.글; skCount(row); how = '(AI) ';
+              return save(true).then(function () { return { ok: true }; });
+            }).catch(function (e) { if (b) b.disabled = false; row.classList.remove('busy'); mark(); handleErr(e); return { ok: false }; });
+          },
+          cleared: function (t) { ta.value = ''; saved = ''; s.저장 = ''; s.저장있음 = true; s.수정일시 = t; skCount(row); mark(); },
+          empty: function () { return !s.조각.length && !ta.value.trim(); }
+        };
+        ta.oninput = function () { skCount(row); how = ''; mark(); };
         ta.onblur = function () { if (lab.classList.contains('dirty')) save(true); };
+        row.querySelector('.sk-pick').onchange = skPickUi;
         row.querySelector('[data-act=save]').onclick = function () { save(false); };
         row.querySelector('[data-act=copy]').onclick = function () { copyText(ta.value); toast(s.이름 + ' 글을 복사했어요'); };
+        var aiB = row.querySelector('[data-act=ai]'); if (aiB) aiB.onclick = function () { row._sk.ai(); };
         row.querySelector('[data-act=regen]').onclick = function () {
           if (ta.value && ta.value !== s.초안 && !confirm('지금 글을 기록에서 만든 초안으로 바꿀까요? (저장 전까지는 시트에 그대로 있어요)')) return;
-          ta.value = s.초안; skCount(row); mark();
+          ta.value = s.초안; skCount(row); how = ''; mark();
         };
-        skCount(row);
+        skCount(row); mark();
       });
+      skPickUi(); skKeyUi();
     }).catch(function (e) { $('skList').innerHTML = ''; handleErr(e); });
   }
+  $('skAll').onchange = function () { var on = this.checked; skRows().forEach(function (r) { r.querySelector('.sk-pick').checked = on; }); skPickUi(); };
+  $('skClear').onclick = function () {
+    var rows = skPicked(); if (!rows.length) return;
+    if (!confirm(rows.length + '명의 세특 글을 지울까요?\n빈칸으로 저장돼요. 나중에 "초안으로"를 누르면 기록에서 만든 초안을 다시 넣을 수 있어요.')) return;
+    api('t_seteukClear', TOKEN, rows.map(function (r) { return r.getAttribute('data-id'); })).then(function (x) {
+      if (!x.ok) { toast(x.message || '지우지 못했어요', 'err'); return; }
+      rows.forEach(function (r) { r._sk.cleared(x.수정일시); r.querySelector('.sk-pick').checked = false; });
+      skPickUi(); toast(x.count + '명의 글을 지웠어요');
+    }).catch(handleErr);
+  };
+  $('skAiRun').onclick = function () {
+    if (SK_RUN) { SK_RUN.stop = true; setStatus('skRunStatus', '멈추는 중…'); return; }
+    if (!SK || !SK.AI) { $('skKeyBox').classList.remove('hide'); toast('AI 키를 먼저 넣어 주세요', 'err'); return; }
+    var picked = skPicked(), rows = (picked.length ? picked : skRows()).filter(function (r) { return !r._sk.empty(); });
+    if (!rows.length) { toast('AI가 쓸 재료(기록이나 선생님 글)가 있는 학생이 없어요', 'err'); return; }
+    if (!confirm(rows.length + '명의 글을 AI가 차례로 새로 써요. 지금 칸의 글은 AI 글로 바뀌어 저장돼요(선생님이 쓴 내용은 살려서 다듬어요).\n한 명에 몇 초씩 걸려요. 계속할까요?')) return;
+    var run = SK_RUN = { stop: false }, i = 0, done = 0;
+    var btn = $('skAiRun'); btn.querySelector('span').textContent = '멈추기'; btn.disabled = false; $('skClear').disabled = true;
+    var finish = function (msg, kind) { SK_RUN = null; setStatus('skRunStatus', msg, kind || 'ok'); skPickUi(); skKeyUi(); };
+    var next = function () {
+      if (run.stop) return finish('멈췄어요 — ' + done + '명 완료');
+      if (i >= rows.length) return finish(done + '명 AI로 다듬었어요. 꼭 읽어 보고 고쳐 주세요.');
+      var r = rows[i++]; setStatus('skRunStatus', 'AI가 쓰는 중 ' + i + '/' + rows.length + '…');
+      try { r.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (e) {}
+      r._sk.ai().then(function (x) {
+        if (x && x.ok) done++;
+        if (x && x.바쁨) return finish('AI 사용량이 잠시 꽉 찼어요 — ' + done + '명 완료. 1분쯤 뒤 다시 눌러 주세요(이미 한 학생은 빼고 골라도 돼요).', 'err');
+        setTimeout(next, 1500);
+      });
+    };
+    next();
+  };
+  $('skKeyBtn').onclick = function () { $('skKeyBox').classList.toggle('hide'); };
+  var skKeySet = function (k) {
+    api('t_seteukKey', TOKEN, k).then(function (x) {
+      if (!x.ok) { toast(x.message, 'err'); return; }
+      if (SK) SK.AI = x.키; $('skKey').value = ''; skKeyUi(); skPickUi();
+      if (x.키) $('skKeyBox').classList.add('hide');
+      toast(x.키 ? 'AI 키를 저장했어요' : 'AI 키를 지웠어요');
+    }).catch(handleErr);
+  };
+  $('skKeySave').onclick = function () { var k = $('skKey').value.trim(); if (!k) { toast('키를 붙여 넣어 주세요', 'err'); return; } skKeySet(k); };
+  $('skKeyDel').onclick = function () { if (confirm('AI 키를 지울까요? 줄넘기 응원 문구·매트 퀴즈 AI도 함께 꺼져요.')) skKeySet(''); };
   function copyText(t) {
     try { if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t); return; } } catch (e) {}
     var x = document.createElement('textarea'); x.value = t; x.style.position = 'fixed'; x.style.opacity = '0'; document.body.appendChild(x); x.select();
