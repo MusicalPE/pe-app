@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="체육 기록장">
 <script>(function(){try{if(/[?&]page=teacher/.test(location.search))document.getElementById("webManifest").href="manifest-teacher.webmanifest";}catch(e){}})();</script>
-<meta name="pe-web" content="3.2.2 · 2026-10-01 22:45 · server api 1">
+<meta name="pe-web" content="3.2.3 · 2026-10-03 19:06 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -358,7 +358,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.2.2', needs: 1, built: '2026-10-01 22:45', history: [{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
+    version: '3.2.3', needs: 1, built: '2026-10-03 19:06', history: [{"version":"3.2.3","date":"2026-10-03","notes":"선생님이 로그인하면 새 소식 창 — 새 화면이 바뀌면 \"이번에 바뀐 것\"을 한 번 보여 주고, 학교 프로그램(라이브러리) 새 버전이 나와 있으면 적용 방법도 함께 알려 줘요."},{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -1195,6 +1195,13 @@ function 학생짧게(s) { return s.학년 + '-' + s.반 + ' ' + s.번호 + '번
 .reset-box .rs-head b{margin:0;}
 .reset-box .rs-all{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-2);font-weight:700;cursor:pointer;white-space:nowrap;}
 .rs-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px;}
+/* 로그인 때 새 소식·업데이트 안내 (v3.1.1) */
+#mdNews .nv{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;background:#fff;}
+#mdNews .nv h4{margin:0 0 6px;font-size:14.5px;letter-spacing:-.02em;display:flex;gap:8px;align-items:baseline;}
+#mdNews .nv h4 small{color:var(--ink-3);font-weight:600;font-size:12px;}
+#mdNews .nv ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.65;color:var(--ink-2);}
+#mdNews .nv ul li+li{margin-top:3px;}
+#mdNews .upd ol{margin:6px 0 0;padding-left:20px;font-size:13.5px;line-height:1.7;}
 /* 새 학년도 · 세특 초안 (v3.1) */
 .ny-flow{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 2px;}
 .ny-flow span{background:var(--soft);border-radius:10px;padding:8px 12px;font-size:13.5px;font-weight:600;}
@@ -1449,6 +1456,15 @@ function 학생짧게(s) { return s.학년 + '-' + s.반 + ' ' + s.번호 + '번
   </div>
 </div>
 
+<!-- ===== 모달: 새 소식 · 업데이트 안내 (로그인 때 한 번) ===== -->
+<div id="mdNews" class="modal hide">
+  <div style="max-width:580px;max-height:86vh;display:flex;flex-direction:column">
+    <div class="panel-head"><h3><i class="ti ti-sparkles"></i><span id="newsTitle">새로 바뀌었어요</span></h3><div class="spacer"></div><button class="ghost mini" id="newsX"><i class="ti ti-x"></i>닫기</button></div>
+    <div class="panel-body" id="newsBody" style="overflow:auto"></div>
+    <div class="savebar"><button class="ghost hide" id="newsGoUpd"><i class="ti ti-refresh"></i>업데이트 자세히</button><div class="spacer"></div><button id="newsOk"><i class="ti ti-check"></i>확인</button></div>
+  </div>
+</div>
+
 <!-- ===== 모달: 비밀번호 카드 ===== -->
 <div id="mdCards" class="modal hide">
   <div style="max-width:860px">
@@ -1485,6 +1501,7 @@ MODS.core.teacher = (function () {
     D = ctx; if (D.홈) D.홈시각 = Date.now();
     MODLIST = (ctx.모듈 || []).filter(function (m) { return m.사용; });
     fillSelects();
+    setTimeout(showNews, 700);
   }
   function reset() { D = null; HOME = null; MODLIST = []; }
   function show(p) {
@@ -2020,6 +2037,43 @@ MODS.core.teacher = (function () {
       }).join('');
       Array.prototype.forEach.call($('pfRows').querySelectorAll('[data-pf]'), function (a) { a.onclick = function (e) { e.preventDefault(); $('pfStudent').value = a.getAttribute('data-pf'); pfLoad(); }; });
     }).catch(handleErr);
+  }
+
+  /* ================= 로그인 때 새 소식 · 업데이트 안내 (v3.1.1) =================
+     ① 새로 바뀐 것: 이 기기에서 마지막으로 본 판 이후의 내역(처음이면 지금 판 하나). 판마다 한 번.
+     ② 학교 프로그램(라이브러리) 새 버전이 저장소에 있으면 적용 방법. 적용할 때까지 7일에 한 번.
+     새 화면에서는 새 화면 판 내역(WEB.history), 기존 화면에서는 서버 판 내역. 기억은 이 기기(브라우저)에만. */
+  function newsKey(k) { return 'pe_news:' + k + ':' + String(D.앱URL || D.시트URL || '').slice(-40); }
+  function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function showNews() {
+    if (!D || ROLE !== '교사' || !$('mdNews')) return;
+    var web = !!(window.WEB && WEB.history && WEB.history.length);
+    var hist = web ? WEB.history : (D.판내역 || []), ver = web ? WEB.version : D.버전;
+    var seenK = newsKey(web ? 'web' : 'lib'), seen = lsGet(seenK), list = [];
+    if (seen !== ver) {
+      for (var i = 0; i < hist.length && list.length < 4; i++) { if (hist[i].version === seen) break; list.push(hist[i]); if (!seen) break; }
+    }
+    var u = D.업데이트, updK = u && u.새버전 ? newsKey('upd:' + u.최신) : '', updShow = false;
+    if (updK) { var t = Number(lsGet(updK) || 0); updShow = !t || Date.now() - t > 7 * 864e5; }
+    if (!list.length && !updShow) return;
+    var h = '';
+    if (updShow) {
+      h += '<div class="note sun upd" style="margin:0 0 12px"><i class="ti ti-cloud-download"></i><div><b>학교 프로그램 새 버전 v' + esc(u.최신) + (u.라이브러리버전 ? ' (라이브러리 ' + esc(u.라이브러리버전) + ')' : '') + '</b>이 나왔어요 (지금 v' + esc(u.현재) + ').' +
+        (u.메모 ? '<div class="unit" style="margin-top:4px">' + esc(String(u.메모).split('\n')[0]) + '</div>' : '') +
+        '<ol><li>학교 스프레드시트 → 확장 프로그램 → Apps Script</li><li>왼쪽 <b>라이브러리</b>의 PE → 버전을 <b>' + esc(u.라이브러리버전 || '가장 큰 숫자') + '</b>로 → 저장</li><li>배포 → 배포 관리 → 연필 → 버전 <b>새 버전</b> → 배포</li></ol></div></div>';
+    }
+    list.forEach(function (x) {
+      var lines = String(x.notes || '').split('\n').filter(function (l) { return l.trim(); });
+      h += '<div class="nv"><h4>v' + esc(x.version) + '<small>' + esc(x.date || '') + '</small></h4><ul>' + lines.map(function (l) { return '<li>' + esc(l) + '</li>'; }).join('') + '</ul></div>';
+    });
+    $('newsTitle').textContent = list.length ? (list.length === 1 ? 'v' + list[0].version + '에서 바뀐 것' : '그동안 바뀐 것') : '새 버전이 나왔어요';
+    $('newsBody').innerHTML = h;
+    $('newsGoUpd').classList.toggle('hide', !updShow);
+    var done = function () { if (list.length) lsSet(seenK, ver); else if (seen === null) lsSet(seenK, ver); if (updShow) lsSet(updK, String(Date.now())); $('mdNews').classList.add('hide'); };
+    $('newsOk').onclick = $('newsX').onclick = done;
+    $('newsGoUpd').onclick = function () { done(); showPage('core:settings'); };
+    $('mdNews').classList.remove('hide');
   }
 
   /* ================= 새 학년도 시작 (v3.1) ================= */
