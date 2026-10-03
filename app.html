@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="체육 기록장">
 <script>(function(){try{if(/[?&]page=teacher/.test(location.search))document.getElementById("webManifest").href="manifest-teacher.webmanifest";}catch(e){}})();</script>
-<meta name="pe-web" content="3.2.4 · 2026-10-03 19:22 · server api 1">
+<meta name="pe-web" content="3.2.5 · 2026-10-03 19:38 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -358,7 +358,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.2.4', needs: 1, built: '2026-10-03 19:22', history: [{"version":"3.2.4","date":"2026-10-03","notes":"세특 초안에 \"AI로 다듬기\"(Gemini 키) — 학생마다 기록 사실로 서로 다른 문장, 한 명씩 또는 고른 학생·반 전체를 차례로. 학생을 골라 글 지우기. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.3","date":"2026-10-03","notes":"선생님이 로그인하면 새 소식 창 — 새 화면이 바뀌면 \"이번에 바뀐 것\"을 한 번 보여 주고, 학교 프로그램(라이브러리) 새 버전이 나와 있으면 적용 방법도 함께 알려 줘요."},{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
+    version: '3.2.5', needs: 1, built: '2026-10-03 19:38', history: [{"version":"3.2.5","date":"2026-10-03","notes":"AI 키를 설정 한 곳에서(설정 → AI 키 · 시험해 보기) — 줄넘기 응원 문구·매트 퀴즈·세특 AI가 모두 이 키를 쓰고, 앞으로 생길 AI 기능도 여기 키를 써요. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.4","date":"2026-10-03","notes":"세특 초안에 \"AI로 다듬기\"(Gemini 키) — 학생마다 기록 사실로 서로 다른 문장, 한 명씩 또는 고른 학생·반 전체를 차례로. 학생을 골라 글 지우기. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.3","date":"2026-10-03","notes":"선생님이 로그인하면 새 소식 창 — 새 화면이 바뀌면 \"이번에 바뀐 것\"을 한 번 보여 주고, 학교 프로그램(라이브러리) 새 버전이 나와 있으면 적용 방법도 함께 알려 줘요."},{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -1287,16 +1287,8 @@ function 학생짧게(s) { return s.학년 + '-' + s.반 + ' ' + s.번호 + '번
       <button class="mini ghost" id="skClear" disabled><i class="ti ti-eraser"></i>고른 글 지우기</button>
       <span class="status" id="skRunStatus"></span>
       <div class="spacer"></div>
-      <span class="unit" id="skKeyState"></span><button class="mini ghost" id="skKeyBtn"><i class="ti ti-key"></i>AI 키</button>
+      <span class="unit" id="skKeyState"></span><button class="mini ghost" id="skKeyBtn"><i class="ti ti-key"></i>AI 키 설정</button>
     </div>
-    <div class="panel hide" id="skKeyBox"><div class="panel-body">
-      <div class="bar" style="box-shadow:none;border:none;padding:0;margin:0 0 8px">
-        <div class="field" style="flex:1;min-width:220px"><label for="skKey">Gemini API 키</label><input type="password" id="skKey" placeholder="AIza…" autocomplete="off"></div>
-        <button class="mini" id="skKeySave"><i class="ti ti-device-floppy"></i>저장</button>
-        <button class="mini ghost" id="skKeyDel">키 지우기</button>
-      </div>
-      <div class="unit">키는 <b>aistudio.google.com</b> → 왼쪽 아래 열쇠 단추 → Create API key 에서 무료로 받아요. 줄넘기 응원 문구·매트 퀴즈와 같은 키라 한 번만 넣으면 돼요. AI에는 <b>활동 기록과 선생님이 쓴 글만</b> 보내고 학생 이름·성별·학교 이름은 보내지 않아요. 무료 키는 1분에 몇 번까지만 쓸 수 있어서 반 전체는 차례로 천천히 써요.</div>
-    </div></div>
     <div class="note"><i class="ti ti-info-circle"></i><div>기록에서 뽑은 <b>틀 문장</b>이라 학생끼리 비슷할 수 있어요. 수업에서 본 모습을 덧붙여 고쳐 써 주세요. 수행평가에 쓴 <b>특기사항</b>은 그대로 가져옵니다. 저장한 글이 있으면 그 글을 먼저 보여 주고, <b>초안으로</b>를 누르면 기록에서 다시 만들어요. 스포츠클럽은 창의적 체험활동에 더 맞아 기본으로 꺼 두었어요.</div></div>
     <div id="skList"></div>
     <div class="empty hide" id="skEmpty"><i class="ti ti-users"></i><strong>학생이 없습니다</strong>학년·반을 골라 불러오기를 눌러 주세요.</div>
@@ -1382,6 +1374,20 @@ function 학생짧게(s) { return s.학년 + '-' + s.반 + ' ' + s.번호 + '번
         <div class="panel">
           <div class="panel-head"><h3><i class="ti ti-link"></i>접속 주소</h3></div>
           <div class="panel-body" id="setLinks"></div>
+        </div>
+        <div class="panel" id="setAiPanel">
+          <div class="panel-head"><h3><i class="ti ti-sparkles"></i>AI 키 (Gemini)</h3><div class="spacer"></div><span class="unit" id="aiBadge"></span></div>
+          <div class="panel-body">
+            <div class="unit" id="aiState">불러오는 중…</div>
+            <div class="bar" style="box-shadow:none;border:none;padding:0;margin:10px 0 8px;background:none">
+              <div class="field" style="flex:1;min-width:200px"><label for="aiKey" id="aiKeyLab">키 넣기</label><input type="password" id="aiKey" placeholder="AIza…" autocomplete="off"></div>
+              <button class="mini" id="aiSave"><i class="ti ti-device-floppy"></i>저장</button>
+              <button class="mini ghost" id="aiTest"><i class="ti ti-player-play"></i>시험해 보기</button>
+              <button class="mini ghost" id="aiDel">키 지우기</button>
+            </div>
+            <div class="note hide" id="aiOut" style="margin:0 0 8px"><i class="ti ti-message-circle"></i><div id="aiOutTxt"></div></div>
+            <div class="unit">이 키 하나를 <b>줄넘기 AI 응원 문구 · 색깔 매트 퀴즈 문제 받기 · 세특 AI로 다듬기</b>가 함께 쓰고, 앞으로 생기는 AI 기능도 여기 키를 씁니다. 키는 <b>aistudio.google.com</b> → 왼쪽 아래 열쇠 단추 → Create API key 에서 무료로 받아요. AI에는 학생 이름·성별·학교 이름을 보내지 않아요.</div>
+          </div>
         </div>
         <div class="panel"><div class="panel-head"><h3><i class="ti ti-refresh"></i>업데이트</h3></div>
           <div class="panel-body" id="setUpdate"><div class="unit">불러오는 중…</div></div>
@@ -1737,8 +1743,33 @@ MODS.core.teacher = (function () {
   };
 
   /* ================= 설정 ================= */
+  /* AI 키 한 곳 (v3.1.1) */
+  function aiPaint(r) {
+    $('aiBadge').textContent = r.키 ? '등록됨 ✓' : '없음';
+    $('aiState').innerHTML = r.키 ? '키가 등록되어 있어요 (…' + esc(r.끝) + ')' + (r.모델 ? ' · 쓰는 모델 ' + esc(r.모델) : '') + '. 모델이 바뀌거나 은퇴해도 쓸 수 있는 모델을 저절로 다시 골라요.' + (r.오류 ? '<div class="note warn" style="margin-top:8px"><i class="ti ti-alert-triangle"></i><div>최근 오류: ' + esc(r.오류) + '</div></div>' : '') : '아직 키가 없어요. 키가 없으면 AI 기능은 꺼지고, 줄넘기 응원 문구는 기본 문구가 나와요.';
+    $('aiKeyLab').textContent = r.키 ? '새 키로 바꾸기' : '키 넣기';
+    $('aiTest').disabled = !r.키; $('aiDel').disabled = !r.키;
+  }
+  function aiLoad() { if (!$('aiState')) return; if ((D.설정.SERVER_API || 4) < 4) { $('setAiPanel').classList.add('hide'); return; } api('t_aiInfo', TOKEN).then(aiPaint).catch(function () {}); }
+  $('aiSave').onclick = function () {
+    var k = $('aiKey').value.trim(); if (!k) { toast('키를 붙여 넣어 주세요', 'err'); return; }
+    api('t_aiKey', TOKEN, k).then(function (r) { if (!r.ok) { toast(r.message, 'err'); return; } $('aiKey').value = ''; aiPaint(r); if (SK) SK.AI = true; toast('AI 키를 저장했어요. 시험해 보기로 확인해 보세요'); }).catch(handleErr);
+  };
+  $('aiDel').onclick = function () {
+    if (!confirm('AI 키를 지울까요? 줄넘기 응원 문구·매트 퀴즈·세특 AI가 모두 꺼져요.')) return;
+    api('t_aiKey', TOKEN, '').then(function (r) { aiPaint(r); if (SK) SK.AI = false; $('aiOut').classList.add('hide'); toast('AI 키를 지웠어요'); }).catch(handleErr);
+  };
+  $('aiTest').onclick = function () {
+    var b = this; b.disabled = true; $('aiOut').classList.remove('hide'); $('aiOut').className = 'note'; $('aiOutTxt').textContent = 'AI에게 물어보는 중…';
+    api('t_aiTest', TOKEN).then(function (r) {
+      b.disabled = false;
+      $('aiOut').className = 'note ' + (r.ok ? 'ok' : 'warn');
+      $('aiOutTxt').textContent = r.ok ? '잘 돼요! AI의 답: "' + r.답 + '"' + (r.모델 ? ' — ' + r.모델 : '') : '안 돼요: ' + r.message;
+      api('t_aiInfo', TOKEN).then(aiPaint).catch(function () {});
+    }).catch(function (e) { b.disabled = false; $('aiOut').classList.add('hide'); handleErr(e); });
+  };
   function renderSettings() {
-    setStatus('setStatus', ''); setStatus('pwStatus', '');
+    setStatus('setStatus', ''); setStatus('pwStatus', ''); aiLoad();
     $('pwCur').value = ''; $('pwNew').value = ''; $('pwNew2').value = '';
     api('t_getSettings', TOKEN).then(function (st) {
       var s = st.설정;
@@ -2180,7 +2211,7 @@ MODS.core.teacher = (function () {
   }
   function skKeyUi() {
     var has = !!(SK && SK.AI);
-    $('skKeyState').textContent = has ? 'AI 키 등록됨 ✓' : 'AI 키 없음';
+    $('skKeyState').textContent = has ? 'AI 키 등록됨 ✓' : 'AI 키 없음 →';
     $('skAiRun').disabled = !has && !SK_RUN;
     $('skAiRun').title = has ? '' : 'AI 키를 먼저 넣어 주세요';
     skRows().forEach(function (r) { var b = r.querySelector('[data-act=ai]'); if (b) b.disabled = !has; });
@@ -2271,7 +2302,7 @@ MODS.core.teacher = (function () {
   };
   $('skAiRun').onclick = function () {
     if (SK_RUN) { SK_RUN.stop = true; setStatus('skRunStatus', '멈추는 중…'); return; }
-    if (!SK || !SK.AI) { $('skKeyBox').classList.remove('hide'); toast('AI 키를 먼저 넣어 주세요', 'err'); return; }
+    if (!SK || !SK.AI) { toast('설정 → AI 키에서 키를 먼저 넣어 주세요', 'err'); return; }
     var picked = skPicked(), rows = (picked.length ? picked : skRows()).filter(function (r) { return !r._sk.empty(); });
     if (!rows.length) { toast('AI가 쓸 재료(기록이나 선생님 글)가 있는 학생이 없어요', 'err'); return; }
     if (!confirm(rows.length + '명의 글을 AI가 차례로 새로 써요. 지금 칸의 글은 AI 글로 바뀌어 저장돼요(선생님이 쓴 내용은 살려서 다듬어요).\n한 명에 몇 초씩 걸려요. 계속할까요?')) return;
@@ -2291,17 +2322,7 @@ MODS.core.teacher = (function () {
     };
     next();
   };
-  $('skKeyBtn').onclick = function () { $('skKeyBox').classList.toggle('hide'); };
-  var skKeySet = function (k) {
-    api('t_seteukKey', TOKEN, k).then(function (x) {
-      if (!x.ok) { toast(x.message, 'err'); return; }
-      if (SK) SK.AI = x.키; $('skKey').value = ''; skKeyUi(); skPickUi();
-      if (x.키) $('skKeyBox').classList.add('hide');
-      toast(x.키 ? 'AI 키를 저장했어요' : 'AI 키를 지웠어요');
-    }).catch(handleErr);
-  };
-  $('skKeySave').onclick = function () { var k = $('skKey').value.trim(); if (!k) { toast('키를 붙여 넣어 주세요', 'err'); return; } skKeySet(k); };
-  $('skKeyDel').onclick = function () { if (confirm('AI 키를 지울까요? 줄넘기 응원 문구·매트 퀴즈 AI도 함께 꺼져요.')) skKeySet(''); };
+  $('skKeyBtn').onclick = function () { showPage('core:settings'); setTimeout(function () { var p = $('setAiPanel'); if (p && p.scrollIntoView) p.scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 400); };
   function copyText(t) {
     try { if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t); return; } } catch (e) {}
     var x = document.createElement('textarea'); x.value = t; x.style.position = 'fixed'; x.style.opacity = '0'; document.body.appendChild(x); x.select();
@@ -7921,8 +7942,8 @@ MODS.FIT.student = (function () {
           <div class="field" style="grid-column:span 3"><label class="chk sm"><input type="checkbox" id="rpSetCamFit"><span>건강체력교실에서 카메라로 뛴 줄넘기도 <b>줄넘기 기록에 함께</b> 넣기 (끄면 건강체력교실에만 기록)</span></label></div>
           <div class="field" style="grid-column:span 3"><label>민감도 (6~16 · 기본 10 — 작을수록 살짝 떠도 세고, 클수록 높이 떠야 셉니다. 학생은 못 바꿈)</label><div style="display:flex;align-items:center;gap:12px"><input type="range" id="rpSetCamSens" min="6" max="16" step="1" style="flex:1;max-width:320px"><b id="rpSetCamSensV">10</b><span class="unit" id="rpSetCamSensT">보통</span></div></div>
         </div>
-        <div class="field"><label>AI 응원 문구 (Gemini API 키 · 비우면 기본 문구)</label>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><input type="password" id="rpSetGemini" placeholder="AIza…" autocomplete="off" style="flex:1;min-width:220px"><button type="button" class="ghost mini" id="rpSetGeminiTest"><i class="ti ti-sparkles"></i>지금 문구 만들어 보기</button></div>
+        <div class="field"><label>AI 응원 문구 (AI 키는 설정 → AI 키 한 곳에서)</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><input type="password" id="rpSetGemini" class="hide" autocomplete="off"><button type="button" class="ghost mini" id="rpSetGoAi"><i class="ti ti-key"></i>AI 키 설정</button><button type="button" class="ghost mini" id="rpSetGeminiTest"><i class="ti ti-sparkles"></i>지금 문구 만들어 보기</button></div>
           <span class="unit" id="rpSetGeminiHint"></span>
           <div class="note warn hide" id="rpSetGeminiErr" style="margin-top:8px"><i class="ti ti-alert-triangle"></i><div id="rpSetGeminiErrTxt"></div></div>
           <div class="note ok hide" id="rpSetGeminiOut" style="margin-top:8px"><i class="ti ti-message-heart"></i><div id="rpSetGeminiOutTxt"></div></div>
@@ -8188,7 +8209,7 @@ MODS.ROPE.teacher = (function () {
       api('rope_t_mediaInfo', TOKEN).then(function (m) { $('rpSetPeerInfo').innerHTML = m.파일수 ? '사진 ' + m.파일수 + '장' + (m.폴더URL ? ' · <a href="' + esc(m.폴더URL) + '" target="_blank">드라이브 폴더 열기</a>' : '') : '아직 올라온 사진이 없습니다. 첫 사진이 올라오면 시트 옆에 "줄넘기 짝 확인 사진" 폴더가 생깁니다.'; }).catch(function () {});
       $('rpSetGrades').innerHTML = allGrades().map(function (g) { var on = s.대상학년.indexOf(g) > -1; return '<label class="chk sm' + (on ? ' on' : '') + '"><input type="checkbox" value="' + g + '"' + (on ? ' checked' : '') + '><span>' + g + '학년</span></label>'; }).join('');
       $('rpSetGemini').value = ''; $('rpSetGemini').placeholder = r.gemini ? '(등록됨 · 바꾸려면 새 키 입력, 지우려면 "삭제")' : 'AIza…';
-      $('rpSetGeminiHint').textContent = r.gemini ? ('Gemini 키가 등록되어 있어 응원 문구를 AI가 하루 한 번 씁니다.' + (r.geminiModel ? ' 쓰는 모델: ' + r.geminiModel : '') + ' 모델이 은퇴하면 쓸 수 있는 모델을 자동으로 다시 고릅니다. 키는 aistudio.google.com 왼쪽 아래 열쇠 단추 → Create API key.') : '키가 없으면 기본 문구 6개를 돌아가며 보여 줍니다. 키는 aistudio.google.com 왼쪽 아래 열쇠 단추 → Create API key 에서 받습니다.';
+      $('rpSetGeminiHint').textContent = r.gemini ? ('AI 키가 등록되어 있어 응원 문구를 AI가 하루 한 번 씁니다.' + (r.geminiModel ? ' 쓰는 모델: ' + r.geminiModel : '')) : 'AI 키가 없어 기본 문구 6개를 돌아가며 보여 줍니다. 키는 설정 → AI 키에서 넣어요(매트 퀴즈·세특 AI와 같은 키).';
       $('rpSetGeminiTest').classList.toggle('hide', !r.gemini);
       $('rpSetGeminiErr').classList.toggle('hide', !r.geminiError); $('rpSetGeminiErrTxt').textContent = r.geminiError ? '최근 오류: ' + r.geminiError + ' — 그동안은 기본 문구가 나갑니다.' : '';
       $('rpSetGeminiOut').classList.add('hide');
@@ -8198,6 +8219,7 @@ MODS.ROPE.teacher = (function () {
   function paintSens() { var v = Number($('rpSetCamSens').value) || 10; $('rpSetCamSensV').textContent = v; $('rpSetCamSensT').textContent = v <= 7 ? '예민 (살짝 떠도 셈)' : v <= 12 ? '보통' : '둔감 (높이 떠야 셈)'; }
   $('rpSetCamSens').oninput = paintSens;
   ROOT.addEventListener('change', function (e) { var l = e.target.closest && e.target.closest('label.chk'); if (l && e.target.type === 'checkbox') l.classList.toggle('on', e.target.checked); });
+  $('rpSetGoAi').onclick = function () { showPage('core:settings'); setTimeout(function () { var p = document.getElementById('setAiPanel'); if (p && p.scrollIntoView) p.scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 400); };
   $('rpSetGeminiTest').onclick = function () {
     var b = this; b.disabled = true; setStatus('rpSetStatus', 'Gemini 에 문구를 부탁하는 중…');
     api('rope_t_testGemini', TOKEN).then(function (r) {
@@ -12011,7 +12033,7 @@ MODS.MAT.teacher = (function () {
     box.innerHTML = '<div class="page-head"><h2>퀴즈 문제 은행</h2><span class="sub">퀴즈 점프의 "문제 은행"에 나올 문제입니다. 체육뿐 아니라 국어·수학·사회·과학·영어 문제도 넣을 수 있고, AI·학생이 낸 문제는 <b>승인</b>해야 학생에게 나옵니다.</span></div>' +
       '<div class="grid g2" style="margin-bottom:14px">' +
         '<div class="panel" style="margin:0"><div class="panel-head"><h3><i class="ti ti-sparkles"></i>AI 에서 문제 받기</h3></div><div class="panel-body">' +
-          (B.gemini여부 ? '' : '<div class="note sun"><i class="ti ti-key"></i><div>Gemini API 키가 없습니다. <b>줄넘기 → 줄넘기 설정 → AI 응원 문구</b>에 키를 넣으면 여기서도 씁니다.</div></div>') +
+          (B.gemini여부 ? '' : '<div class="note sun"><i class="ti ti-key"></i><div>AI 키가 없습니다. <b>설정 → AI 키</b>에 키를 넣으면 여기서도 씁니다.</div></div>') +
           '<div class="grid g3" style="margin-bottom:8px"><div class="field"><label>학년군</label><select id="mtBGrp">' + B.학년군.map(function (g) { return '<option value="' + g + '">' + g + '학년</option>'; }).join('') + '</select></div>' +
           '<div class="field"><label>교과</label><select id="mtBSubj">' + B.교과.map(function (a) { return '<option>' + a + '</option>'; }).join('') + '</select></div>' +
           '<div class="field" id="mtBAreaBox"><label>체육 영역</label><select id="mtBArea"><option value="">전체 (운동·스포츠·표현)</option>' + B.영역.map(function (a) { return '<option>' + a + '</option>'; }).join('') + '</select></div></div>' +
