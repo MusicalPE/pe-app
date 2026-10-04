@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="체육 기록장">
 <script>(function(){try{if(/[?&]page=teacher/.test(location.search))document.getElementById("webManifest").href="manifest-teacher.webmanifest";}catch(e){}})();</script>
-<meta name="pe-web" content="3.2.11 · 2026-10-04 11:05 · server api 1">
+<meta name="pe-web" content="3.2.12 · 2026-10-04 17:11 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -358,7 +358,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.2.11', needs: 1, built: '2026-10-04 11:05', history: [{"version":"3.2.11","date":"2026-10-04","notes":"색깔 매트 놀이터 리듬 스텝 새 모습 — 블록이 비트세이버처럼 앞으로 다가와요(매트 모양 그대로). \"위에서 떨어지기(네 줄)\"도 고를 수 있어요."},{"version":"3.2.10","date":"2026-10-04","notes":"학교가 \"새 배포\"로 주소가 바뀌면 이 기기도 새 주소로 저절로 옮겨 가요. 적용 순서 안내에 \"새 배포는 누르지 마세요\", 주소가 바뀌면 선생님 홈에 \"QR 다시 인쇄\" 알림. (학교 프로그램 v3.1.5 · 라이브러리 45)"},{"version":"3.2.9","date":"2026-10-04","notes":"(만든 선생님 학교 전용) 설정 왼쪽 AI 키 아래에 \"우리 프로그램을 쓰는 학교\" 칸 — 사용 학교 현황을 프로그램 안에서 바로 봐요. (학교 프로그램 v3.1.4 · 라이브러리 44)"},{"version":"3.2.7","date":"2026-10-03","notes":"설정 → 업데이트 아래 \"사용 학교 알림\" — 익명(기본) · 학교 이름도 · 알리지 않기 중에서 고를 수 있어요. 학생 정보는 보내지 않아요. (학교 프로그램 v3.1.3 · 라이브러리 43)"},{"version":"3.2.6","date":"2026-10-03","notes":"AI 키를 설정 한 곳에서(설정 왼쪽 아래 · 시험해 보기) — 줄넘기 응원 문구·매트 퀴즈·세특 AI가 모두 이 키를 쓰고, 앞으로 생길 AI 기능도 여기 키를 써요. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.4","date":"2026-10-03","notes":"세특 초안에 \"AI로 다듬기\"(Gemini 키) — 학생마다 기록 사실로 서로 다른 문장, 한 명씩 또는 고른 학생·반 전체를 차례로. 학생을 골라 글 지우기. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.3","date":"2026-10-03","notes":"선생님이 로그인하면 새 소식 창 — 새 화면이 바뀌면 \"이번에 바뀐 것\"을 한 번 보여 주고, 학교 프로그램(라이브러리) 새 버전이 나와 있으면 적용 방법도 함께 알려 줘요."},{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
+    version: '3.2.12', needs: 1, built: '2026-10-04 17:11', history: [{"version":"3.2.12","date":"2026-10-04","notes":"줄넘기 설정에 \"전국 현황판 참여\" 칸, 참여 중이면 학생 줄넘기 화면에 \"전국 현황판 보기\" 링크. (학교 프로그램 v3.1.7 · 라이브러리 47)"},{"version":"3.2.11","date":"2026-10-04","notes":"색깔 매트 놀이터 리듬 스텝 새 모습 — 블록이 비트세이버처럼 앞으로 다가와요(매트 모양 그대로). \"위에서 떨어지기(네 줄)\"도 고를 수 있어요."},{"version":"3.2.10","date":"2026-10-04","notes":"학교가 \"새 배포\"로 주소가 바뀌면 이 기기도 새 주소로 저절로 옮겨 가요. 적용 순서 안내에 \"새 배포는 누르지 마세요\", 주소가 바뀌면 선생님 홈에 \"QR 다시 인쇄\" 알림. (학교 프로그램 v3.1.5 · 라이브러리 45)"},{"version":"3.2.9","date":"2026-10-04","notes":"(만든 선생님 학교 전용) 설정 왼쪽 AI 키 아래에 \"우리 프로그램을 쓰는 학교\" 칸 — 사용 학교 현황을 프로그램 안에서 바로 봐요. (학교 프로그램 v3.1.4 · 라이브러리 44)"},{"version":"3.2.7","date":"2026-10-03","notes":"설정 → 업데이트 아래 \"사용 학교 알림\" — 익명(기본) · 학교 이름도 · 알리지 않기 중에서 고를 수 있어요. 학생 정보는 보내지 않아요. (학교 프로그램 v3.1.3 · 라이브러리 43)"},{"version":"3.2.6","date":"2026-10-03","notes":"AI 키를 설정 한 곳에서(설정 왼쪽 아래 · 시험해 보기) — 줄넘기 응원 문구·매트 퀴즈·세특 AI가 모두 이 키를 쓰고, 앞으로 생길 AI 기능도 여기 키를 써요. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.4","date":"2026-10-03","notes":"세특 초안에 \"AI로 다듬기\"(Gemini 키) — 학생마다 기록 사실로 서로 다른 문장, 한 명씩 또는 고른 학생·반 전체를 차례로. 학생을 골라 글 지우기. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.3","date":"2026-10-03","notes":"선생님이 로그인하면 새 소식 창 — 새 화면이 바뀌면 \"이번에 바뀐 것\"을 한 번 보여 주고, 학교 프로그램(라이브러리) 새 버전이 나와 있으면 적용 방법도 함께 알려 줘요."},{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -7992,6 +7992,34 @@ MODS.FIT.student = (function () {
     </div>
   </div>
 
+  <!-- ===== 전국 현황판 참여 (v3.1.7) — 줄넘기 기록 관리(jumprope)와 같은 현황판 ===== -->
+  <div class="panel" id="rpNatPanel">
+    <div class="panel-head"><h3><i class="ti ti-world"></i>전국 현황판 참여</h3><div class="spacer"></div><span class="unit" id="rpNatState"></span></div>
+    <div class="panel-body">
+      <label class="chk" style="margin-bottom:10px"><input type="checkbox" id="rpNatOn"><span><b>전국 현황판에 참여하기</b> — 우리 학교의 날짜별 줄넘기 합계를 현황판에 보내요. 다른 학교(줄넘기 기록 관리 프로그램 학교 포함)와 함께 겨뤄요.</span></label>
+      <div class="grid g3" id="rpNatForm">
+        <div class="field"><label for="rpNatName">학교 이름 *</label><input type="text" id="rpNatName" maxlength="40"></div>
+        <div class="field"><label for="rpNatTeacher">담당 교사 *</label><input type="text" id="rpNatTeacher" maxlength="30"></div>
+        <div class="field"><label for="rpNatContact">연락처 (선택)</label><input type="text" id="rpNatContact" maxlength="60" placeholder="전화·이메일"></div>
+        <div class="field" style="grid-column:1/-1"><label class="chk sm"><input type="checkbox" id="rpNatShow" checked><span>현황판에 학교 이름 공개 (끄면 "익명 학교 ○○○○"로 보여요)</span></label></div>
+      </div>
+      <div class="grid g3" style="margin-top:10px">
+        <div style="border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#F2FAF7;color:var(--ink)"><b style="color:#0B5C4D">✓ 현황판에 보내는 것</b><br><span class="unit">가린 이름(김*늘) · 학년 · 날짜별 횟수 · 등록 학생 수</span></div>
+        <div style="border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--soft);color:var(--ink)"><b>👤 운영자(음악적체육인)만 보는 것</b><br><span class="unit">학교 이름 · 담당 교사 · 연락처</span></div>
+        <div style="border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#FFF5F3;color:var(--ink)"><b style="color:#B4321F">✕ 보내지 않는 것</b><br><span class="unit">학생 실명 · 반 · 번호 · 비밀번호 · 그 밖의 시트 내용</span></div>
+      </div>
+      <div class="unit" style="margin-top:8px">'확인'된 기록만 더해서 이번 달·지난 달 날짜별 합계를 보내요. 기록이 확인될 때마다 그날 것을, 줄넘기 화면을 열 때 1시간에 한 번 전체를 다시 보내요(고친 기록도 맞춰져요). 보내기가 실패해도 기록 저장은 그대로 돼요.</div>
+      <div class="note warn hide" id="rpNatErr" style="margin-top:8px"><i class="ti ti-alert-triangle"></i><div id="rpNatErrTxt"></div></div>
+    </div>
+    <div class="savebar">
+      <span class="status" id="rpNatStatus"></span><div class="spacer"></div>
+      <a class="mini ghost hide" id="rpNatBoard" target="_blank" rel="noopener" style="text-decoration:none"><i class="ti ti-trophy"></i>현황판 보기 →</a>
+      <a class="mini ghost hide" id="rpNatHall" target="_blank" rel="noopener" style="text-decoration:none"><i class="ti ti-building-bank"></i>기록실 →</a>
+      <button class="ghost" id="rpNatSend"><i class="ti ti-send"></i>지금 보내기</button>
+      <button id="rpNatSave"><i class="ti ti-device-floppy"></i>저장</button>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -8233,6 +8261,7 @@ MODS.ROPE.teacher = (function () {
 
   /* ================= 설정 ================= */
   function loadSettings() {
+    natLoad();
     api('rope_t_getSettings', TOKEN).then(function (r) {
       var s = r.설정;
       $('rpSetGoal').value = s.하루목표; $('rpSetClassGoal').value = s.학급목표; $('rpSetMaxIn').value = s.하루최대입력; $('rpSetMaxCnt').value = s.한번최대횟수; $('rpSetAuto').checked = s.자동확인;
@@ -8255,6 +8284,32 @@ MODS.ROPE.teacher = (function () {
       setStatus('rpSetStatus', '');
     }).catch(handleErr);
   }
+  /* ===== 전국 현황판 (v3.1.7) ===== */
+  var NAT = null;
+  function natPaint(n) {
+    NAT = n; if (!n) return;
+    $('rpNatOn').checked = !!n.on; $('rpNatName').value = n.name || (B && B.설정 && B.학교명) || ''; $('rpNatTeacher').value = n.teacher || ''; $('rpNatContact').value = n.contact || ''; $('rpNatShow').checked = n.showName !== false;
+    $('rpNatState').textContent = n.on ? ('참여 중 · 공개 번호 ' + n.publicId + (n.lastFull ? ' · 마지막 전체 보고 ' + n.lastFull : '')) : '참여 안 함';
+    $('rpNatBoard').classList.toggle('hide', !n.on); $('rpNatHall').classList.toggle('hide', !n.on); $('rpNatSend').disabled = !n.on;
+    $('rpNatBoard').href = n.board; $('rpNatHall').href = n.hall;
+    $('rpNatErr').classList.toggle('hide', !n.lastErr); $('rpNatErrTxt').textContent = n.lastErr ? '최근 보내기 실패: ' + n.lastErr : '';
+    $('rpNatPanel').classList.toggle('hide', (CTX && CTX.설정 && CTX.설정.SERVER_API !== undefined && CTX.설정.SERVER_API < 5));
+  }
+  function natLoad() { api('rope_t_natGet', TOKEN).then(natPaint).catch(function () {}); }
+  $('rpNatSave').onclick = function () {
+    var on = $('rpNatOn').checked;
+    if (on && (!$('rpNatName').value.trim() || !$('rpNatTeacher').value.trim())) { setStatus('rpNatStatus', '참여하려면 학교 이름과 담당 교사를 적어 주세요.', 'err'); return; }
+    if (!on && NAT && NAT.on && !confirm('참여를 끄면 현황판에서 우리 학교 기록이 모두 지워져요. 끌까요?')) { $('rpNatOn').checked = true; return; }
+    var b = this; b.disabled = true; setStatus('rpNatStatus', on ? '저장하고 보내는 중…' : '저장하는 중…');
+    api('rope_t_natSave', TOKEN, { on: on, name: $('rpNatName').value.trim(), teacher: $('rpNatTeacher').value.trim(), contact: $('rpNatContact').value.trim(), showName: $('rpNatShow').checked }).then(function (r) {
+      b.disabled = false; natPaint(r.nat); setStatus('rpNatStatus', r.message || '저장했습니다.', r.ok ? 'ok' : 'err'); if (r.ok) toast(r.message || '저장했습니다.');
+    }).catch(function (e) { b.disabled = false; setStatus('rpNatStatus', (e && e.message) || String(e), 'err'); });
+  };
+  $('rpNatSend').onclick = function () {
+    var b = this; b.disabled = true; setStatus('rpNatStatus', '보내는 중…');
+    api('rope_t_natSend', TOKEN).then(function (r) { b.disabled = false; natPaint(r.nat); setStatus('rpNatStatus', r.message, r.ok ? 'ok' : 'err'); })
+      .catch(function (e) { b.disabled = false; setStatus('rpNatStatus', (e && e.message) || String(e), 'err'); });
+  };
   function paintSens() { var v = Number($('rpSetCamSens').value) || 10; $('rpSetCamSensV').textContent = v; $('rpSetCamSensT').textContent = v <= 7 ? '예민 (살짝 떠도 셈)' : v <= 12 ? '보통' : '둔감 (높이 떠야 셈)'; }
   $('rpSetCamSens').oninput = paintSens;
   ROOT.addEventListener('change', function (e) { var l = e.target.closest && e.target.closest('label.chk'); if (l && e.target.type === 'checkbox') l.classList.toggle('on', e.target.checked); });
@@ -8386,6 +8441,7 @@ MODS.ROPE.teacher = (function () {
             </div>
             <button class="bigsave" id="rsSave"><i class="ti ti-device-floppy"></i>저장하기</button>
             <div class="status" id="rsSaveStatus" style="margin-top:8px"></div>
+            <div class="hide" id="rsNatBox" style="margin-top:10px"><a class="mini ghost" id="rsNatLink" target="_blank" rel="noopener" style="text-decoration:none"><i class="ti ti-world"></i>전국 현황판 보기 →</a> <span class="unit">우리 학교가 전국 현황판에 참여하고 있어요</span></div>
             <div class="hide" id="rsCamBox" style="margin-top:12px;border-top:1px dashed var(--line);padding-top:12px">
               <button class="bigsave" id="rsCam" style="background:var(--violet,#6b5bd2)"><i class="ti ti-camera"></i>카메라로 뛰기 (자동으로 세서 기록)</button>
               <div class="unit" style="margin-top:6px">카메라가 몸의 움직임을 보고 진짜 뛴 횟수를 세요. 판정기 화면이 열리고, 끝나면 여기에 바로 기록돼요. 위에서 종류를 골랐으면 그 종류로 기록됩니다.</div>
@@ -8539,6 +8595,7 @@ MODS.ROPE.student = (function () {
     // 카메라 판정기: 설정에 주소가 있으면 버튼. 새 창에 앱 주소와 내 로그인 표를 함께 넘김 (판정기가 결과를 앱에 기록)
     var camUrl = s.판정기주소 && D.앱URL ? s.판정기주소 : '';
     $('rsCamBox').classList.toggle('hide', !camUrl);
+    $('rsNatBox').classList.toggle('hide', !D.현황판); if (D.현황판) $('rsNatLink').href = D.현황판;
     $('rsCam').onclick = function () {
       if (s.종류사용 && !TYPE) { setStatus('rsSaveStatus', '먼저 어떤 줄넘기를 할지 골라 주세요.', 'err'); return; }
       var u = camUrl + (camUrl.indexOf('?') >= 0 ? '&' : '?') + 'app=' + encodeURIComponent(D.앱URL) + '&t=' + encodeURIComponent(TOKEN) + '&sens=' + (s.판정기민감도 || 10) + (TYPE ? '&kind=' + encodeURIComponent(TYPE) : '');
