@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="체육 기록장">
 <script>(function(){try{if(/[?&]page=teacher/.test(location.search))document.getElementById("webManifest").href="manifest-teacher.webmanifest";}catch(e){}})();</script>
-<meta name="pe-web" content="3.2.10 · 2026-10-04 08:30 · server api 1">
+<meta name="pe-web" content="3.2.11 · 2026-10-04 11:05 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -358,7 +358,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.2.10', needs: 1, built: '2026-10-04 08:30', history: [{"version":"3.2.10","date":"2026-10-04","notes":"학교가 \"새 배포\"로 주소가 바뀌면 이 기기도 새 주소로 저절로 옮겨 가요. 적용 순서 안내에 \"새 배포는 누르지 마세요\", 주소가 바뀌면 선생님 홈에 \"QR 다시 인쇄\" 알림. (학교 프로그램 v3.1.5 · 라이브러리 45)"},{"version":"3.2.9","date":"2026-10-04","notes":"(만든 선생님 학교 전용) 설정 왼쪽 AI 키 아래에 \"우리 프로그램을 쓰는 학교\" 칸 — 사용 학교 현황을 프로그램 안에서 바로 봐요. (학교 프로그램 v3.1.4 · 라이브러리 44)"},{"version":"3.2.7","date":"2026-10-03","notes":"설정 → 업데이트 아래 \"사용 학교 알림\" — 익명(기본) · 학교 이름도 · 알리지 않기 중에서 고를 수 있어요. 학생 정보는 보내지 않아요. (학교 프로그램 v3.1.3 · 라이브러리 43)"},{"version":"3.2.6","date":"2026-10-03","notes":"AI 키를 설정 한 곳에서(설정 왼쪽 아래 · 시험해 보기) — 줄넘기 응원 문구·매트 퀴즈·세특 AI가 모두 이 키를 쓰고, 앞으로 생길 AI 기능도 여기 키를 써요. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.4","date":"2026-10-03","notes":"세특 초안에 \"AI로 다듬기\"(Gemini 키) — 학생마다 기록 사실로 서로 다른 문장, 한 명씩 또는 고른 학생·반 전체를 차례로. 학생을 골라 글 지우기. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.3","date":"2026-10-03","notes":"선생님이 로그인하면 새 소식 창 — 새 화면이 바뀌면 \"이번에 바뀐 것\"을 한 번 보여 주고, 학교 프로그램(라이브러리) 새 버전이 나와 있으면 적용 방법도 함께 알려 줘요."},{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
+    version: '3.2.11', needs: 1, built: '2026-10-04 11:05', history: [{"version":"3.2.11","date":"2026-10-04","notes":"색깔 매트 놀이터 리듬 스텝 새 모습 — 블록이 비트세이버처럼 앞으로 다가와요(매트 모양 그대로). \"위에서 떨어지기(네 줄)\"도 고를 수 있어요."},{"version":"3.2.10","date":"2026-10-04","notes":"학교가 \"새 배포\"로 주소가 바뀌면 이 기기도 새 주소로 저절로 옮겨 가요. 적용 순서 안내에 \"새 배포는 누르지 마세요\", 주소가 바뀌면 선생님 홈에 \"QR 다시 인쇄\" 알림. (학교 프로그램 v3.1.5 · 라이브러리 45)"},{"version":"3.2.9","date":"2026-10-04","notes":"(만든 선생님 학교 전용) 설정 왼쪽 AI 키 아래에 \"우리 프로그램을 쓰는 학교\" 칸 — 사용 학교 현황을 프로그램 안에서 바로 봐요. (학교 프로그램 v3.1.4 · 라이브러리 44)"},{"version":"3.2.7","date":"2026-10-03","notes":"설정 → 업데이트 아래 \"사용 학교 알림\" — 익명(기본) · 학교 이름도 · 알리지 않기 중에서 고를 수 있어요. 학생 정보는 보내지 않아요. (학교 프로그램 v3.1.3 · 라이브러리 43)"},{"version":"3.2.6","date":"2026-10-03","notes":"AI 키를 설정 한 곳에서(설정 왼쪽 아래 · 시험해 보기) — 줄넘기 응원 문구·매트 퀴즈·세특 AI가 모두 이 키를 쓰고, 앞으로 생길 AI 기능도 여기 키를 써요. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.4","date":"2026-10-03","notes":"세특 초안에 \"AI로 다듬기\"(Gemini 키) — 학생마다 기록 사실로 서로 다른 문장, 한 명씩 또는 고른 학생·반 전체를 차례로. 학생을 골라 글 지우기. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.3","date":"2026-10-03","notes":"선생님이 로그인하면 새 소식 창 — 새 화면이 바뀌면 \"이번에 바뀐 것\"을 한 번 보여 주고, 학교 프로그램(라이브러리) 새 버전이 나와 있으면 적용 방법도 함께 알려 줘요."},{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -13535,9 +13535,10 @@ try {
   // ================= 게임 3: 리듬 스텝 =================
   const RHYTHM={
     id:'rhythm', name:'리듬 스텝', grade:'전 학년', dur:'3분', lit:[0,3],
-    desc:'음악에 맞춰 네 줄로 색 블록이 내려와요. 블록이 아래 선에 닿는 순간 그 색 칸을 밟아요.',
-    how:['줄 순서는 매트 칸 순서와 같아요: 빨강(왼위) · 노랑(오위) · 초록(왼아래) · 파랑(오아래).','6단계 × 30초. 단계마다 음악이 빨라지고 악기가 더해져요.','어려움에서는 블록 2개가 동시에 내려오면 두 발로 밟아요.'],
+    desc:'음악에 맞춰 색 블록이 날아와요. 블록이 판정 칸에 닿는 순간 그 색 칸을 밟아요. 앞으로 다가오는 방식과 위에서 떨어지는 방식 중에 골라요.',
+    how:['"앞으로 다가오기"는 블록이 매트 모양 그대로 멀리서 날아와요. 화면의 칸 위치가 바닥 매트 칸 위치와 똑같아요.','"위에서 떨어지기"는 네 줄로 떨어져요. 줄 순서: 빨강(왼위) · 노랑(오위) · 초록(왼아래) · 파랑(오아래).','6단계 × 30초. 단계마다 음악이 빨라지고, 어려움에서는 블록 2개가 동시에 오면 두 발로 밟아요.'],
     options:[
+      {id:'view',label:'블록이 오는 방향',choices:[['tunnel','앞으로 다가오기 (매트 모양 그대로)'],['lane','위에서 떨어지기 (네 줄)']],def:'tunnel'},
       {id:'diff',label:'난이도',choices:[['easy','쉬움 (2박마다)'],['normal','보통 (1박마다)'],['hard','어려움 (빠르게 · 동시 블록)']],def:'normal'},
     ],
     create(o,api){
@@ -13559,7 +13560,8 @@ try {
       let W=0,H=0,dpr=1;
       function resize(){ dpr=window.devicePixelRatio||1; W=api.body.clientWidth; H=api.body.clientHeight; cv.width=W*dpr; cv.height=H*dpr; }
       resize(); window.addEventListener('resize',resize);
-      api.segments(NL); api.chip('블록이 선에 닿을 때 밟기');
+      const tunnel=o.view!=='lane', TRAVEL=tunnel?D.travel*1.15:D.travel;
+      api.segments(NL); api.chip(tunnel?'블록이 테두리 칸에 닿을 때 밟기':'블록이 선에 닿을 때 밟기');
       let lvl=-1, toastUntil=0, first=0, hitIdx=0, hitT=-1;
       function rr(x,y,w,h,r){ ctx.beginPath(); ctx.roundRect?ctx.roundRect(x,y,w,h,r):ctx.rect(x,y,w,h); }
       function draw(T){
@@ -13585,12 +13587,52 @@ try {
         }
         // 떨어지는 블록
         for(let i=first;i<notes.length;i++){
-          const n=notes[i], dtn=n.t-T; if(dtn>D.travel) break;
-          const x=x0+n.lane*(lw+gap)+(lw-bw)/2, y=hitY-(dtn/D.travel)*(hitY-topY)-bh/2;
+          const n=notes[i], dtn=n.t-T; if(dtn>TRAVEL) break;
+          const x=x0+n.lane*(lw+gap)+(lw-bw)/2, y=hitY-(dtn/TRAVEL)*(hitY-topY)-bh/2;
           ctx.globalAlpha=dtn<0?Math.max(0,1+dtn/0.3):1;
           ctx.fillStyle=COLORS[MAT[n.lane]].hex; rr(x,y,bw,bh,bh*0.25); ctx.fill();
           ctx.lineWidth=Math.max(3,lw*0.03); ctx.strokeStyle='#fff'; ctx.stroke(); ctx.globalAlpha=1;
         }
+        toast(T);
+      }
+      // 앞으로 다가오는 방식: 2×2 매트 모양 그대로 원근감 있게 날아옴
+      function drawTunnel(T){
+        if(api.body.clientWidth!==W||api.body.clientHeight!==H) resize();
+        ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
+        const G=Math.min(W*0.62,H*0.9), cs=G/2, cx=W/2, cy=H*0.5, K=6, sc=z=>1/(1+K*z);
+        const off=p=>[(p%2?1:-1)*cs/2,(p<2?-1:1)*cs/2];
+        while(first<notes.length && notes[first].t < T-0.4) first++;
+        const glow=[0,0,0,0];
+        for(let i=first;i<notes.length && notes[i].t<T+0.4;i++){ const d=Math.abs(notes[i].t-T); if(d<0.16) glow[notes[i].lane]=Math.max(glow[notes[i].lane],1-d/0.16); }
+        // 터널: 모서리 선 + 박자에 맞춰 다가오는 고리
+        const fs=sc(1);
+        ctx.strokeStyle='#2C3140'; ctx.lineWidth=2;
+        [[-1,-1],[1,-1],[-1,1],[1,1],[0,-1],[0,1],[-1,0],[1,0]].forEach(([ax,ay])=>{
+          ctx.beginPath(); ctx.moveTo(cx+ax*G/2*fs,cy+ay*G/2*fs); ctx.lineTo(cx+ax*G/2,cy+ay*G/2); ctx.stroke(); });
+        const beat=T*bpmAt(T)/60, frac=beat-Math.floor(beat), RINGS=6;
+        for(let k=0;k<RINGS;k++){
+          const z=((k+1-frac)/RINGS); if(z<=0||z>1) continue; const sz=sc(z)*G;
+          ctx.globalAlpha=0.35*(1-z); ctx.strokeStyle='#5a6378'; ctx.lineWidth=2; ctx.strokeRect(cx-sz/2,cy-sz/2,sz,sz); }
+        ctx.globalAlpha=1;
+        // 판정 칸 (가장 앞, 실제 매트 배치)
+        for(let p=0;p<4;p++){
+          const c=COLORS[MAT[p]], [ox,oy]=off(p), w=cs*0.9;
+          ctx.globalAlpha=0.12+glow[p]*0.6; ctx.fillStyle=c.hex; rr(cx+ox-w/2,cy+oy-w/2,w,w,w*0.08); ctx.fill();
+          ctx.globalAlpha=1; ctx.lineWidth=Math.max(4,cs*0.035); ctx.strokeStyle=c.hex; rr(cx+ox-w/2,cy+oy-w/2,w,w,w*0.08); ctx.stroke();
+        }
+        // 다가오는 블록 (먼 것부터 그려서 가까운 것이 위로)
+        const vis=[];
+        for(let i=first;i<notes.length;i++){ const n=notes[i], dtn=n.t-T; if(dtn>TRAVEL) break; vis.push([n,dtn]); }
+        vis.sort((a,b)=>b[1]-a[1]).forEach(([n,dtn])=>{
+          const z=dtn/TRAVEL, k=sc(Math.max(-0.12,z)), [ox,oy]=off(n.lane), w=cs*0.78*k;
+          ctx.globalAlpha=dtn<0?Math.max(0,1+dtn/0.25):Math.min(1,(1-z)*3);
+          ctx.fillStyle=COLORS[MAT[n.lane]].hex; rr(cx+ox*k-w/2,cy+oy*k-w/2,w,w,w*0.12); ctx.fill();
+          ctx.lineWidth=Math.max(2,cs*0.04*k); ctx.strokeStyle='#fff'; ctx.stroke();
+        });
+        ctx.globalAlpha=1;
+        toast(T);
+      }
+      function toast(T){
         if(T<toastUntil){
           ctx.globalAlpha=Math.min(1,(toastUntil-T)/0.4); ctx.fillStyle='#fff'; ctx.textAlign='center'; ctx.textBaseline='middle';
           ctx.font=`${Math.round(H*0.12)}px ${getComputedStyle(document.body).getPropertyValue('--display')}`;
@@ -13604,8 +13646,8 @@ try {
         update(T){
           if(T>=TOTAL+0.5) return api.finish('멋진 춤!','6단계까지 리듬에 맞춰 모두 밟았어요!');
           const li=lvAt(T); if(li!==lvl){ if(lvl>=0) api.unit(); lvl=li; api.hud(`${li+1}단계`,'/ '+NL); if(li>0){ toastUntil=T+1.6; } }
-          while(hitIdx<notes.length && notes[hitIdx].t<=T){ if(notes[hitIdx].t!==hitT){ hitT=notes[hitIdx].t; api.jump(); } hitIdx++; }
-          draw(T); api.right(fmt(TOTAL-T)); api.progress(li,(T-li*LS)/LS);
+          while(hitIdx<notes.length && notes[hitIdx].t<=T){ if(notes[hitIdx].t!==hitT){ hitT=notes[hitIdx].t; api.jump(); } hitIdx++; }   // 앱 기록: 블록이 판정 칸에 닿을 때마다 점프 1
+          (tunnel?drawTunnel:draw)(T); api.right(fmt(TOTAL-T)); api.progress(li,(T-li*LS)/LS);
         },
         skip(d){ const i=lvl+d; if(i>=NL) return api.finish('멋진 춤!','6단계까지 리듬에 맞춰 모두 밟았어요!');
           const t=Math.max(0,i)*LS; const k=steps.findIndex(s=>s>=t); api.setT(steps[k],k); first=0; },
