@@ -1,6 +1,6 @@
 {
-  "ready": false,
+  "ready": true,
   "version": "3.3.1",
   "minServerApi": 1,
-  "built": "2026-10-05 10:10"
+  "built": "2026-10-06 07:35"
 }
