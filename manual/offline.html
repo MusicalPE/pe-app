@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>체육교사 보조 프로그램 · 오프라인판 사용설명서 v3.3</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm; }
+  :root { --ink:#1F2937; --ink2:#4B5563; --ink3:#6B7280; --line:#E5E7EB; --soft:#F3F5F8; --mint:#1F8A70; --mint-soft:#E6F4EF; --coral:#FF6B4A; --coral-soft:#FFEDE7; --sun:#FFF4CC; --sky:#E8F1FB; }
+  * { box-sizing:border-box; }
+  body { font-family: "Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif; color:var(--ink); font-size:10.6pt; line-height:1.62; margin:0; }
+  h1 { font-size:24pt; margin:0 0 4px; letter-spacing:-.03em; }
+  h2 { font-size:16pt; margin:0 0 10px; padding-bottom:6px; border-bottom:2px solid var(--mint); letter-spacing:-.02em; break-after:avoid; }
+  h2 .no { display:inline-block; background:var(--mint); color:#fff; border-radius:8px; padding:0 9px; margin-right:8px; font-size:13pt; }
+  h3 { font-size:12.5pt; margin:16px 0 6px; letter-spacing:-.02em; break-after:avoid; }
+  h3 .v { font-size:8.5pt; color:#fff; background:var(--coral); border-radius:99px; padding:1px 8px; margin-left:6px; vertical-align:middle; font-weight:700; }
+  h3 .v.new { background:var(--mint); }
+  p { margin:0 0 8px; }
+  ul, ol { margin:0 0 8px; padding-left:20px; }
+  li { margin:2px 0; }
+  section { break-before: page; }
+  section.cont { break-before: auto; }
+  .cover { break-before: auto; }
+  .kicker { color:var(--mint); font-weight:800; font-size:10pt; letter-spacing:.08em; }
+  .lead { font-size:11pt; color:var(--ink2); }
+  .badges { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 14px; }
+  .badges span { background:var(--soft); border-radius:99px; padding:3px 11px; font-size:9.2pt; font-weight:700; color:var(--ink2); }
+  .badges span.new { background:var(--coral-soft); color:#B4321F; }
+  .flow { background:var(--mint-soft); border-left:4px solid var(--mint); padding:8px 12px; border-radius:0 10px 10px 0; font-weight:700; margin:8px 0 10px; color:#0B5C4D; }
+  .tip { border:1px solid var(--line); border-radius:12px; padding:9px 12px; margin:8px 0; background:#fff; break-inside:avoid; }
+  .tip b.t { display:block; color:var(--mint); margin-bottom:2px; }
+  .tip.warn { background:#FFF8F6; border-color:#F6C9BE; } .tip.warn b.t { color:#B4321F; }
+  .tip.sun { background:var(--sun); border-color:#F2DD93; } .tip.sun b.t { color:#8A6100; }
+  .tip.sky { background:var(--sky); border-color:#BFD6F1; } .tip.sky b.t { color:#1F4E8C; }
+  table { border-collapse:collapse; width:100%; margin:6px 0 10px; font-size:9.8pt; break-inside:auto; }
+  th, td { border:1px solid var(--line); padding:5px 8px; vertical-align:top; text-align:left; }
+  th { background:var(--soft); font-weight:800; white-space:nowrap; }
+  tr { break-inside:avoid; }
+  td.k { white-space:nowrap; font-weight:700; width:150px; }
+  .shot { border:1px solid var(--line); border-radius:10px; overflow:hidden; background:#fff; break-inside:avoid; margin:6px 0 10px; }
+  .shot img { width:100%; display:block; }
+  .shot .cap { font-size:9pt; color:var(--ink3); padding:5px 9px; border-top:1px solid var(--line); background:#FAFBFC; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; }
+  .two3 { display:grid; grid-template-columns:3fr 2fr; gap:12px; align-items:start; }
+  .steps { counter-reset:s; padding-left:0; list-style:none; }
+  .steps li { counter-increment:s; position:relative; padding-left:28px; margin:4px 0; }
+  .steps li::before { content:counter(s); position:absolute; left:0; top:2px; width:20px; height:20px; border-radius:50%; background:var(--mint); color:#fff; font-size:9pt; font-weight:800; text-align:center; line-height:20px; }
+  code, .id { font-family:ui-monospace,Consolas,monospace; background:var(--soft); padding:1px 5px; border-radius:5px; font-size:9.4pt; }
+  .id { display:inline-block; word-break:break-all; }
+  .big { font-size:12pt; font-weight:800; }
+  .quote { border:1.5px solid var(--mint); border-radius:12px; padding:10px 14px; margin:8px 0; background:#fff; font-size:10.4pt; }
+  .hist h4 { margin:10px 0 2px; font-size:10.6pt; }
+  .hist p { margin:0 0 4px; color:var(--ink2); font-size:9.8pt; }
+  .foot { text-align:center; color:var(--ink3); font-size:9pt; margin-top:20px; }
+  .chip { display:inline-block; border-radius:99px; padding:1px 9px; font-size:9pt; font-weight:800; border:1px solid rgba(0,0,0,.12); }
+  .toc { columns:2; column-gap:24px; font-size:10pt; }
+  .toc div { break-inside:avoid; padding:2px 0; }
+  .toc b { color:var(--mint); margin-right:6px; }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="kicker">사용 설명서 · 오프라인판 v3.3</div>
+  <h1>체육교사 보조 프로그램 오프라인판</h1>
+  <p class="lead">수업 도우미 · 수행평가 · PAPS · 건강체력교실 · 줄넘기 · 색깔 매트 놀이터 · FMS 도전 · 스포츠클럽 여덟 프로그램을 하나로 묶은 통합 프로그램의 <b>오프라인판</b>입니다. 인터넷과 구글 계정 없이 선생님 컴퓨터에서 <b>파일 하나</b>로 돌아가고, 자료는 파일 옆 <b>data</b> 폴더에 저장됩니다. 학생은 자기 이름을 눌러 들어와 기록과 배지를 확인합니다. 온라인판 v3.3.0 과 같은 소스라 화면과 모듈 사용법이 같습니다 — 모듈별 자세한 사용법은 <b>온라인판 설명서 7~10장</b>을 그대로 보시면 됩니다.</p>
+  <div class="badges">
+    <span>인터넷 · 구글 계정 필요 없음</span><span>파일 하나로 설치 끝</span><span>자료는 data 폴더에</span><span>학생은 이름만 눌러 입장</span><span>온라인판과 같은 화면</span>
+    <span class="new">줄넘기 급수 인증 · 인증서</span><span class="new">세특 초안</span><span class="new">새 학년도 시작</span><span class="new">모듈 순서</span>
+  </div>
+  <h3>차례</h3>
+  <div class="toc">
+    <div><b>1</b> 시작하기 — 폴더 하나, 파일 하나</div>
+    <div><b>2</b> 자료는 이렇게 저장돼요</div>
+    <div><b>3</b> 처음 설정 순서</div>
+    <div><b>4</b> 온라인판과 다른 점 (v3.3)</div>
+    <div><b>5</b> 새 학년도 · 초기화 · 백업</div>
+    <div><b>6</b> 새 파일로 바꾸기 (업데이트)</div>
+    <div><b>7</b> 자주 묻는 질문</div>
+    <div><b>8</b> 업데이트 내역</div>
+  </div>
+  <div class="shot" style="margin-top:12px"><img src="img/off-login.png"><div class="cap">▲ 처음 연 화면 — 왼쪽 아래 저장소 막대에서 [폴더 연결]. 아직 학생이 없다는 안내가 뜹니다.</div></div>
+</div>
+
+<section>
+<h2><span class="no">1</span>시작하기 — 폴더 하나, 파일 하나</h2>
+<p>설치할 것이 없습니다. 폴더를 하나 만들고 그 안에 <b>pe_assistant_offline.html</b> 을 넣은 뒤 브라우저로 열면 바로 프로그램이 뜹니다.</p>
+<ol class="steps">
+  <li>새 폴더를 만듭니다. 예: <code>바탕화면\체육교사보조</code>. 전달받은 <b>pe_assistant_offline.html</b> 을 이 폴더에 넣습니다.</li>
+  <li>파일을 더블클릭해 <b>Chrome · Edge · Whale</b> 중 하나로 엽니다. (다른 브라우저로 열리면 오른쪽 클릭 → 연결 프로그램 → Chrome)</li>
+  <li>화면 왼쪽 아래 <b>[폴더 연결]</b>을 누르고 1번에서 만든 폴더를 고른 뒤 "파일 보기 / 변경 허용"을 누릅니다. 폴더 안에 <b>data</b> 하위 폴더가 생기고, 이후 입력하는 모든 자료가 여기에 자동 저장됩니다.</li>
+  <li>선생님 탭 → 비밀번호 <code>1234</code> 로 로그인합니다. 처음에는 설정 화면이 열리니 비밀번호를 바꾸고 학교급(초등학교/중학교)·학교명·학년도를 저장합니다.</li>
+  <li>학생 명단 메뉴에서 명렬을 붙여넣으면 준비가 끝납니다.</li>
+</ol>
+<div class="two">
+  <div class="tip"><b class="t">팁 · 다음에 다시 열 때는 "폴더 다시 연결" 한 번</b>파일을 다시 열면 왼쪽 아래 버튼이 [폴더 다시 연결 (폴더이름)] 으로 깜빡입니다. 브라우저 보안 규칙 때문에 폴더 접근은 열 때마다 한 번 확인을 받아야 합니다. 누르지 않아도 브라우저 안에 자동 저장된 자료로 열리므로 사라지지는 않습니다.</div>
+  <div class="tip warn"><b class="t">주의 · 폴더 연결이 안 되는 경우</b>인터넷 익스플로러·사파리·파이어폭스는 폴더 연결을 지원하지 않아 브라우저 안 저장만 됩니다. 이 경우 브라우저 "인터넷 사용 기록 삭제"에서 사이트 데이터를 지우면 자료가 함께 지워지니, 저장 설정 메뉴의 <b>백업 파일 내려받기</b>를 꼭 습관으로 두세요. 시크릿 창은 닫는 순간 지워지니 쓰지 마세요.</div>
+</div>
+</section>
+
+<section>
+<h2><span class="no">2</span>자료는 이렇게 저장돼요</h2>
+<p>프로그램은 입력하는 즉시 브라우저 안에 자동 저장하고, 폴더를 연결해 두었으면 data 폴더에도 함께 씁니다. 저장 버튼을 따로 누를 필요가 없고 종료 절차도 없습니다.</p>
+<pre style="background:var(--soft);border-radius:10px;padding:10px 14px;font-size:9.6pt;line-height:1.5">체육교사보조\
+  ├ pe_assistant_offline.html    ← 프로그램 (이 파일 하나)
+  └ data\
+    ├ 학생.json 설정.json 수업_기록.json 평가_계획.json PAPS_기록.json 줄넘기_기록.json 줄넘기_급수.json 세특_초안.json …   (시트 하나 = 파일 하나)
+    ├ _설정속성.json            ← 교사 비밀번호(암호화) · 급수표 등
+    └ 사진\                    ← 활동 사진·인증 사진·우리 반 그림 (jpg)</pre>
+<table>
+  <tr><th style="width:190px">왼쪽 아래 막대</th><th>하는 일</th></tr>
+  <tr><td class="k">저장 상태</td><td>"브라우저에 자동 저장" 또는 "폴더 ○○에 저장 중 · 시각 저장됨". 빨간 글씨면 폴더 쓰기에 실패한 것이니 [폴더 다시 연결]을 누르세요.</td></tr>
+  <tr><td class="k">[폴더 연결] / [폴더: 이름]</td><td>처음 한 번 폴더를 고릅니다. 이미 자료가 든 data 폴더를 고르면 그 자료를 불러옵니다. 연결된 뒤에는 단추에 폴더 이름이 보이고, 누르면 저장 설정 메뉴가 열립니다.</td></tr>
+  <tr><td class="k">저장 설정 · 다른 폴더로 바꾸기</td><td>빈 폴더를 고르면 지금 자료를 그 폴더에 새로 저장하고(이사), 자료가 이미 있는 폴더를 고르면 그 폴더의 자료를 불러와 씁니다.</td></tr>
+  <tr><td class="k">저장 설정 · 지금 저장</td><td>브라우저와 폴더에 즉시 한 번 더 씁니다 (평소엔 자동).</td></tr>
+  <tr><td class="k">저장 설정 · 백업 파일 내려받기 / 불러오기</td><td>사진을 뺀 모든 자료를 <code>체육교사보조_백업_날짜.json</code> 파일 하나로 받고, 불러오기는 그 내용으로 지금 자료를 모두 바꿉니다. 새 학년도 시작도 시작 전에 이 백업을 자동으로 내려받습니다.</td></tr>
+</table>
+<div class="two">
+  <div class="tip"><b class="t">팁 · 다른 컴퓨터로 옮기기</b>폴더를 통째로 복사한 뒤 새 컴퓨터에서 HTML을 열고 [폴더 연결]로 그 폴더를 고르면 자료와 사진이 그대로 따라옵니다. 백업 json만 옮기면 사진은 빠지므로 data\사진 도 함께 복사하세요.</div>
+  <div class="tip warn"><b class="t">주의 · 두 컴퓨터에서 번갈아 쓰지 마세요</b>오프라인판은 한 컴퓨터용입니다. 두 곳에서 각각 입력하면 나중에 합칠 방법이 없습니다. 여러 선생님이 함께 쓰려면 온라인판을 쓰세요.</div>
+</div>
+</section>
+
+<section>
+<h2><span class="no">3</span>처음 설정 순서</h2>
+<div class="flow">폴더 연결 → 설정 (비밀번호 · 학교급 · 학교명 · 학년도) → 학생 명단 붙여넣기 → 쓸 모듈만 켜고 ▲▼로 순서 정하기 → 모듈별 설정 → 기록 시작</div>
+<div class="shot"><img src="img/off-settings.png"><div class="cap">▲ 오프라인판 설정 — 온라인판과 같고, 인터넷이 필요한 칸(화면 방식·AI 키·사용 학교 알림)만 없습니다. 오른쪽 모듈 줄의 ▲▼로 사이드바 순서를 바꿉니다(3.3).</div></div>
+<table>
+  <tr><th style="width:150px">항목</th><th>설명</th></tr>
+  <tr><td class="k">교사 비밀번호</td><td>초기값 <code>1234</code>. 잊으면 7장 자주 묻는 질문.</td></tr>
+  <tr><td class="k">학교급</td><td>초등학교(1~6학년) / 중학교(1~3학년). 학년 범위·졸업 학년·PAPS 기준표와 종목·쓸 수 있는 모듈(중학교는 FMS 도전 없음)이 달라집니다. 기록은 지워지지 않습니다.</td></tr>
+  <tr><td class="k">학교명 · 학년도 · 담당자</td><td>보고서·명렬표·<b>인증서</b>에 그대로 들어갑니다.</td></tr>
+  <tr><td class="k">학생이 들어오는 방식</td><td><b>이름만 누르기</b>(기본, 교사 컴퓨터용) / 숫자판(태블릿, 4자리 비밀번호) / 입력칸(키보드).</td></tr>
+  <tr><td class="k">모듈 · 순서</td><td>쓰지 않는 모듈은 끄고, ▲▼로 사이드바 순서를 바꾸고 저장하면 바로 반영됩니다.</td></tr>
+</table>
+<p><b>학생 명단</b> — 명렬 붙여넣기로 반마다 넣습니다(한 줄에 <code>번호 이름 성별</code>, 성별은 빼도 됨). 학생마다 바뀌지 않는 학생ID가 붙어 새 학년도 시작을 해도 기록이 이어집니다.</p>
+</section>
+
+<section>
+<h2><span class="no">4</span>온라인판과 다른 점 (v3.3)</h2>
+<p>오프라인판은 온라인판 v3.3.0 과 같은 소스로 만들어 화면·모듈이 같습니다. 인터넷이 있어야 하는 것만 다릅니다.</p>
+<table>
+  <tr><th style="width:200px">기능</th><th>오프라인판</th></tr>
+  <tr><td class="k">세특 초안</td><td>됩니다(이번 학년도 기록으로 초안, 고쳐 쓰면 세특_초안에 저장, 반 전체 복사). <b>AI로 다듬기</b>만 없습니다.</td></tr>
+  <tr><td class="k">새 학년도 시작</td><td>됩니다. 시트 보관본 대신 <b>백업 파일(json)</b>을 자동으로 내려받고 시작합니다.</td></tr>
+  <tr><td class="k">줄넘기 급수 인증 · 급수 인증서 · 우리 반 여행</td><td>똑같이 됩니다. 급수표는 _설정속성에 저장.</td></tr>
+  <tr><td class="k">전국 현황판 참여 · 현황판 상장</td><td>없습니다(현황판은 인터넷 서비스). 인증서 화면에서 "전국 현황판 순위 상장"을 고르면 "참여한 적이 없어요"로 나옵니다.</td></tr>
+  <tr><td class="k">카메라 줄넘기 판정기</td><td>됩니다. 판정기 페이지는 인터넷 주소라 <b>뛰는 동안 이 컴퓨터가 인터넷에 연결</b>돼 있어야 합니다(판정기 v0.7 이상). 결과는 이 창으로 돌아와 바로 기록됩니다.</td></tr>
+  <tr><td class="k">AI (응원 문구 · 매트 퀴즈 문제 받기 · 세특 다듬기)</td><td>없습니다. 응원 문구는 준비된 문구를 돌려 쓰고, 퀴즈 문제는 직접 입력·학생 제안으로.</td></tr>
+  <tr><td class="k">새 화면 · 앱처럼 설치 · 학생용 QR · 사용 학교 알림 · 로그인 새 소식</td><td>온라인판 전용입니다(오프라인판은 파일이 곧 화면).</td></tr>
+  <tr><td class="k">사진 · 영상</td><td>data\사진 폴더에 저장. 유튜브 배경 음악은 인터넷이 있을 때만.</td></tr>
+  <tr><td class="k">인쇄 · 문서</td><td>인쇄(PDF)·Word(.docx)는 됩니다. "구글 문서로 만들기"만 없습니다.</td></tr>
+</table>
+</section>
+
+<section>
+<h2><span class="no">5</span>새 학년도 · 초기화 · 백업</h2>
+<div class="flow">설정 → 새 학년도 시작 → (백업 json 자동 내려받기) 학년도 +1 · 학년 올리기 · 마지막 학년 졸업 · (고르면) 졸업·전출 학생 정리 → 새 명렬 붙여넣기 → 기존 학생 채우기</div>
+<p>학년이 +1 되고 반·번호가 비워지며, 마지막 학년(초등 6학년 · 중학교 3학년)은 졸업 처리됩니다. 새 명렬을 <b>기존 학생 채우기</b>로 넣으면 같은 이름의 학생에게 새 반·번호가 채워지고 학생ID는 그대로라 지난 기록이 이어집니다.</p>
+<p><b>초기화</b> — 설정 아래 초기화 메뉴에서 모듈별로 지울 항목을 골라 지웁니다. "모든 기록 선택(명단은 남김)"·"명단까지 전부"·모듈마다 "이 모듈 모두"로 한꺼번에 고를 수 있습니다. 설정·기준표는 어떤 경우에도 지워지지 않습니다.</p>
+<div class="tip warn"><b class="t">주의 · 되돌릴 수 없는 것</b>초기화, 학생 삭제, 클럽 삭제, "백업 파일 불러오기"(전체 교체)는 되돌릴 수 없습니다. 큰 정리를 하기 전에는 폴더를 통째로 복사해 두거나 저장 설정 → 백업 파일을 먼저 받으세요.</div>
+</section>
+
+<section>
+<h2><span class="no">6</span>새 파일로 바꾸기 (업데이트)</h2>
+<p>오프라인판은 새 버전이 나오면 <b>pe_assistant_offline.html</b> 파일만 새것으로 바꿔 넣습니다. 자료는 data 폴더에 있으므로 파일을 바꿔도 그대로입니다.</p>
+<ol class="steps">
+  <li>저장 설정 → 백업 파일 내려받기로 백업을 한 번 받아 둡니다 (만약을 위해).</li>
+  <li>폴더 안의 옛 pe_assistant_offline.html 을 새 파일로 덮어씁니다. data 폴더는 건드리지 않습니다.</li>
+  <li>새 파일을 열고 왼쪽 아래 [폴더 다시 연결]을 누릅니다. 자료가 그대로 올라오고, 설정 화면의 버전 숫자가 3.3.0 으로 바뀌어 있습니다.</li>
+</ol>
+<p>2.x에서 올라오면 세특_초안·줄넘기_급수 같은 새 표가 처음 저장할 때 자동으로 생기고, 설정에 새 항목(급수 인증 사용·여행 코스·메뉴 순서)이 기본값으로 더해집니다. 기존 자료는 그대로입니다.</p>
+</section>
+
+<section>
+<h2><span class="no">7</span>자주 묻는 질문</h2>
+<p><b>Q. 자료는 어디에 저장되나요? HTML 파일 안인가요?</b><br>A. 파일 안이 아닙니다. 폴더를 연결했으면 같은 폴더의 data 폴더에, 연결하지 않았으면 브라우저 안에 저장됩니다. HTML 파일만 복사해 다른 컴퓨터에 가져가면 빈 프로그램이 열리니 폴더째 복사하세요.</p>
+<p><b>Q. 파일을 열었는데 학생이 한 명도 없어요.</b><br>A. (1) 왼쪽 아래 [폴더 다시 연결]을 눌렀는지, (2) 다른 브라우저(Chrome ↔ Edge)로 열지 않았는지 확인하세요. 브라우저가 다르면 브라우저 저장분은 보이지 않지만 폴더를 다시 연결하면 그대로 돌아옵니다.</p>
+<p><b>Q. 매번 [폴더 다시 연결]을 누르는 게 번거로워요.</b><br>A. 브라우저 보안 규칙이라 없앨 수 없습니다. 누르지 않아도 브라우저 저장분으로 정상 동작하니, 입력을 마친 뒤 한 번만 눌러 폴더에 반영해도 됩니다.</p>
+<p><b>Q. 교사 비밀번호를 잊었어요.</b><br>A. 프로그램을 닫고 data\_설정속성.json 을 메모장으로 열어 TEACHER_PW_HASH 가 있는 줄을 지우고 저장합니다. 다시 열어 [폴더 다시 연결]을 하면 1234 로 돌아갑니다.</p>
+<p><b>Q. 중학교에서도 쓸 수 있나요?</b><br>A. 네. 설정 → 학교급을 중학교로 바꾸면 학년 1~3, PAPS 중등 기준표·종목으로 돌아갑니다. FMS 도전은 초등 전용이라 보이지 않습니다.</p>
+<p><b>Q. 학생이 자기 이름이 아닌 다른 친구 이름을 누르면요?</b><br>A. 이름만 누르기는 선생님이 옆에서 보는 상황을 전제로 한 방식입니다. 학생이 혼자 쓰는 환경이면 설정에서 숫자판으로 바꿔 비밀번호를 쓰세요.</p>
+<p><b>Q. 줄넘기 응원 문구가 늘 비슷해요. 세특 AI 단추가 없어요.</b><br>A. 오프라인판은 인터넷이 없어 AI 대신 준비된 문구를 돌려 씁니다. 온라인판에서는 설정 → AI 키를 넣으면 응원 문구·세특 다듬기·퀴즈 문제 받기가 됩니다.</p>
+<p><b>Q. 온라인판 자료를 오프라인판으로 가져올 수 있나요?</b><br>A. 오프라인판은 온라인 사용이 어려운 선생님께 독립적으로 쓰시라고 만든 것이라 서로 자료를 주고받지 않습니다. 각각 따로 운영하세요.</p>
+<p><b>Q. 인쇄가 이상하게 나와요.</b><br>A. 각 화면의 인쇄 버튼을 쓰면 그 표만 인쇄됩니다. 브라우저 Ctrl+P를 바로 누르면 화면 전체가 나오니 버튼을 쓰세요. 인쇄 창에서 "배경 그래픽"을 켜면 급수 칩·표 머리글 색이 함께 나옵니다.</p>
+<p><b>Q. 브라우저를 업데이트하거나 컴퓨터를 포맷하면요?</b><br>A. 폴더에 저장돼 있으면 안전합니다. 포맷 전에 폴더를 USB에 복사해 두세요. 브라우저 안에만 저장한 경우엔 반드시 백업 파일을 먼저 받으세요.</p>
+</section>
+
+<section class="hist">
+<h2><span class="no">8</span>업데이트 내역</h2>
+<h4>오프라인판 v3.3.0 (10-06)</h4><p>온라인판 v3.3.0 과 같은 소스. 2.4.1 이후 들어온 것 — 줄넘기 급수 인증·급수 인증서·우리 반 줄넘기 여행·기록 확인 "모두 확인"·줄넘기왕 공동 1위·학생별 누적 표 반 고르기, 세특 초안(AI 제외), 새 학년도 시작(백업 자동), 초기화 한꺼번에 고르기, 사이드바 모듈 순서, 색깔 매트 놀이터 리듬 스텝 새 모습(블록이 앞으로 다가옴), 카메라 판정기 v0.7.4(밝은 디자인). 온라인판 전용인 전국 현황판·사용 학교 알림·AI 키 칸은 보이지 않습니다. 판 번호를 온라인판과 같이 씁니다.</p>
+<h4>오프라인판 v2.4.1</h4><p>오프라인판에서도 줄넘기·건강체력교실 카메라로 뛰기(판정기 v0.7 이상, 뛰는 동안 인터넷 연결 필요).</p>
+<h4>오프라인판 v2.4 · v2.3.x</h4><p>온라인판과 같은 소스. 색깔 매트 놀이터 게임 목록 4개씩, 용암 매트 난이도 개편, 연상 점프 우리 반 그림.</p>
+<h4>오프라인판 v2.2 · v2.1 · v2.0</h4><p>색깔 매트 놀이터(게임 10종, 얼음 스텝·배경 음악, 색깔 점프·용암 매트).</p>
+<p class="foot">즐겁게 사용해 주세요! 사용 중 궁금한 점이 생기면 인디스쿨 <b>음악적체육인</b>에게 쪽지 보내 주세요.<br>Made by 음악적체육인</p>
+</section>
+</body>
+</html>

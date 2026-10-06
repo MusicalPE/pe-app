@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>체육교사 보조 프로그램 · 온라인판 사용설명서 v3.3</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm; }
+  :root { --ink:#1F2937; --ink2:#4B5563; --ink3:#6B7280; --line:#E5E7EB; --soft:#F3F5F8; --mint:#1F8A70; --mint-soft:#E6F4EF; --coral:#FF6B4A; --coral-soft:#FFEDE7; --sun:#FFF4CC; --sky:#E8F1FB; }
+  * { box-sizing:border-box; }
+  body { font-family: "Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif; color:var(--ink); font-size:10.6pt; line-height:1.62; margin:0; }
+  h1 { font-size:24pt; margin:0 0 4px; letter-spacing:-.03em; }
+  h2 { font-size:16pt; margin:0 0 10px; padding-bottom:6px; border-bottom:2px solid var(--mint); letter-spacing:-.02em; break-after:avoid; }
+  h2 .no { display:inline-block; background:var(--mint); color:#fff; border-radius:8px; padding:0 9px; margin-right:8px; font-size:13pt; }
+  h3 { font-size:12.5pt; margin:16px 0 6px; letter-spacing:-.02em; break-after:avoid; }
+  h3 .v { font-size:8.5pt; color:#fff; background:var(--coral); border-radius:99px; padding:1px 8px; margin-left:6px; vertical-align:middle; font-weight:700; }
+  h3 .v.new { background:var(--mint); }
+  p { margin:0 0 8px; }
+  ul, ol { margin:0 0 8px; padding-left:20px; }
+  li { margin:2px 0; }
+  section { break-before: page; }
+  section.cont { break-before: auto; }
+  .cover { break-before: auto; }
+  .kicker { color:var(--mint); font-weight:800; font-size:10pt; letter-spacing:.08em; }
+  .lead { font-size:11pt; color:var(--ink2); }
+  .badges { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 14px; }
+  .badges span { background:var(--soft); border-radius:99px; padding:3px 11px; font-size:9.2pt; font-weight:700; color:var(--ink2); }
+  .badges span.new { background:var(--coral-soft); color:#B4321F; }
+  .flow { background:var(--mint-soft); border-left:4px solid var(--mint); padding:8px 12px; border-radius:0 10px 10px 0; font-weight:700; margin:8px 0 10px; color:#0B5C4D; }
+  .tip { border:1px solid var(--line); border-radius:12px; padding:9px 12px; margin:8px 0; background:#fff; break-inside:avoid; }
+  .tip b.t { display:block; color:var(--mint); margin-bottom:2px; }
+  .tip.warn { background:#FFF8F6; border-color:#F6C9BE; } .tip.warn b.t { color:#B4321F; }
+  .tip.sun { background:var(--sun); border-color:#F2DD93; } .tip.sun b.t { color:#8A6100; }
+  .tip.sky { background:var(--sky); border-color:#BFD6F1; } .tip.sky b.t { color:#1F4E8C; }
+  table { border-collapse:collapse; width:100%; margin:6px 0 10px; font-size:9.8pt; break-inside:auto; }
+  th, td { border:1px solid var(--line); padding:5px 8px; vertical-align:top; text-align:left; }
+  th { background:var(--soft); font-weight:800; white-space:nowrap; }
+  tr { break-inside:avoid; }
+  td.k { white-space:nowrap; font-weight:700; width:150px; }
+  .shot { border:1px solid var(--line); border-radius:10px; overflow:hidden; background:#fff; break-inside:avoid; margin:6px 0 10px; }
+  .shot img { width:100%; display:block; }
+  .shot .cap { font-size:9pt; color:var(--ink3); padding:5px 9px; border-top:1px solid var(--line); background:#FAFBFC; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start; }
+  .two3 { display:grid; grid-template-columns:3fr 2fr; gap:12px; align-items:start; }
+  .steps { counter-reset:s; padding-left:0; list-style:none; }
+  .steps li { counter-increment:s; position:relative; padding-left:28px; margin:4px 0; }
+  .steps li::before { content:counter(s); position:absolute; left:0; top:2px; width:20px; height:20px; border-radius:50%; background:var(--mint); color:#fff; font-size:9pt; font-weight:800; text-align:center; line-height:20px; }
+  code, .id { font-family:ui-monospace,Consolas,monospace; background:var(--soft); padding:1px 5px; border-radius:5px; font-size:9.4pt; }
+  .id { display:inline-block; word-break:break-all; }
+  .big { font-size:12pt; font-weight:800; }
+  .quote { border:1.5px solid var(--mint); border-radius:12px; padding:10px 14px; margin:8px 0; background:#fff; font-size:10.4pt; }
+  .hist h4 { margin:10px 0 2px; font-size:10.6pt; }
+  .hist p { margin:0 0 4px; color:var(--ink2); font-size:9.8pt; }
+  .foot { text-align:center; color:var(--ink3); font-size:9pt; margin-top:20px; }
+  .chip { display:inline-block; border-radius:99px; padding:1px 9px; font-size:9pt; font-weight:800; border:1px solid rgba(0,0,0,.12); }
+  .toc { columns:2; column-gap:24px; font-size:10pt; }
+  .toc div { break-inside:avoid; padding:2px 0; }
+  .toc b { color:var(--mint); margin-right:6px; }
+</style>
+</head>
+<body>
+
+<!-- ===== 표지 ===== -->
+<div class="cover">
+  <div class="kicker">사용 설명서 · 온라인판 v3.3</div>
+  <h1>체육교사 보조 프로그램 온라인판</h1>
+  <p class="lead">수업 도우미 · 수행평가 · PAPS · 건강체력교실 · 줄넘기 · 색깔 매트 놀이터 · FMS 도전 · 스포츠클럽 여덟 프로그램을 하나로 묶은 통합 프로그램입니다. 학생 명단 한 번으로 모든 모듈이 돌아가고, 자료는 선생님 구글 시트에 저장되며, 학생은 태블릿·컴퓨터 어디서든 자기 비밀번호로 들어와 기록하고 배지를 모읍니다. 초등학교·중학교 어느 쪽으로도 쓸 수 있습니다.</p>
+  <p class="lead"><b>3.0부터</b> 화면이 GitHub에서 오는 <b>새 화면</b>이 생겨 앱처럼 설치해 쓰고 화면 수정이 저절로 반영되며, <b>3.1</b>에서 세특 초안(AI 다듬기)·새 학년도 시작·로그인 새 소식·학생용 QR·사용 학교 알림·줄넘기 전국 현황판 참여·급수 인증·인증서·상장·우리 반 줄넘기 여행이, <b>3.3</b>에서 사이드바 모듈 순서 바꾸기가 들어갔습니다.</p>
+  <div class="badges">
+    <span class="new">새 화면 · 앱처럼 설치</span><span class="new">세특 초안 + AI</span><span class="new">줄넘기 급수 인증 · 인증서</span><span class="new">전국 줄넘기 현황판</span><span class="new">새 학년도 시작</span>
+    <span>초등학교 · 중학교</span><span>파일 하나(Shell.gs)로 설치</span><span>자료는 내 구글 시트에</span><span>학생은 태블릿에서 직접 기록</span><span>새 버전 알림 · 2분 적용</span>
+  </div>
+  <h3>차례</h3>
+  <div class="toc">
+    <div><b>1</b> 설치 — 파일 하나, 10분</div>
+    <div><b>2</b> 처음 설정 순서</div>
+    <div><b>3</b> 새 화면 · 앱처럼 설치 <span class="chip" style="background:var(--coral-soft);color:#B4321F">3.0</span></div>
+    <div><b>4</b> 초등학교 · 중학교</div>
+    <div><b>5</b> 화면 구성 · 교사 메뉴</div>
+    <div><b>6</b> 학생이 들어오는 방법</div>
+    <div><b>7</b> 모듈별 안내 (줄넘기: 종류·짝 체크·카메라·전국 현황판·급수·인증서·여행)</div>
+    <div><b>8</b> 세특 초안 · AI 키</div>
+    <div><b>9</b> 학생 프로필 · 통합 배지</div>
+    <div><b>10</b> 새 학년도 시작 · 자료 관리</div>
+    <div><b>11</b> 새 버전 적용 — "새 배포"는 누르지 마세요</div>
+    <div><b>12</b> 사용 학교 알림 — 제가 아는 것과 모르는 것</div>
+    <div><b>13</b> 자주 묻는 질문</div>
+    <div><b>14</b> 업데이트 내역 (v2.3 → v3.3)</div>
+  </div>
+  <div class="shot" style="margin-top:14px"><img src="img/login.png"><div class="cap">▲ 새 화면의 첫 화면 — 선생님 탭에서 1234 로 로그인. 학생 탭은 학년·반·번호 + 숫자판.</div></div>
+</div>
+
+<!-- ===== 1 설치 ===== -->
+<section>
+<h2><span class="no">1</span>설치 — 파일 하나, 10분</h2>
+<p>프로그램 본체는 제가 관리하는 <b>라이브러리</b>에 있고, 선생님 시트에는 <b>Shell.gs</b> 하나만 들어갑니다. 그래서 설치가 짧고, 새 버전이 나와도 파일을 다시 붙여넣을 일이 없습니다. 초등학교든 중학교든 설치 방법은 같습니다. (이미 쓰고 있는 학교는 11장 "새 버전 적용"만 보면 됩니다.)</p>
+<ol class="steps">
+  <li><b>sheets.new</b> 로 새 구글 스프레드시트를 만듭니다. 이름은 "체육교사 보조 프로그램"처럼 아무거나. (기존 프로그램 시트를 이어 쓰지 말고 새 파일로)</li>
+  <li>메뉴 <b>확장 프로그램 → Apps Script</b>. 편집기가 열리면 가운데 Code.gs 의 내용을 모두 지우고, 첨부한 <b>shell/Shell.gs</b> 파일을 메모장으로 열어 전부 복사해 붙여 넣습니다. Ctrl+S 저장.</li>
+  <li>왼쪽 "라이브러리" 옆 <b>+</b> → 스크립트 ID 칸에 아래 ID 를 붙여넣기 → <b>조회</b> → 버전은 <b>가장 큰 숫자</b> → 식별자가 <b>PE</b> 인지 확인 → <b>추가</b>.<br>
+      스크립트 ID <span class="id">1lCxSywFMSoGbnlymVfsRzEvBeweAXKVCjhigTMwpKlSC-lRGSwpR7QxT</span></li>
+  <li>오른쪽 위 <b>배포 → 새 배포</b> → 유형 선택 ⚙ → <b>웹 앱</b> → 실행 주체 <b>나</b> · 액세스 권한 <b>모든 사용자</b> → 배포 → 액세스 승인 → 계정 선택 → "Google에서 확인하지 않은 앱" 화면이면 <b>고급 → (프로젝트 이름)(으)로 이동 → 허용</b>. <span style="color:#B4321F">(처음 설치할 때만 "새 배포"입니다. 이후 업데이트는 11장처럼 "배포 관리 → 새 버전"으로 하세요.)</span></li>
+  <li>나온 <b>웹 앱 URL</b> 을 복사해 브라우저에서 엽니다. 첫 접속 때 시트(설정·학생·안내·모듈별 시트)가 자동으로 만들어집니다. 교사 비밀번호 초기값 <code>1234</code>.</li>
+  <li><b>(권장)</b> 로그인 → 설정 → <b>화면 방식 → "새 화면"</b> 으로 바꾸고 저장합니다. 그러면 같은 주소로 들어와도 GitHub 새 화면이 열리고(3장), 앱처럼 설치하고 화면 수정이 저절로 반영됩니다.</li>
+</ol>
+<div class="two">
+  <div class="tip"><b class="t">팁 · 주소는 두 가지</b>같은 주소인데 뒤에 <code>?page=teacher</code> 를 붙이면 선생님 탭이 먼저 열립니다. 태블릿에는 그냥 주소를, 선생님 컴퓨터에는 ?page=teacher 붙은 주소를 즐겨찾기하세요. 설정 → "접속 주소"에 둘 다, 그리고 학생용 <b>QR</b>이 나옵니다.</div>
+  <div class="tip warn"><b class="t">주의 · 승인 화면이 무섭게 생겼어요</b>"확인되지 않은 앱"은 구글 심사를 받지 않은 개인 스크립트라는 뜻입니다. 시트·드라이브·문서 권한은 선생님 시트에 쓰고 사진을 드라이브에 올리기 위한 것이고, 선생님 계정 안에서만 동작합니다.</div>
+</div>
+<div class="tip sky"><b class="t">첨부 파일 구성</b><b>shell/Shell.gs</b>(시트에 넣을 유일한 파일) · <b>shell/appsscript.json</b>(건드리지 않아도 됨) · <b>appsscript.json</b> · 이 설명서. 라이브러리 소스는 들어 있지 않습니다 — 라이브러리는 스크립트 ID 로 연결합니다.</div>
+</section>
+
+<!-- ===== 2 처음 설정 ===== -->
+<section>
+<h2><span class="no">2</span>처음 설정 순서</h2>
+<div class="flow">로그인 1234 → 설정: 비밀번호 · 학교급 · 학교명 · 학년도 · 화면 방식(새 화면) → 학생 명단 붙여넣기 → 비밀번호 카드 인쇄 → 쓸 모듈만 켜고 순서 정하기 → 태블릿에 앱으로 추가(QR)</div>
+<div class="shot"><img src="img/settings.png"><div class="cap">▲ 처음 로그인하면 설정 화면이 먼저 열립니다. 왼쪽은 프로그램·학교 정보, 오른쪽은 모듈 켜고 끄기와 ▲▼ 순서(3.3).</div></div>
+<table>
+  <tr><th style="width:150px">항목</th><th>설명</th></tr>
+  <tr><td class="k">교사 비밀번호</td><td>초기값 <code>1234</code>. 홈에 바꾸라는 안내가 뜹니다. 잊으면 스프레드시트 메뉴 <b>체육교사 보조 → 교사 비밀번호 초기화</b>.</td></tr>
+  <tr><td class="k">학교급</td><td>초등학교(1~6학년) / 중학교(1~3학년). 학년 범위·졸업 학년·PAPS 기준표와 종목·쓸 수 있는 모듈이 여기에 따라 달라집니다 (4장).</td></tr>
+  <tr><td class="k">학교명 · 학년도 · 담당자</td><td>보고서·명렬표·비밀번호 카드·<b>인증서·상장</b>에 그대로 들어갑니다. 학년도는 기록마다 붙어 새 학년도가 되면 지난해 기록이 화면에서 빠집니다.</td></tr>
+  <tr><td class="k">화면 방식 <span class="chip" style="background:var(--coral-soft);color:#B4321F">3.0</span></td><td><b>기존 화면 | 새 화면</b>. 새 화면을 고르면 같은 주소로 들어온 사람이 GitHub 새 화면으로 열립니다(3장). 문제가 생기면 여기서 기존으로 되돌리거나 주소 뒤에 <code>?classic=1</code>.</td></tr>
+  <tr><td class="k">화면 색상 테마</td><td>민트(기본)·바다·코랄·라벤더·숲·자정·로즈·그래파이트 8가지. 저장해야 학생 화면까지 적용.</td></tr>
+  <tr><td class="k">학생용 프로그램 이름</td><td>학생이 보는 로그인·학생 화면의 제목 (기본 "체육 활동 기록장").</td></tr>
+  <tr><td class="k">학생이 들어오는 방식</td><td>숫자판(태블릿, 4자리 비밀번호 · 기본) / 입력칸(키보드) / 이름만 누르기(선생님 컴퓨터에서 학생을 불러 보여줄 때).</td></tr>
+  <tr><td class="k">모듈 · 순서 <span class="chip" style="background:var(--mint-soft);color:#0B5C4D">3.3</span></td><td>쓰지 않는 모듈은 끄세요(사이드바에서 사라지고 자료는 남음). 줄마다 <b>▲▼</b>로 사이드바 순서를 바꾸고 저장하면 바로 반영되고, 학생 화면도 같은 순서입니다. 중학교에서는 FMS 도전이 목록에 아예 나오지 않습니다.</td></tr>
+  <tr><td class="k">AI 키 <span class="chip" style="background:var(--mint-soft);color:#0B5C4D">3.1</span></td><td>설정 왼쪽 아래 <b>AI 키(Gemini)</b> 한 곳에 넣으면 줄넘기 응원 문구·매트 퀴즈 문제·세특 AI 다듬기가 모두 이 키를 씁니다(8장). 없어도 모든 기능이 기본 문구로 돌아갑니다.</td></tr>
+  <tr><td class="k">접속 주소 · QR</td><td>학생용 주소와 선생님 주소, 학생용 <b>QR 코드</b>. "QR 인쇄"로 교실에 붙여 두면 새 태블릿·휴대폰에서 찍자마자 열립니다.</td></tr>
+  <tr><td class="k">업데이트 · 사용 학교 알림</td><td>지금 판과 이번 판에서 바뀐 것, 새 버전이 있으면 적용 순서(11장). 그 아래 사용 학교 알림(12장).</td></tr>
+</table>
+<h3>학생 명단 넣기</h3>
+<p><b>명렬 붙여넣기</b>로 반마다 넣습니다. 한 줄에 <code>번호 이름 성별</code>. 엑셀·나이스에서 복사한 탭 구분도 그대로 되고 성별은 빼도 됩니다. 학생마다 바뀌지 않는 학생ID가 붙고 학년·반·번호는 올해 속성이라 다음 해 새 학년도 시작을 해도 기록이 이어집니다(10장). 초기 비밀번호는 자동으로 만들어져 명단에 보이고, <b>비밀번호 카드 인쇄</b>로 나눠 주면 학생이 첫 로그인 뒤 자기 번호로 바꿀 수 있습니다. 전학 간 학생은 삭제보다 전출 처리가 기록 보존에 좋습니다.</p>
+</section>
+
+<!-- ===== 3 새 화면 ===== -->
+<section>
+<h2><span class="no">3</span>새 화면 · 앱처럼 설치 <span class="chip" style="background:var(--coral-soft);color:#B4321F;vertical-align:middle">3.0</span></h2>
+<p><b>새 화면</b>은 화면(HTML)을 선생님 시트가 아니라 GitHub 한 곳에서 가져오고, 저장은 지금처럼 선생님 시트에 하는 방식입니다. 화면이 고쳐지면 모든 학교에 저절로 반영되고(라이브러리를 올릴 필요 없음), 태블릿·휴대폰 홈 화면에 앱으로 추가해 주소창 없이 열며, 구글 웹앱 위쪽의 "이 앱은 Google에서 만들지 않았습니다" 띠가 없습니다. 자료는 한 조각도 GitHub로 가지 않습니다 — 화면 파일만 거기서 옵니다.</p>
+<div class="flow">설정 → 화면 방식 → "새 화면" 저장 → 학생용 주소(QR)로 들어오면 새 화면이 열림 → 로그인 화면 아래 "홈 화면에 앱으로 추가"</div>
+<div class="two">
+  <div class="shot"><img src="img/w-login.png"><div class="cap">▲ 새 화면 학생 로그인 — 학교 주소를 기기에 기억하고, 아래 "다른 학교로 바꾸기"</div></div>
+  <div>
+    <table>
+      <tr><th>이런 점이 달라요</th><th>설명</th></tr>
+      <tr><td class="k">화면 수정이 저절로</td><td>버튼 위치·글자·새 메뉴 같은 화면 수정은 GitHub에 올리는 순간 모든 학교에 반영. 앱을 열 때 새 판을 저절로 받습니다(새로고침 요령 필요 없음).</td></tr>
+      <tr><td class="k">라이브러리는 서버가 바뀔 때만</td><td>저장·계산 방식(.gs)이 바뀌는 판만 라이브러리를 올립니다. 새 화면이 더 새 기능을 알고 있으면 "라이브러리를 올리면 쓸 수 있어요"라고 안내합니다.</td></tr>
+      <tr><td class="k">앱처럼 설치</td><td>안드로이드·PC Chrome: 로그인 화면 아래 "홈 화면에 앱으로 추가". 아이폰·아이패드: 공유 → 홈 화면에 추가. 아이콘 하나로 열리고 여는 속도도 빨라집니다.</td></tr>
+      <tr><td class="k">주소는 그대로</td><td>학생용 주소·QR·즐겨찾기는 그대로입니다. 새 화면이 학교 주소를 기기에 기억해 두고, 학교 주소가 바뀌면(11장) 저절로 새 주소로 옮겨 갑니다.</td></tr>
+      <tr><td class="k">되돌리기</td><td>설정 → 화면 방식 → 기존 화면, 또는 주소 뒤에 <code>?classic=1</code>.</td></tr>
+      <tr><td class="k">판 번호</td><td>새 화면도 학교 프로그램과 같은 번호(3.3.x)를 씁니다. 설정 → 업데이트 칸에 둘 다 보입니다.</td></tr>
+    </table>
+  </div>
+</div>
+<div class="tip sun"><b class="t">새 화면에서 생긴 것들</b>로그인 새 소식 창(판이 바뀌면 "이번에 바뀐 것"을 한 번) · 세특 초안·새 학년도 시작 메뉴 · 휴대폰에서 위 메뉴를 누르면 첫 화면이 바로 열림 · 카메라 판정기가 앱 안 전체 화면으로 열리고 "앱으로 돌아가기"로 닫힘 · 색깔 매트 놀이터 밝은 화면 · 초기화 한꺼번에 고르기 · 줄넘기 급수·인증서·전국 현황판 화면. 기존 화면을 그대로 쓰는 학교는 이 중 화면 쪽 기능이 보이지 않습니다.</div>
+<div class="shot"><img src="img/news.png"><div class="cap">▲ 로그인 새 소식 창 — 판이 바뀌면 이번에 바뀐 것을 한 번 보여 주고, 라이브러리 새 버전이 있으면 적용 방법도 함께</div></div>
+</section>
+
+<!-- ===== 4 학교급 ===== -->
+<section>
+<h2><span class="no">4</span>초등학교 · 중학교 — 학교급 하나로</h2>
+<p>같은 프로그램, 같은 라이브러리를 초등학교와 중학교가 함께 씁니다. 설정의 <b>학교급</b>만 고르면 학년·졸업·PAPS 기준·모듈이 그 학교급에 맞게 바뀝니다. 중학교 선생님은 설치를 마친 뒤 첫 설정에서 중학교로 바꾸고 저장하면 됩니다.</p>
+<table>
+  <tr><th>학교급을 바꾸면</th><th>초등학교</th><th>중학교</th></tr>
+  <tr><td class="k">등록 학년</td><td>1~6학년 (기본 전체)</td><td>1~3학년</td></tr>
+  <tr><td class="k">새 학년도 → 졸업</td><td>6학년이 졸업 처리</td><td>3학년이 졸업 처리</td></tr>
+  <tr><td class="k">PAPS 대상 학년 · 기준</td><td>3~6학년 · 별표 4 초등</td><td>1~3학년 · 별표 4 중등(왕복오래달리기 20m, 팔굽혀펴기 여학생 무릎대고)</td></tr>
+  <tr><td class="k">모듈</td><td>여덟 모듈 전부</td><td>FMS 도전 제외</td></tr>
+  <tr><td class="k">수업 도우미 · 줄넘기</td><td>학년 선택 1~6</td><td>학년 선택 1~3. 줄넘기 대상 학년은 전체로 초기화</td></tr>
+</table>
+<div class="tip"><b class="t">기록은 지워지지 않습니다</b>학교급을 바꿔도 명단·기록은 그대로이고, 바뀌는 것은 설정값뿐입니다. 저장 뒤 다시 로그인하면 메뉴에 반영됩니다.</div>
+</section>
+
+<!-- ===== 5 화면 구성 ===== -->
+<section>
+<h2><span class="no">5</span>화면 구성 · 교사 메뉴</h2>
+<div class="two">
+  <div class="shot"><img src="img/rope-dash.png"><div class="cap">▲ 교사 화면 — 사이드바는 홈 → 모듈 순(설정에서 순서 변경), 소제목을 누르면 접힙니다.</div></div>
+  <div class="shot"><img src="img/mobile.png" style="max-height:520px;object-fit:cover;object-position:top"><div class="cap">▲ 휴대폰·태블릿 — 위 줄에 모듈 탭, 아래 줄에 그 모듈의 메뉴. 탭을 누르면 첫 화면이 바로 열립니다.</div></div>
+</div>
+<table>
+  <tr><th style="width:140px">교사 메뉴</th><th>하는 일</th></tr>
+  <tr><td class="k">오늘 할 일</td><td>재학생·켜진 모듈 수, 모듈별 현황 카드(지금 수업, 측정 완료 인원, 확인 기다리는 기록, 오늘 줄넘기·달성률 1위 학급, 승인 대기 도전 …). 카드를 누르면 그 화면으로. 새 버전·주소 변경 알림도 여기에.</td></tr>
+  <tr><td class="k">학생 명단</td><td>명렬 붙여넣기, 직접 추가, 비밀번호 초기화·카드 인쇄, 졸업·전출, 삭제. 모든 모듈이 이 명단 하나를 씁니다.</td></tr>
+  <tr><td class="k">학생 프로필</td><td>학년·반을 고르면 반 전체 배지 현황표, 학생을 고르면 모듈별 카드와 배지 벽 (9장).</td></tr>
+  <tr><td class="k">세특 초안 <span class="chip" style="background:var(--mint-soft);color:#0B5C4D">3.1</span></td><td>학년·반을 고르면 이번 학년도 기록으로 학생마다 체육 세부능력 및 특기사항 초안. AI 키가 있으면 "AI로 다듬기" (8장).</td></tr>
+  <tr><td class="k">설정</td><td>비밀번호, 학교급, 학교 정보, 화면 방식, 학생 로그인 방식, 모듈 켜고 끄기·순서, AI 키, 접속 주소·QR, 업데이트, 사용 학교 알림.</td></tr>
+  <tr><td class="k">새 학년도 시작 <span class="chip" style="background:var(--mint-soft);color:#0B5C4D">3.1</span></td><td>학년도 바꾸기·학년 올리기(마지막 학년 졸업)·졸업·전출 학생 정리를 한 번에. 시작 전에 시트 보관본을 자동으로 만듭니다 (10장).</td></tr>
+  <tr><td class="k">초기화</td><td>모듈별로 기록·참가자·사진·계획을 골라 지우기. "모든 기록 선택(명단은 남김)"·"명단까지 전부"·모듈마다 "이 모듈 모두"로 한꺼번에. 되돌릴 수 없으니 먼저 시트 사본.</td></tr>
+</table>
+<p><b>스프레드시트 메뉴 "체육교사 보조"</b> — 시트를 열면 위쪽 메뉴에 생깁니다. 상태 점검 · 초기 설정 다시 확인 · 교사 비밀번호 초기화 · 캐시 비우기(시트를 직접 고쳤는데 화면에 반영이 안 될 때) · 업데이트 확인.</p>
+</section>
+
+<!-- ===== 6 학생 ===== -->
+<section>
+<h2><span class="no">6</span>학생이 들어오는 방법</h2>
+<p>학생은 태블릿이나 컴퓨터에서 같은 주소(또는 교실에 붙인 QR)를 열고 학년·반·번호를 고른 뒤 숫자판에 비밀번호 4자리를 누릅니다. 5번 틀리면 1분 잠기고, 3분 동안 아무것도 안 하면 자동으로 나갑니다(설정에서 조정). 처음엔 선생님이 준 번호를 쓰고, 들어간 뒤 "비밀번호 바꾸기"에서 자기 번호로 바꿀 수 있습니다.</p>
+<div class="two">
+  <div class="shot"><img src="img/student-login.png"><div class="cap">▲ 학생 탭 — 학년·반·번호 + 숫자판. 위에 이 학교가 켠 모듈이 보입니다.</div></div>
+  <div class="shot"><img src="img/student-rope.png"><div class="cap">▲ 학생 줄넘기 화면 — 오늘 목표 링, 횟수 넣기, 카메라로 뛰기, 나의 급수</div></div>
+</div>
+<table>
+  <tr><th style="width:140px">학생 메뉴</th><th>내용</th></tr>
+  <tr><td class="k">내 체력 프로필</td><td>PAPS 등급·건강체력교실 포인트·줄넘기 누적·FMS 단계·스포츠클럽 시간 등 요약 카드.</td></tr>
+  <tr><td class="k">내 배지</td><td>통합 배지 6개 + 모듈별 배지. 못 받은 배지는 진행 막대로 얼마나 남았는지.</td></tr>
+  <tr><td class="k">모듈 메뉴</td><td>PAPS(내 기록·내 성장·내 도전), 건강체력교실(오늘 기록하기·내 운동 기록·교실 배지·교실 계획), 줄넘기(오늘 줄넘기·친구 확인하기·내 그래프), 색깔 매트 놀이터(게임 하기·내 매트 기록·퀴즈 문제 내기), FMS 도전(초등), 상호평가(켠 수행평가가 있을 때만). 참여하지 않는 모듈은 보이지 않습니다.</td></tr>
+</table>
+<div class="tip"><b class="t">팁 · 태블릿 운영</b>새 화면이면 로그인 화면 아래 "홈 화면에 앱으로 추가"(아이패드는 공유 → 홈 화면에 추가)로 앱처럼 씁니다. 한 태블릿을 여러 학생이 돌려 써도 되고, 나갈 때 로그아웃을 누르게 지도하세요. 학생 화면에는 친구와 비교하는 순위가 없고 자기 기록·배지만 보입니다(전국 현황판 링크는 학교가 참여를 켰을 때만).</div>
+</section>
+
+<!-- ===== 7 모듈별 ===== -->
+<section>
+<h2><span class="no">7</span>모듈별 안내</h2>
+<p>각 모듈의 자세한 사용법은 v2.4 설명서와 같습니다. 여기서는 핵심 흐름과 v2.4 이후 달라진 점을 적고, 이번에 크게 바뀐 <b>줄넘기</b>는 자세히 적습니다.</p>
+
+<h3>수업 도우미 <span class="v">교사 전용</span></h3>
+<p>시간표를 넣어 두면 <b>지금 수업</b>에 현재 교시·반이 자동으로 뜨고 명렬표를 탭해 출석·특이사항을 남깁니다. 출석·특이사항(반별 매트릭스·출석부 인쇄), 시간표(학기별), 수업 계획(진도표 붙여넣기), 명렬표 출력, <b>팀·모둠 짜기</b>(성별·PAPS 체력이 고르게, 조건 걸기, 저장·인쇄, 학생 화면에 우리 팀 카드).</p>
+
+<h3>수행평가 <span class="v">교사 전용</span></h3>
+<p>학년별 평가 계획(3단계/4단계, 간단/자세히, 표 붙여넣기) → 반별 단계 체크·특기사항 → 결과 조회 → 평가별 결과표·반별 종합표·빈 채점표 인쇄. <b>상호평가</b>를 켜면 짝이 기준을 체크하고 한마디·사진·영상을 보내고, 단계는 선생님이 찍습니다. 학생에게는 진행 상태와 짝이 찍어 준 사진·영상만 보입니다. 여기 쓴 <b>특기사항은 세특 초안에 그대로</b> 들어갑니다.</p>
+
+<h3>PAPS</h3>
+<p>측정 종목 확인 → 기록 입력(반별 표, 등급 자동) → 전체 조회 → 나이스 내보내기. 엑셀·한글 표를 <b>붙여넣기로 일괄 입력</b>(머리글 자동 인식, 키·몸무게 → BMI). 학생은 내 기록·내 성장·내 도전.</p>
+
+<h3>건강체력교실</h3>
+<p>참가 학생만 메뉴가 생기고, 학생이 오늘 기록하기 → 교사 기록 확인 → 포인트·주간 목표·교실 배지. 운동 기록에서 "집에서 · 줄넘기"를 고르면 <b>카메라로 뛰기</b>가 나와 판정기가 센 횟수가 바로 확인 상태로 들어옵니다(줄넘기 설정의 스위치를 켜면 줄넘기 누적에도 함께).</p>
+
+<h3 id="rope">줄넘기 <span class="v new">3.1 · 3.3 크게 바뀜</span></h3>
+<p>학생은 오늘 줄넘기에서 뛴 횟수를 그때마다 넣습니다(종류 고르기, 짝 체크, 카메라로 뛰기). 선생님은 학급 현황·기록 확인·수업 중 입력·학생별 기록·<b>급수 인증·인증서·상장</b>·줄넘기 설정. 설정에 AI 키가 있으면 응원 문구를 AI가 하루 한 번 만듭니다.</p>
+<div class="shot"><img src="img/rope-dash2.png"><div class="cap">▲ 학급 현황 — 학생별 누적(반 고르기·스크롤), 최근 2주, 우리 반 줄넘기 여행, 우리 반 급수(칩을 누르면 명단), 학급 비교. 줄넘기왕은 공동 1위를 모두 보여 줍니다.</div></div>
+<table>
+  <tr><th style="width:150px">교사 메뉴</th><th>하는 일</th></tr>
+  <tr><td class="k">학급 현황</td><td>오늘 기록·합계·목표 달성·누적, 줄넘기왕(오늘·이번 주·연속·누적, <b>공동 1위 모두</b>), 학생별 누적(<b>반 고르기 — 전체 보기 / 학년-반</b>, 종류 필터, 오른쪽 열 높이만큼 보이고 그 아래는 스크롤), 최근 2주 그래프, 학급 공동 목표, <b>우리 반 줄넘기 여행</b>, <b>우리 반 급수</b>, 학급 비교.</td></tr>
+  <tr><td class="k">기록 확인</td><td>학생이 넣은 기록을 확인·반려. 한 건씩, 선택 확인, <b>모두 확인</b>(짝 확인 중인 것은 빼고). "오늘은 짝 체크로" 스위치.</td></tr>
+  <tr><td class="k">수업 중 입력</td><td>수업 시간에 잰 횟수를 반 전체에 한 번에(바로 확인된 기록).</td></tr>
+  <tr><td class="k">학생별 기록</td><td>한 학생의 기록을 보고 고치거나 지우기.</td></tr>
+  <tr><td class="k">급수 인증 <span class="chip" style="background:var(--coral-soft);color:#B4321F">3.1.9</span></td><td>아래 참고.</td></tr>
+  <tr><td class="k">인증서 · 상장 <span class="chip" style="background:var(--coral-soft);color:#B4321F">3.1.9</span></td><td>급수 인증서와 전국 현황판 상장을 A4 가로로 인쇄·PDF. 아래 참고.</td></tr>
+  <tr><td class="k">줄넘기 설정</td><td>하루 목표·학급 공동 목표·입력 제한·대상 학년·자동 확인·급수 인증 사용·<b>우리 반 줄넘기 여행</b>(코스·세기 시작한 날)·종류 목록·짝 체크·카메라 판정기·AI 응원 문구, 맨 아래 <b>전국 현황판 참여</b>.</td></tr>
+</table>
+
+<h3>줄넘기 종류 · 짝 체크</h3>
+<p><b>종류</b> — 학생이 횟수를 넣을 때 모아뛰기·엇갈아뛰기·이중뛰기·십자뛰기 등 종류를 고릅니다(설정에서 목록 편집, 끌 수도 있음). 학급 현황은 종류로 걸러 보고 학생 그래프에는 종류별 누적선이 함께 나옵니다. <b>짝 체크</b> — 학생이 많은 날에만 켜는 선택 기능. 학생이 같은 반 짝을 고르고 짝이 "맞아요"라고 해야 선생님께 옵니다(계수기 사진은 선택). 최종 확인은 언제나 선생님입니다.</p>
+
+<h3>카메라 줄넘기 판정기 <span class="v">v0.7.4</span></h3>
+<div class="two3">
+  <div>
+    <p>전자 줄넘기는 손으로 빙글빙글 돌려도 숫자가 올라가지요. 판정기는 태블릿·노트북·휴대폰 카메라로 관절의 움직임을 읽어 <b>엉덩이와 머리가 같이 뜨고 팔이 돌아갈 때만</b> 1회로 셉니다. 앉아서 팔만 돌리거나 줄 없이 콩콩만 뛰면 세지 않고 화면에 이유가 떠요. 영상은 기기 밖으로 나가지 않습니다.</p>
+    <div class="flow" style="font-size:9.8pt">학생: 오늘 줄넘기 → 종류 고르기 → 카메라로 뛰기 → (앱 안 전체 화면) 시작 → 뛰기 → 끝내고 기록하기 → "카메라 판정" 기록으로 바로 확인 상태 저장</div>
+    <p><b>준비</b> — 줄넘기 설정 → 카메라 판정기에 판정기 주소(기본값 있음), 기록할 최소 횟수, 민감도(6~16, 기본 10). 학생은 민감도를 못 바꿉니다. <b>v0.7</b>부터 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼, 휴대폰 세로 화면에서 내 모습과 횟수가 나란히. 새 화면에서는 판정기가 앱 안 전체 화면으로 열리고 "앱으로 돌아가기"로 닫으면 방금 기록이 바로 보입니다. 카메라가 센 기록은 짝 체크·교사 확인 없이 바로 확인 상태(입력자 "카메라")이고 전국 현황판에도 바로 올라갑니다.</p>
+  </div>
+  <div class="shot"><img src="img/judge-phone.png"><div class="cap">▲ 판정기 v0.7.4 첫 화면 — 2~3m 떨어져 머리부터 발까지</div></div>
+</div>
+
+<h3>전국 줄넘기 현황판 참여 <span class="v new">3.1.7</span></h3>
+<p>줄넘기 설정 맨 아래 <b>전국 현황판 참여</b>를 켜면 우리 학교의 날짜별 줄넘기 합계가 전국 현황판에 올라가고, <b>줄넘기 기록 관리 프로그램</b>을 쓰는 학교들과 같은 현황판·기록실에서 함께 겨룹니다. 한 달 단위로 학교 순위(합계·1인당 평균·참여율, 학년별 순위)와 학생 순위를 매기고, 끝난 달은 기록실에 남습니다.</p>
+<div class="flow">줄넘기 설정 → 전국 현황판 참여 켜기 → 학교 이름 · 담당 교사(필수) · 연락처(선택) · 학교 이름 공개 여부 → 저장(바로 보냄) → "현황판 보기" · "기록실"</div>
+<div class="shot"><img src="img/rope-nat.png"><div class="cap">▲ 전국 현황판 참여 칸 — 보내는 것 / 운영자만 보는 것 / 보내지 않는 것이 한눈에</div></div>
+<table>
+  <tr><th>현황판에 보내는 것</th><th>운영자(음악적체육인)만 보는 것</th><th>보내지 않는 것</th></tr>
+  <tr><td>가린 이름(김*늘) · 학년 · 날짜별 <b>'확인'된</b> 횟수 · 등록 학생 수(학년별 포함)</td><td>학교 이름 · 담당 교사 · 연락처 (학교 이름 공개를 끄면 현황판에는 "익명 학교 ○○○○"로)</td><td>학생 실명 · 반 · 번호 · 비밀번호 · 그 밖의 시트 내용</td></tr>
+</table>
+<ul>
+  <li>기록이 확인될 때마다 그날 것을, 줄넘기 화면을 열 때 1시간에 한 번 전체(이번 달·지난 달)를 다시 보냅니다. 고친 기록도 맞춰집니다. 참여를 <b>끄면</b> 현황판에서 우리 학교 기록이 지워집니다.</li>
+  <li><b>공정하게 — 참여 중에는 "학생 입력 자동 확인"이 꺼지고 켤 수 없습니다.</b> 선생님이 확인한 기록과 카메라 판정기 기록만 현황판에 올라가서, 아무 숫자나 올리는 일을 막습니다. 참여를 켤 때 자동 확인이 켜져 있으면 물어보고 꺼 줍니다.</li>
+  <li>참여 중이면 학생 화면에도 "전국 현황판 보기" 링크가 생깁니다. 현황판: <code>https://musicalpe.github.io/jumprope/board.html</code></li>
+</ul>
+
+<h3>급수 인증 <span class="v new">3.1.9</span></h3>
+<p>한국줄넘기협회 급수표(<span class="chip" style="background:#fff">흰</span> → <span class="chip" style="background:#FFD60A">노랑</span> → <span class="chip" style="background:#1E8E3E;color:#fff">초록</span> → <span class="chip" style="background:#2F56C8;color:#fff">파랑</span> → <span class="chip" style="background:#6B2A20;color:#fff">밤</span> → <span class="chip" style="background:#F07C1E;color:#fff">주황</span> → <span class="chip" style="background:#E01B1B;color:#fff">빨강</span> → <span class="chip" style="background:#1A1A1A;color:#fff">검은</span> → <span class="chip" style="background:#9CA3AF">와이어</span>)를 보고 선생님이 항목별로 체크합니다. 한 급수의 항목을 모두 통과하면 그 급수를 딴 것으로 보고, <b>앞 급수를 못 딴 학생은 잠깁니다</b>(이미 체크된 칸은 해제만).</p>
+<div class="shot"><img src="img/levels.png"><div class="cap">▲ 급수 인증표 — 반·급수·통과일을 고르고 체크. 이름 옆 "모두"는 그 학생 전체, 머리줄 체크는 항목 전체·반 전체. 저장하면 "급수가 오른 학생"을 알려 줍니다.</div></div>
+<ul>
+  <li><b>급수표 고치기</b> — "이름 #색상" 한 줄 다음에 "항목, 기준"을 한 줄씩, 급수 사이는 빈 줄. 기준을 비우면 "성공". 이미 체크한 칸은 급수·항목 <b>순서</b>로 남으니 학기 중에는 이름만 고치고 순서는 바꾸지 않는 편이 좋습니다. "기본 급수표로" 되돌릴 수 있습니다.</li>
+  <li>학생 화면에 <b>나의 급수</b> — 지금 급수, 다음 도전 급수의 항목별 통과 ✓, 급수 사다리, 우리 반 급수 분포(인원만). 학급 현황에 <b>우리 반 급수</b>(칩을 누르면 명단).</li>
+  <li>줄넘기 설정에서 급수 인증 사용을 끄거나, 급수 인증 화면의 "학급 현황·학생 화면에 우리 반 급수 보이기"를 끌 수 있습니다. 시트 <code>줄넘기_급수</code>는 첫 인증 저장 때 생기고, 학생을 삭제하면 그 학생의 급수도 함께 지워집니다.</li>
+</ul>
+<div class="two">
+  <div class="shot"><img src="img/student-level.png"><div class="cap">▲ 학생 — 나의 급수 · 다음 도전 항목 · 우리 반 급수 · 우리 반 줄넘기 여행</div></div>
+  <div class="shot"><img src="img/levels-table.png"><div class="cap">▲ 급수표 고치기 — 글로 고치고 저장, 기본 급수표로 되돌리기</div></div>
+</div>
+
+<h3>인증서 · 상장 <span class="v new">3.1.9</span></h3>
+<p><b>급수 인증서</b>는 반을 고르면 급수를 딴 학생마다 <b>지금 딴 급수</b> 한 장씩, <b>전국 현황판 순위 상장</b>은 지난달 기록실에서 우리 학교가 받은 순위(학교 합계·1인당 평균·참여율 전국 1~3위, 학생 전국 1~3위, 우리 학교 안 1~3위)마다 한 장씩 나옵니다(현황판에 참여한 학교만). 학교 이름·발급 날짜·직함(담임 / 체육 교사 / 체육 전담 교사 / 직접 입력)·선생님 이름을 넣고 미리보기 → <b>인쇄 · PDF 저장</b>(인쇄 창에서 "PDF로 저장"). A4 가로입니다.</p>
+<div class="shot"><img src="img/certs.png"><div class="cap">▲ 인증서·상장 — 종류·반(또는 기록실 달)·학교·날짜·직함을 넣고 미리보기</div></div>
+
+<h3>우리 반 줄넘기 여행 <span class="v new">3.1.9</span></h3>
+<p>확인된 줄넘기를 <b>1회 = 1m</b>로 바꿔 코스를 따라 나아갑니다. 줄넘기 설정에서 코스(서울 → 부산 400km · 국토 한 바퀴 1,200km · 서울 → 제주 560km · 지구 한 바퀴 40,075km)와 "세기 시작한 날"을 고르면 학급 현황과 학생 화면에 진행 막대가 보입니다. 새로 출발하려면 오늘 날짜를 넣으세요. 학급 공동 목표(누적 ○회)와 같은 숫자를 다르게 보여 주는 것이라, 둘 중 하나만 켜도 됩니다.</p>
+
+<h3>색깔 매트 놀이터 <span class="v">밝은 화면 · 리듬 스텝 v1.8</span></h3>
+<div class="two3">
+  <div>
+    <p>바닥에 4색 매트를 놓고 화면의 지시를 보고 그 칸으로 뛰는 게임 10종(색깔 점프 · 색깔 스트룹 · 기억력 스텝 · 리듬 스텝 · 방향 점프 · 퀴즈 점프 · 연상 점프 · 손발 트위스터 · 얼음 스텝 · 용암 매트). 짝과 함께(단계마다 짝이 "뛰고 있어요!") / 혼자 연습을 따로 누적하고 배지. 교사는 학급 현황·게임 통계·짝 배정·수업 모드·퀴즈 문제 은행(AI 문제 받기)·우리 반 그림·설정.</p>
+    <p><b>새 화면에서</b> 게임 설정·끝 화면이 밝은 카드 톤으로 바뀌었고(게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로), <b>리듬 스텝</b>은 단독판 v1.8처럼 블록이 비트세이버처럼 앞으로 다가옵니다 — 화면의 칸 위치가 바닥 매트 칸 위치와 똑같아서 그대로 밟으면 됩니다("위에서 떨어지기(네 줄)"도 설정에서 고를 수 있음). 게임 중 휴대폰 "뒤로"를 누르면 게임이 닫히고 음악도 멈춥니다.</p>
+  </div>
+  <div>
+    <div class="shot"><img src="img/mat-setup.png"><div class="cap">▲ 밝은 게임 설정 화면</div></div>
+    <div class="shot"><img src="img/rhythm-tunnel.png"><div class="cap">▲ 리듬 스텝 — 블록이 앞으로 다가와요</div></div>
+  </div>
+</div>
+
+<h3>FMS 도전 <span class="v">초등 전용</span></h3>
+<p>기본 움직임 기술 14가지를 학년군별 준거·단계로 도전. 학생 "내 도전" → 짝 확인(사진·영상 선택/필수) → 교사 승인 → 배지. 교사는 대시보드·관찰평가·승인 대기·학급 현황·학년군 조정·기준표.</p>
+
+<h3>스포츠클럽 · 교내 리그전 <span class="v">교사 전용</span></h3>
+<p>클럽을 만들고 전환: 활동 일지·참가 학생·출석부·대회 실적·예산·활동 사진·정산보고서(인쇄·Word·구글 문서). <b>교내 리그전</b>은 클럽과 따로 도는 학교 전체 리그 — 회차 안에 종목 여러 개, 반 대항/팀 대항/개인전, 라운드로빈 대진 자동 생성, 스코어 → 순위, 일정표·순위표·게시용 대진표 문서.</p>
+</section>
+
+<!-- ===== 8 세특 ===== -->
+<section>
+<h2><span class="no">8</span>세특 초안 · AI 키 <span class="chip" style="background:var(--mint-soft);color:#0B5C4D;vertical-align:middle">3.1</span></h2>
+<p>홈 → <b>세특 초안</b>에서 학년·반과 글자 한도를 고르고 불러오기를 누르면, 이번 학년도 기록(수행평가 특기사항 · PAPS · 줄넘기 · 건강체력교실 · FMS · 색깔 매트, 고르면 스포츠클럽)으로 학생마다 체육 <b>세부능력 및 특기사항 초안</b> 문장이 만들어집니다. 고쳐 쓴 글은 <code>세특_초안</code> 시트에 저장되고, 글자 수·나이스 바이트 수가 보이며, 반 전체를 표로 복사할 수 있습니다. 학생을 골라 글 지우기(빈칸으로 저장)도 됩니다.</p>
+<div class="shot"><img src="img/seteuk.png"><div class="cap">▲ 세특 초안 — 넣을 기록을 고르고 불러오기. 학생마다 초안·AI·복사·저장.</div></div>
+<div class="two">
+  <div>
+    <h3>AI로 다듬기</h3>
+    <p>기록에서 뽑은 틀 문장이라 학생끼리 비슷할 수 있어요. 설정에 AI 키가 있으면 <b>AI</b> 단추(한 명) 또는 <b>반 전체 AI로 다듬기</b>(고른 학생, 안 고르면 반 전체)로 학생마다 기록 사실로 서로 다른 문장을 써 줍니다. 선생님이 칸에 쓴 관찰 내용을 가장 먼저 살리고, <b>이름·성별·학교는 보내지 않으며</b>, 기록에 없는 일은 지어내지 않게 했습니다. 쓴 글은 바로 저장되고 "초안으로"로 언제든 되돌립니다.</p>
+  </div>
+  <div>
+    <h3>AI 키는 설정 한 곳에서</h3>
+    <p>설정 왼쪽 아래 <b>AI 키(Gemini)</b>에 키를 넣고 "시험해 보기". 줄넘기 응원 문구·매트 퀴즈 문제·세특 다듬기가 모두 이 키를 쓰고, 앞으로 생길 AI 기능도 여기 키를 씁니다. 키는 선생님 시트의 숨긴 속성에만 저장됩니다. Google AI Studio에서 무료 키를 만들 수 있습니다(aistudio.google.com → Get API key). 키가 없어도 모든 기능이 기본 문구로 돌아갑니다.</p>
+    <div class="shot"><img src="img/settings-ai.png"><div class="cap">▲ 설정 → AI 키 · 시험해 보기</div></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== 9 프로필 ===== -->
+<section>
+<h2><span class="no">9</span>학생 프로필 · 통합 배지</h2>
+<p>모듈마다 따로 있던 성취를 학생 한 명 기준으로 모아 봅니다. 학생 화면 "내 배지", 교사 화면 "학생 프로필"이 같은 자료를 보여 줍니다.</p>
+<table>
+  <tr><th style="width:170px">통합 배지</th><th>조건</th></tr>
+  <tr><td class="k">첫 발걸음</td><td>어떤 활동에서든 첫 배지를 받음</td></tr>
+  <tr><td class="k">두 가지 활동 · 세 가지 활동</td><td>배지를 받은 모듈이 2개 · 3개</td></tr>
+  <tr><td class="k">체육 만능</td><td>참여하는 모든 모듈에서 배지를 받음</td></tr>
+  <tr><td class="k">배지 수집가 · 배지 마스터</td><td>배지 10개 · 30개</td></tr>
+</table>
+<p>모듈 배지(교실 배지·줄넘기 배지 15개·매트 배지·FMS 도전 단계·PAPS 도전 배지)는 기존 기록에서 자동 계산되므로 따로 입력할 것이 없습니다.</p>
+</section>
+
+<!-- ===== 10 새 학년도 ===== -->
+<section>
+<h2><span class="no">10</span>새 학년도 시작 · 자료 관리</h2>
+<div class="flow">설정 → 새 학년도 시작 → (보관본 자동) 학년도 +1 · 재학생 학년 올리기 · 마지막 학년 졸업 · (고르면) 졸업·전출 학생 정리 → 새 명렬 붙여넣기 → 기존 학생 채우기</div>
+<div class="two3">
+  <div>
+    <p><b>새 학년도 시작</b>(3.1)은 예전의 "학년 올리기"를 한 화면에 모은 것입니다. 시작 전에 <b>시트 보관본(사본)</b>을 자동으로 만들고, 학년도를 바꾸고, 재학생 학년을 올리며(마지막 학년은 졸업 처리), 고르면 이미 졸업·전출한 학생을 정리합니다. 끝나면 이어서 할 일(새 명렬 붙여넣기 → 기존 학생 채우기)을 안내합니다. 학생ID는 그대로라 지난 기록이 이어집니다.</p>
+    <p><b>자료는 어디에</b> — 모두 선생님 스프레드시트의 시트(학생, 설정, 수업_*, 평가_*, PAPS_*, 체력_*, 줄넘기_*, MAT_*, FMS_*, 클럽_*, 세특_초안, 숨김 시트 _속성)에 있고, 사진은 선생님 드라이브 폴더에 있습니다. 백업은 파일 → 사본 만들기면 충분합니다. 시트를 직접 고쳤으면 메뉴 캐시 비우기.</p>
+    <div class="tip warn"><b class="t">주의 · 되돌릴 수 없는 것</b>초기화, 학생 삭제, 클럽 삭제는 되돌릴 수 없습니다. 큰 정리 전에는 파일 → 사본 만들기로 시트를 복사해 두세요.</div>
+  </div>
+  <div class="shot"><img src="img/newyear.png"><div class="cap">▲ 새 학년도 시작 — 바뀌는 것과 실행 항목, 확인 문구</div></div>
+</div>
+</section>
+
+<!-- ===== 11 새 버전 ===== -->
+<section>
+<h2><span class="no">11</span>새 버전 적용 — 2분 · "새 배포"는 누르지 마세요</h2>
+<p>새 버전이 나오면 프로그램이 알아서 알려 줍니다. 선생님이 로그인할 때 새 소식 창과 홈 알림이 뜨고, 설정 → 업데이트 칸에 적용 순서가 나옵니다. 파일을 다시 붙여넣을 필요는 없습니다. 새 화면을 쓰면 <b>화면만 바뀐 판은 아무것도 할 게 없고</b>, 라이브러리(서버)가 바뀐 판만 아래 세 단계입니다.</p>
+<div class="two3">
+  <div>
+    <ol class="steps">
+      <li>스프레드시트 → 확장 프로그램 → Apps Script</li>
+      <li>왼쪽 "라이브러리" 아래 <b>PE</b> 를 클릭 → 버전을 알림에 적힌 숫자로 바꾸고 저장 (v3.3.0 은 <b>라이브러리 51</b>)</li>
+      <li>오른쪽 위 배포 → <b>배포 관리</b> → 연필 ✎ → 버전 <b>"새 버전"</b> → 배포</li>
+    </ol>
+    <div class="tip warn"><b class="t">⚠ "새 배포"는 누르지 마세요</b>업데이트할 때 배포 → <b>새 배포</b>를 누르면 학생용 주소가 새로 생겨 교실 QR·즐겨찾기가 옛 주소가 됩니다. 반드시 <b>배포 관리 → 연필 → 새 버전</b>으로 하세요. (처음 설치할 때만 새 배포입니다.)</div>
+    <p>자료도 주소도 그대로입니다. 끝나면 프로그램 화면을 새로 고치면 버전 숫자가 바뀌어 있습니다. 권한이 새로 필요한 판이면 배포 때 "액세스 승인"이 한 번 더 뜨는데 1장과 같이 허용하면 됩니다. 업데이트를 미뤄도 지금 버전이 그대로 돌아가니 급하지 않습니다. 껍데기(Shell.gs)는 3.0.0 때 doPost 한 줄이 늘어난 뒤로 그대로입니다 — 2.x에서 올라오는 학교만 Shell.gs 를 한 번 다시 붙여 넣으세요.</p>
+  </div>
+  <div class="shot"><img src="img/settings-update.png"><div class="cap">▲ 설정 → 업데이트 칸 — 지금 판·이번 판에서 바뀐 것·지난 판 보기, 그 아래 사용 학교 알림</div></div>
+</div>
+<h3>그래도 주소가 바뀌었다면 <span class="v">3.1.5</span></h3>
+<p>기록은 그대로입니다. 선생님이 로그인할 때 "학생용 주소가 바뀌었어요 — QR 다시 인쇄" 알림이 뜨고, 옛 주소(교실 QR·즐겨찾기)로 들어온 사람에게는 <b>"새 주소로 열기"</b> 버튼이 나옵니다. 새 화면을 쓰는 기기는 저절로 새 주소로 옮겨 갑니다. 설정 → 접속 주소에서 QR을 다시 인쇄해 붙이고, 교실 QR을 다 바꾼 뒤 옛 배포는 보관처리하면 됩니다.</p>
+<div class="shot"><img src="img/addr-note.png"><div class="cap">▲ 홈 알림 — 학생용 주소가 바뀌었을 때</div></div>
+</section>
+
+<!-- ===== 12 사용 학교 알림 ===== -->
+<section>
+<h2><span class="no">12</span>사용 학교 알림 — 제가 아는 것과 모르는 것 <span class="chip" style="background:var(--mint-soft);color:#0B5C4D;vertical-align:middle">3.1.3</span></h2>
+<p>설정 → 업데이트 칸 아래에 <b>사용 학교 알림</b>이 있습니다. 하루 한 번 "이 프로그램을 쓰고 있어요" 신호를 만든 선생님께 보냅니다. 기본은 <b>익명</b>이고, <b>학교 이름도 알리기</b> / <b>알리지 않기</b>로 바꿀 수 있습니다.</p>
+<div class="quote">제가 알 수 있는 것은 이 프로그램을 쓰는 <b>학교 수</b>와 <b>프로그램 정보</b>(어느 판을 쓰는지, 초·중, 켠 모듈 수)뿐이에요. 학교 이름은 '학교 이름도 알리기'를 고른 학교만 알 수 있어요. <b>학생 이름·기록·비밀번호는 각 학교 선생님의 구글 스프레드시트에만 있어서 저는 볼 수도, 모을 수도 없어요.</b></div>
+<table>
+  <tr><th>왜 모으나요</th><th>보내는 것 (익명)</th><th>끄는 방법</th></tr>
+  <tr><td>새 화면이 GitHub에서 오기 때문에 GitHub 사용량과 서버 확충을 미리 준비하고, 어느 판을 몇 학교가 쓰는지 알아야 업데이트를 꾸준히 이어 갈 수 있어서입니다.</td><td>무작위 학교 번호 · 판 번호 · 학교급 · 켠 모듈 수 · 화면 방식. "학교 이름도 알리기"를 고르면 학교 이름을 함께.</td><td>설정 → 업데이트 아래 → <b>알리지 않기</b>. 끄면 아무것도 보내지 않고 모든 기능은 그대로입니다.</td></tr>
+</table>
+</section>
+
+<!-- ===== 13 FAQ ===== -->
+<section>
+<h2><span class="no">13</span>자주 묻는 질문</h2>
+<p><b>Q. 제 자료가 선생님(제작자) 쪽으로 가나요?</b><br>A. 아니요. 프로그램 코드만 라이브러리에서 빌려 쓰고, 실행은 선생님 계정에서, 저장은 선생님 시트와 드라이브에만 됩니다. 사용 학교 알림(12장)은 학교 수와 판 정보만이고 끌 수 있으며, 전국 현황판(7장)은 참여를 켠 학교만 가린 이름·횟수를 보냅니다.</p>
+<p><b>Q. 새 화면으로 바꾸면 학생 주소가 바뀌나요?</b><br>A. 아니요. 같은 주소·QR로 들어오면 새 화면이 열립니다. 되돌리려면 설정 → 화면 방식 → 기존 화면.</p>
+<p><b>Q. 급수 인증 메뉴를 눌렀더니 "라이브러리 50 이상이 필요해요"라고 나와요.</b><br>A. 새 화면이 학교 프로그램보다 앞서 있는 것입니다. 11장대로 라이브러리 버전을 올리면 바로 쓸 수 있습니다.</p>
+<p><b>Q. 전국 현황판에 참여했더니 "학생 입력 자동 확인"이 꺼졌어요.</b><br>A. 의도된 것입니다. 참여 중에는 선생님이 확인한 기록과 카메라 기록만 현황판에 올라가야 공정하기 때문에 자동 확인을 켤 수 없습니다. 기록 확인 화면의 "모두 확인"으로 빠르게 확인하세요.</p>
+<p><b>Q. 학생이 구글 계정이 있어야 하나요?</b><br>A. 없어도 됩니다. 배포할 때 "모든 사용자"로 했기 때문에 주소만 있으면 열리고, 학생은 프로그램 안의 비밀번호 4자리로 들어옵니다.</p>
+<p><b>Q. 주소를 열면 "스크립트 기능이 완료되었지만 아무것도 반환하지 않았습니다"가 나와요.</b><br>A. 라이브러리가 연결되지 않은 상태입니다. 1장 3번(라이브러리 PE 추가)을 확인하고 배포 관리 → 새 버전을 다시 해 주세요. "PE is not defined"면 식별자를 PE 로 고치세요.</p>
+<p><b>Q. 처음 열 때 오래 걸려요.</b><br>A. 첫 접속 때 시트 30개쯤을 만들어서 그렇습니다. 한 번 만들어진 뒤로는 2~3초 안에 열립니다.</p>
+<p><b>Q. PAPS 등급이 "기준 없음"으로 나와요.</b><br>A. 학교급과 학생 학년이 맞는지 보세요. 초등 1~2학년은 기준표가 없습니다. 학교급을 바꾼 직후라면 메뉴 체육교사 보조 → 캐시 비우기.</p>
+<p><b>Q. 교사 비밀번호를 잊었어요.</b><br>A. 스프레드시트 메뉴 체육교사 보조 → 교사 비밀번호 초기화 → 1234.</p>
+<p><b>Q. 시트를 직접 고쳤는데 화면이 그대로예요.</b><br>A. 화면이 6시간 동안 시트 내용을 기억합니다. 메뉴 체육교사 보조 → 캐시 비우기.</p>
+<p><b>Q. 사진은 어디에 저장되나요?</b><br>A. 시트가 있는 드라이브 폴더 안에 "스포츠클럽 사진·보고서", "건강체력교실 사진·결과물", "줄넘기 짝 확인 사진", "FMS 도전 인증 사진·영상", "색깔 매트 놀이터 그림" 폴더가 생기고 거기에 저장됩니다. 시트에는 파일 ID만 남습니다.</p>
+<p><b>Q. 두 학교(두 시트)에서 쓰고 싶어요.</b><br>A. 시트마다 1장을 반복하면 됩니다. 라이브러리는 같은 것을 씁니다.</p>
+<p><b>Q. 오프라인판도 있나요?</b><br>A. 있습니다. 인터넷·구글 계정 없이 파일 하나로 도는 판이고 같은 판 번호(3.3.0)를 씁니다. 새 화면·전국 현황판·사용 학교 알림처럼 인터넷이 필요한 것은 빠지고, 급수 인증·인증서·세특 초안·새 학년도 시작은 똑같이 됩니다. 별도 설명서를 참고하세요.</p>
+</section>
+
+<!-- ===== 14 업데이트 내역 ===== -->
+<section class="hist">
+<h2><span class="no">14</span>업데이트 내역 (v2.2 이후)</h2>
+<p>지난 인디스쿨 공유(v2.2) 이후 바뀐 것입니다. 판 번호 옆은 라이브러리 버전입니다.</p>
+<h4>v3.3.0 · 라이브러리 51 (10-05)</h4><p>설정 → 모듈에서 ▲▼로 사이드바 모듈 순서를 바꿈(저장하면 바로 반영, 학생 화면도 같은 순서). 새 화면 3.3.x: 줄넘기 학생별 누적 표에 반 고르기(전체 보기 / 학년-반)와 오른쪽 열 높이에 맞춘 스크롤, 급수 인증표의 "모두" 체크를 이름 옆으로.</p>
+<h4>v3.1.9 · 라이브러리 50 (10-05)</h4><p>줄넘기에 급수 인증(한국줄넘기협회 급수표, 항목별 체크, 앞 급수 잠금, 급수표 고치기, 학생 화면 나의 급수, 학급 현황 우리 반 급수) · 인증서·상장(급수 인증서, 전국 현황판 상장, A4 가로 인쇄·PDF, 직함) · 우리 반 줄넘기 여행(1회 = 1m, 4개 코스) · 기록 확인 "모두 확인" · 줄넘기왕 공동 1위 · 전국 현황판에 학년별 등록 수 · 학생 삭제 시 급수도 삭제.</p>
+<h4>v3.1.8 · 49 (10-04)</h4><p>전국 현황판 참여 중에는 "학생 입력 자동 확인"이 꺼지고 켤 수 없음 — 선생님이 확인한 기록과 카메라 기록만 현황판에.</p>
+<h4>v3.1.7 · 48 (10-04)</h4><p>줄넘기 설정 → "전국 현황판 참여" — 줄넘기 기록 관리 프로그램 학교들과 같은 현황판·기록실. 가린 이름·학년·날짜별 횟수·등록 학생 수만 보냄. 학생 화면에 현황판 링크.</p>
+<h4>v3.1.6 · 46 (10-04)</h4><p>색깔 매트 놀이터 리듬 스텝 새 모습(단독판 v1.8) — 블록이 앞으로 다가옴, 화면 칸 = 매트 칸.</p>
+<h4>v3.1.5 · 45 (10-04)</h4><p>"새 배포"로 학생용 주소가 바뀌었을 때 — 선생님 홈 알림(QR 다시 인쇄), 옛 주소로 들어오면 "새 주소로 열기", 새 화면 기기는 자동 이동. 적용 순서 안내에 "새 배포는 누르지 마세요".</p>
+<h4>v3.1.3 · 43 (10-03)</h4><p>사용 학교 알림(익명 기본 · 학교 이름도 · 알리지 않기). 3.1.4(44)는 만든 선생님 학교 전용 현황 칸.</p>
+<h4>v3.1.2 · 42 (10-03)</h4><p>AI 키를 설정 한 곳에서 — 줄넘기 응원 문구·매트 퀴즈·세특이 같은 키.</p>
+<h4>v3.1.1 · 41 (10-03)</h4><p>세특 초안 "AI로 다듬기"(한 명씩 / 고른 학생 / 반 전체), 글 지우기. 선생님 로그인 새 소식 창.</p>
+<h4>v3.1.0 · 40 (10-01)</h4><p>세특 초안(홈), 새 학년도 시작(설정, 보관본 자동), 학교마다 따로인 저장 잠금, 홈 현황 2분 기억, 초기화 한꺼번에 고르기, 휴대폰 탭 첫 화면 바로 열기, 매트 놀이터 밝은 화면.</p>
+<h4>v3.0.2 · 39 (10-01)</h4><p>교사 로그인 빨라짐(화면 먼저, 카드는 뒤에). 학생 로그인 직후 빈 화면 수정. 학생용 QR이 화면 방식을 따라감. 매트 게임 Made by 도장, 휴대폰 뒤로가기로 게임 닫힘.</p>
+<h4>v3.0.1 · 38 (09-30)</h4><p>설정 → 접속 주소에 학생용 QR(인쇄). 업데이트 칸 버전 표시 수정. 껍데기에 doPost 가 없어도 큰 저장이 조각으로 올라감.</p>
+<h4>v3.0.0 · 37 (09-30)</h4><p>새 화면(GitHub)을 위한 서버 입구. 설정 → 화면 방식(기존 | 새 화면). 껍데기 Shell.gs 에 doPost 한 줄.</p>
+<h4>v2.4.0 · 36 (09-29)</h4><p>건강체력교실 카메라 줄넘기("집에서 · 줄넘기" → 카메라로 뛰기), 줄넘기 설정의 "줄넘기 기록에 함께" 스위치. 판정기 v0.6.</p>
+<h4>v2.3.0 ~ 2.3.3 · 32~35 (09-29)</h4><p>줄넘기 카메라 판정기(관절 움직임으로 진짜 뛴 횟수, 민감도 설정, 앱으로 돌아오면 자동 새로 고침). 색깔 매트 놀이터 연상 점프 "우리 반 그림", 용암 매트 난이도 개편, 게임 목록 4개씩. 매트 점프 배지 표시 수정.</p>
+<h4>새 화면(3.0.0 ~ 3.3.1)</h4><p>학교 주소 기억·다른 학교로 바꾸기, 구글 안내 띠 없음, 홈 화면에 앱으로 추가, 판 자동 갱신, 로그인 새 소식 창, 카메라 판정기 앱 안 전체 화면(v0.7.4 밝은 디자인·세로 화면 나란히), 매트 밝은 화면·리듬 스텝 새 모습, 초기화 한꺼번에 고르기, 세특·새 학년도·AI 키·사용 학교 알림·전국 현황판·급수 인증·인증서·여행·모듈 순서 화면.</p>
+<p class="foot">즐겁게 사용해 주세요! 이 프로그램은 체육전담 선생님이 여러 프로그램을 따로 관리하며 들이는 시간을 줄이려고 만들었습니다. 사용 중 궁금한 점이 생기면 인디스쿨 <b>음악적체육인</b>에게 쪽지 보내 주세요.<br>Made by 음악적체육인</p>
+</section>
+</body>
+</html>
