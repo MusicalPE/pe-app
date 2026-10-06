@@ -1,5 +1,5 @@
 {
-  "id": "./?page=teacher",
+  "id": "/pe-app/?page=teacher",
   "name": "체육교사 보조 프로그램",
   "short_name": "체육 보조",
   "start_url": "./?page=teacher",
