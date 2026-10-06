@@ -13,7 +13,7 @@
 <script>
 (function () {
   var q = location.search.replace(/^\?/, ''), done = false;
-  function go(v) { if (done) return; done = true; location.replace('app.html?v=' + encodeURIComponent(v || '3.3.4') + (q ? '&' + q : '')); }
+  function go(v) { if (done) return; done = true; location.replace('app.html?v=' + encodeURIComponent(v || '3.3.5') + (q ? '&' + q : '')); }
   setTimeout(function () { go(''); }, 4000);   // 판 확인이 늦으면 그냥 열기
   fetch('ready.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) { go(j.version); }, function () { go(''); });
 })();
