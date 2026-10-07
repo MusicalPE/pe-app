@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="체육 기록장">
 <script>(function(){try{if(/[?&]page=teacher/.test(location.search))document.getElementById("webManifest").href="manifest-teacher.webmanifest";}catch(e){}})();</script>
-<meta name="pe-web" content="3.3.5 · 2026-10-07 08:56 · server api 1">
+<meta name="pe-web" content="3.3.6 · 2026-10-07 15:08 · server api 1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 <style>
@@ -359,7 +359,7 @@ button.say i{font-size:18px;}
 (function () {
   'use strict';
   var WEB = window.WEB = {
-    version: '3.3.5', needs: 1, built: '2026-10-07 08:56', history: [{"version":"3.3.5","date":"2026-10-07","notes":"휴대폰 가로 화면에서 로그인 창이 위아래로 잘려 숫자판 끝까지 못 내리던 것을 고쳤어요(위·아래 모두 스크롤). 가로 화면에서는 숫자판도 조금 낮게. (화면만)"},{"version":"3.3.4","date":"2026-10-06","notes":"앱 아이콘을 민트 바탕 + 고리 모양으로(줄넘기 기록 관리와 같은 모양, 색만 다름). 이미 홈 화면에 추가한 기기는 지우고 다시 추가해야 새 아이콘이 보여요."},{"version":"3.3.3","date":"2026-10-06","notes":"줄넘기 \"학급 공동 목표\" 칸을 뺐어요(학급 현황·학생 화면·설정) — 우리 반 줄넘기 여행과 같은 숫자라 겹쳤어요. 설정값은 시트에 남아 있지만 쓰지 않아요. (화면만)"},{"version":"3.3.2","date":"2026-10-06","notes":"줄넘기 학급 현황: 여행·급수 패널 제목이 보는 범위를 따라가요 — 한 반이면 \"우리 반\", 한 학년 여러 반이면 \"우리 N학년\", 전체면 \"우리 학교\". (화면만)"},{"version":"3.3.1","date":"2026-10-05","notes":"급수 인증표: 학생 \"모두\" 체크를 이름 바로 옆으로 — 체크하면 그 줄 전부, 머리줄 \"모두\"는 반 전체. 항목을 하나씩 바꾸면 \"모두\" 칸이 따라와요. (화면만, 라이브러리 그대로)"},{"version":"3.3.0","date":"2026-10-05","notes":"3.3 — 학교 프로그램 v3.3.0(라이브러리 51)과 번호를 맞췄어요. 설정 → 모듈에 ▲▼(사이드바 모듈 순서, 저장하면 바로 반영 · 라이브러리 51 필요). 줄넘기: 급수 인증·인증서·상장·우리 반 여행 화면(라이브러리 50), 학급 현황 학생별 누적 표에 반 고르기와 오른쪽 열 높이에 맞춘 스크롤, 급수 인증표 머리줄 체크 정렬·\"모두\" 단추 토글, 기록 확인 \"모두 확인\", 줄넘기왕 공동 1위."},{"version":"3.2.14","date":"2026-10-04","notes":"전국 현황판 참여 중에는 \"학생 입력 자동 확인\"을 켤 수 없어요 — 선생님이 확인한 기록만 현황판에. (학교 프로그램 v3.1.8 · 라이브러리 49)"},{"version":"3.2.13","date":"2026-10-04","notes":"\"전국 현황판 참여\" 칸이 줄넘기 모든 화면에 보이던 것 — 줄넘기 설정 화면에만. 학교 프로그램이 아직 옛 판이면 칸을 숨겨요."},{"version":"3.2.12","date":"2026-10-04","notes":"줄넘기 설정에 \"전국 현황판 참여\" 칸, 참여 중이면 학생 줄넘기 화면에 \"전국 현황판 보기\" 링크. (학교 프로그램 v3.1.7 · 라이브러리 47)"},{"version":"3.2.11","date":"2026-10-04","notes":"색깔 매트 놀이터 리듬 스텝 새 모습 — 블록이 비트세이버처럼 앞으로 다가와요(매트 모양 그대로). \"위에서 떨어지기(네 줄)\"도 고를 수 있어요."},{"version":"3.2.10","date":"2026-10-04","notes":"학교가 \"새 배포\"로 주소가 바뀌면 이 기기도 새 주소로 저절로 옮겨 가요. 적용 순서 안내에 \"새 배포는 누르지 마세요\", 주소가 바뀌면 선생님 홈에 \"QR 다시 인쇄\" 알림. (학교 프로그램 v3.1.5 · 라이브러리 45)"},{"version":"3.2.9","date":"2026-10-04","notes":"(만든 선생님 학교 전용) 설정 왼쪽 AI 키 아래에 \"우리 프로그램을 쓰는 학교\" 칸 — 사용 학교 현황을 프로그램 안에서 바로 봐요. (학교 프로그램 v3.1.4 · 라이브러리 44)"},{"version":"3.2.7","date":"2026-10-03","notes":"설정 → 업데이트 아래 \"사용 학교 알림\" — 익명(기본) · 학교 이름도 · 알리지 않기 중에서 고를 수 있어요. 학생 정보는 보내지 않아요. (학교 프로그램 v3.1.3 · 라이브러리 43)"},{"version":"3.2.6","date":"2026-10-03","notes":"AI 키를 설정 한 곳에서(설정 왼쪽 아래 · 시험해 보기) — 줄넘기 응원 문구·매트 퀴즈·세특 AI가 모두 이 키를 쓰고, 앞으로 생길 AI 기능도 여기 키를 써요. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.4","date":"2026-10-03","notes":"세특 초안에 \"AI로 다듬기\"(Gemini 키) — 학생마다 기록 사실로 서로 다른 문장, 한 명씩 또는 고른 학생·반 전체를 차례로. 학생을 골라 글 지우기. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.3","date":"2026-10-03","notes":"선생님이 로그인하면 새 소식 창 — 새 화면이 바뀌면 \"이번에 바뀐 것\"을 한 번 보여 주고, 학교 프로그램(라이브러리) 새 버전이 나와 있으면 적용 방법도 함께 알려 줘요."},{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
+    version: '3.3.6', needs: 1, built: '2026-10-07 15:08', history: [{"version":"3.3.6","date":"2026-10-07","notes":"모아 부르기 — 같은 순간에 나가는 요청들(로그인 직후 모듈별 자료 등)을 한 요청으로 묶어 보내요. 라이브러리 52 부터 동작하고, 옛 라이브러리에서는 지금처럼 따로 보냅니다. 설정 → 최근 요청 속도에 \"묶음 N\" 으로 보여요."},{"version":"3.3.5","date":"2026-10-07","notes":"휴대폰 가로 화면에서 로그인 창이 위아래로 잘려 숫자판 끝까지 못 내리던 것을 고쳤어요(위·아래 모두 스크롤). 가로 화면에서는 숫자판도 조금 낮게. (화면만)"},{"version":"3.3.4","date":"2026-10-06","notes":"앱 아이콘을 민트 바탕 + 고리 모양으로(줄넘기 기록 관리와 같은 모양, 색만 다름). 이미 홈 화면에 추가한 기기는 지우고 다시 추가해야 새 아이콘이 보여요."},{"version":"3.3.3","date":"2026-10-06","notes":"줄넘기 \"학급 공동 목표\" 칸을 뺐어요(학급 현황·학생 화면·설정) — 우리 반 줄넘기 여행과 같은 숫자라 겹쳤어요. 설정값은 시트에 남아 있지만 쓰지 않아요. (화면만)"},{"version":"3.3.2","date":"2026-10-06","notes":"줄넘기 학급 현황: 여행·급수 패널 제목이 보는 범위를 따라가요 — 한 반이면 \"우리 반\", 한 학년 여러 반이면 \"우리 N학년\", 전체면 \"우리 학교\". (화면만)"},{"version":"3.3.1","date":"2026-10-05","notes":"급수 인증표: 학생 \"모두\" 체크를 이름 바로 옆으로 — 체크하면 그 줄 전부, 머리줄 \"모두\"는 반 전체. 항목을 하나씩 바꾸면 \"모두\" 칸이 따라와요. (화면만, 라이브러리 그대로)"},{"version":"3.3.0","date":"2026-10-05","notes":"3.3 — 학교 프로그램 v3.3.0(라이브러리 51)과 번호를 맞췄어요. 설정 → 모듈에 ▲▼(사이드바 모듈 순서, 저장하면 바로 반영 · 라이브러리 51 필요). 줄넘기: 급수 인증·인증서·상장·우리 반 여행 화면(라이브러리 50), 학급 현황 학생별 누적 표에 반 고르기와 오른쪽 열 높이에 맞춘 스크롤, 급수 인증표 머리줄 체크 정렬·\"모두\" 단추 토글, 기록 확인 \"모두 확인\", 줄넘기왕 공동 1위."},{"version":"3.2.14","date":"2026-10-04","notes":"전국 현황판 참여 중에는 \"학생 입력 자동 확인\"을 켤 수 없어요 — 선생님이 확인한 기록만 현황판에. (학교 프로그램 v3.1.8 · 라이브러리 49)"},{"version":"3.2.13","date":"2026-10-04","notes":"\"전국 현황판 참여\" 칸이 줄넘기 모든 화면에 보이던 것 — 줄넘기 설정 화면에만. 학교 프로그램이 아직 옛 판이면 칸을 숨겨요."},{"version":"3.2.12","date":"2026-10-04","notes":"줄넘기 설정에 \"전국 현황판 참여\" 칸, 참여 중이면 학생 줄넘기 화면에 \"전국 현황판 보기\" 링크. (학교 프로그램 v3.1.7 · 라이브러리 47)"},{"version":"3.2.11","date":"2026-10-04","notes":"색깔 매트 놀이터 리듬 스텝 새 모습 — 블록이 비트세이버처럼 앞으로 다가와요(매트 모양 그대로). \"위에서 떨어지기(네 줄)\"도 고를 수 있어요."},{"version":"3.2.10","date":"2026-10-04","notes":"학교가 \"새 배포\"로 주소가 바뀌면 이 기기도 새 주소로 저절로 옮겨 가요. 적용 순서 안내에 \"새 배포는 누르지 마세요\", 주소가 바뀌면 선생님 홈에 \"QR 다시 인쇄\" 알림. (학교 프로그램 v3.1.5 · 라이브러리 45)"},{"version":"3.2.9","date":"2026-10-04","notes":"(만든 선생님 학교 전용) 설정 왼쪽 AI 키 아래에 \"우리 프로그램을 쓰는 학교\" 칸 — 사용 학교 현황을 프로그램 안에서 바로 봐요. (학교 프로그램 v3.1.4 · 라이브러리 44)"},{"version":"3.2.7","date":"2026-10-03","notes":"설정 → 업데이트 아래 \"사용 학교 알림\" — 익명(기본) · 학교 이름도 · 알리지 않기 중에서 고를 수 있어요. 학생 정보는 보내지 않아요. (학교 프로그램 v3.1.3 · 라이브러리 43)"},{"version":"3.2.6","date":"2026-10-03","notes":"AI 키를 설정 한 곳에서(설정 왼쪽 아래 · 시험해 보기) — 줄넘기 응원 문구·매트 퀴즈·세특 AI가 모두 이 키를 쓰고, 앞으로 생길 AI 기능도 여기 키를 써요. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.4","date":"2026-10-03","notes":"세특 초안에 \"AI로 다듬기\"(Gemini 키) — 학생마다 기록 사실로 서로 다른 문장, 한 명씩 또는 고른 학생·반 전체를 차례로. 학생을 골라 글 지우기. (학교 프로그램 v3.1.1 · 라이브러리 41 필요)"},{"version":"3.2.3","date":"2026-10-03","notes":"선생님이 로그인하면 새 소식 창 — 새 화면이 바뀌면 \"이번에 바뀐 것\"을 한 번 보여 주고, 학교 프로그램(라이브러리) 새 버전이 나와 있으면 적용 방법도 함께 알려 줘요."},{"version":"3.2.2","date":"2026-10-01","notes":"홈 화면에 앱으로 추가 — 태블릿·휴대폰에서 아이콘 하나로 주소창 없이 앱처럼 열려요(로그인 화면 아래 \"홈 화면에 앱으로 추가\", 아이폰은 공유 → 홈 화면에 추가). 앱 파일을 기기에 기억해 두어 여는 것도 빨라져요.\n세특 초안(홈)과 새 학년도 시작(설정) 메뉴 — 학교 프로그램을 v3.1.0(라이브러리 40)으로 올리면 써요."},{"version":"3.2.1","date":"2026-10-01","notes":"색깔 매트 놀이터 화면을 밝은 카드 톤으로(판정기와 같은 톤) — 게임 설정·끝 화면이 밝아지고 시작 버튼은 코랄색. 게임 중 화면은 매트 색이 잘 보이도록 검은 바탕 그대로."},{"version":"3.2.0","date":"2026-10-01","notes":"휴대폰·태블릿 위 메뉴를 누르면 아래 하위 메뉴만 바뀌던 것 — 그 메뉴의 첫 화면도 바로 열려요."},{"version":"3.1.9","date":"2026-10-01","notes":"카메라 판정기 새 디자인(v0.7.3) — 밝은 카드 화면, 10회마다 축하, 전체 화면 버튼. 앱으로 돌아가기 줄도 밝게."},{"version":"3.1.8","date":"2026-10-01","notes":"초기화 화면에 한꺼번에 고르기 — \"모든 기록 선택(명단은 남김)\" · \"명단까지 전부 선택\" · \"선택 해제\", 모듈마다 \"이 모듈 모두\", 고른 개수 표시."},{"version":"3.1.7","date":"2026-10-01","notes":"로그인 직후 모듈 여러 개가 한꺼번에 자료를 부르며 모두 느려지던 것 — 3개씩 차례로 보내고, 선생님·학생이 누른 화면의 자료는 줄 맨 앞으로 먼저 불러와요."},{"version":"3.1.5","date":"2026-09-30","notes":"새 판이 나온 뒤 처음 열 때 화면을 두 번 불러오던 것을 한 번으로 — 새 판 확인을 먼저 하고 바로 새 판을 받아요.\n설정 → 업데이트 칸 아래에 \"최근 요청 속도\" (느릴 때 어디가 느린지 볼 수 있어요)."},{"version":"3.1.4","date":"2026-09-30","notes":"색깔 매트 놀이터: 게임 중에 휴대폰·태블릿 \"뒤로\"를 누르면 게임이 닫히고 음악도 멈춰요(예전엔 유튜브 음악이 계속 나오던 것 수정).\n핸드폰(세로)에서 카메라 판정기 글자가 겹치고 시작 버튼이 가려지던 것 수정 — 판정기 v0.7.2."},{"version":"3.1.2","date":"2026-09-30","notes":"줄넘기·건강체력교실 \"카메라로 뛰기\"가 새 탭 대신 앱 안 전체 화면으로 열려요. 위쪽 \"앱으로 돌아가기\"(또는 뒤로가기)로 닫으면 방금 기록이 바로 보여요.\n학생이 로그인하자마자 모듈을 누르면 빈 화면이 남던 것 수정.\n색깔 매트 놀이터 게임 화면에 Made by 도장.\n학생용 QR 이 화면 방식을 따라가요(\"새 화면\"이면 찍자마자 새 화면). QR 인쇄가 빈 종이로 나오던 것 수정.\n버전 번호를 하나로 — 설정·업데이트 칸의 번호가 곧 지금 쓰는 판이에요. 새 판이 나오면 앱을 열 때 저절로 새 판을 받아요(새로고침 요령이 필요 없음)."},{"version":"3.0.1","date":"2026-09-30","notes":"설정 → 접속 주소에 학생용 주소 QR(인쇄 가능).\n학교 프로그램(Shell.gs)에 doPost 가 없어도 사진·큰 저장이 조각으로 올라감."},{"version":"3.0.0","date":"2026-09-30","notes":"새 화면 첫 판 — 화면은 GitHub 한 곳에서, 저장은 지금처럼 학교 시트에.\n학교 주소를 기기에 기억 · 로그인 화면 아래 \"다른 학교로 바꾸기\".\n구글 웹앱 위쪽 안내 띠 없음."}],
     app: '', info: null, post: null, page: '', ready: null
   };
   var KEY = 'peapp.school', LIST = 'peapp.schools', THEME = 'peapp.theme.';
@@ -496,10 +496,47 @@ button.say i{font-size:18px;}
     }
     return sendAll(all).then(function () { return commit(0); });
   }
+  /* 모아 부르기 (서버 기능 8, 라이브러리 52~): 같은 순간(한 틱 안)에 나온 작은 요청들을 한 요청으로 묶어 보냅니다.
+     로그인 직후 모듈마다 보내는 요청 10개 안팎이 구글에서 한 줄로 서서 뒤쪽이 30~50초 기다리던 것을 막습니다. 큰 요청(조각 올리기)·비밀번호 요청은 따로. */
+  var BQ = [], BT = null;
+  function batchable(fn, argStr) { return !!(WEB.info && WEB.info.SERVER_API >= 8) && !POST_FIRST.test(fn) && fn !== 'batch' && argStr.length <= 1500; }
+  function enqueue(fn, args, argStr) {
+    return new Promise(function (resolve, reject) {
+      BQ.push({ fn: fn, args: args, argStr: argStr, resolve: resolve, reject: reject });
+      if (!BT) BT = setTimeout(flush, 0);
+    });
+  }
+  function flush() {
+    var q = BQ; BQ = []; BT = null;
+    if (!q.length) return;
+    if (q.length === 1) { var o = q[0]; single(o.fn, o.args, o.argStr).then(o.resolve, o.reject); return; }
+    var list = q.map(function (o) { return [o.fn, o.args]; }), t0 = performance.now();
+    var label = '묶음 ' + q.length + ' (' + q.map(function (o) { return o.fn; }).join('·') + ')';
+    var listStr = JSON.stringify([list]), small = buildUrl({ api: 'rpc', fn: 'batch', args: listStr }).length <= URL_MAX;
+    var req = (small ? fetch(buildUrl({ api: 'rpc', fn: 'batch', args: listStr }), { redirect: 'follow', cache: 'no-store' })
+                     : fetch(WEB.app, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ fn: 'batch', args: [list] }), redirect: 'follow', cache: 'no-store' }))
+      .catch(function () { throw transportErr('학교 앱에 닿지 못했어요. 인터넷 연결을 확인해 주세요.'); })
+      .then(readJSON).then(timed(label, t0)).then(unwrap);
+    req.then(function (rs) {
+      q.forEach(function (o, i) {
+        var r = rs && rs[i];
+        if (r && r.ok) o.resolve(r.data); else o.reject(new Error((r && r.error) || '학교 앱이 거절했어요'));
+      });
+    }, function (e) {
+      // 묶음 자체가 실패(옛 라이브러리·전송 오류)하면 하나씩 따로 다시 보냅니다
+      if (!e.transport && /허용되지 않은 요청|함수를 찾지 못/.test(e.message)) { WEB.info.SERVER_API = 7; }
+      q.forEach(function (o) { single(o.fn, o.args, o.argStr).then(o.resolve, o.reject); });
+    });
+  }
   /** 서버 함수 하나 부르기 (google.script.run.rpc 와 같은 약속) */
   function call(fn, args) {
     args = Array.isArray(args) ? args : [];
-    var argStr = JSON.stringify(args), small = buildUrl({ api: 'rpc', fn: fn, args: argStr }).length <= URL_MAX;
+    var argStr0 = JSON.stringify(args);
+    if (batchable(fn, argStr0)) return enqueue(fn, args, argStr0);
+    return single(fn, args, argStr0);
+  }
+  function single(fn, args, argStr) {
+    var small = buildUrl({ api: 'rpc', fn: fn, args: argStr }).length <= URL_MAX;
     if (small && !POST_FIRST.test(fn)) return get({ api: 'rpc', fn: fn, args: argStr });
     if (WEB.post !== false) {
       return post(fn, args).then(function (r) { WEB.post = true; return r; }, function (e) {
@@ -513,6 +550,8 @@ button.say i{font-size:18px;}
   /* 한꺼번에 보내는 요청 수 제한: 로그인 직후 모듈 여러 개가 동시에 자료를 부르면 구글이 요청마다 학교 프로그램을 새로 띄우느라
      모두 같이 느려짐(한 번에 6~7개 → 각 25~35초). 3개씩 차례로 보내면 이미 떠 있는 것을 다시 써서 빨라짐 */
   var MAX_FLIGHT = 3, flight = 0, waitQ = [], lastTouch = 0;
+  /* 모아 부르기가 되는 서버(기능 8)에서는 제한을 풀어 한 틱의 요청이 모두 한 묶음으로 나가게 */
+  function cap() { return (WEB.info && WEB.info.SERVER_API >= 8) ? 30 : MAX_FLIGHT; }
   /* 사용자가 누른 것부터: 누르고 곧바로 생긴 요청과, 방금 연 모듈의 줄 서 있던 요청은 맨 앞으로 + 비워 둔 한 자리로 바로 보냄 */
   ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { window.addEventListener(ev, function () { lastTouch = Date.now(); }, true); });
   function limited(fn, args) {
@@ -522,18 +561,18 @@ button.say i{font-size:18px;}
         call(fn, args).then(function (r) { flight--; next(); res(r); }, function (e) { flight--; next(); rej(e); });
       } };
       var urgent = Date.now() - lastTouch < 800;
-      if (flight < MAX_FLIGHT || (urgent && flight < MAX_FLIGHT + 1)) item.run();
+      if (flight < cap() || (urgent && flight < cap() + 1)) item.run();
       else if (urgent) waitQ.unshift(item); else waitQ.push(item);
     });
   }
-  function next() { if (waitQ.length && flight < MAX_FLIGHT) waitQ.shift().run(); }
+  function next() { if (waitQ.length && flight < cap()) waitQ.shift().run(); }
   /** 모듈 화면을 열 때(showPage): 그 모듈(이름 앞머리 fit_·rope_ …)의 기다리던 요청을 맨 앞으로, 자리가 없으면 한 자리 더 써서 바로 */
   WEB.promote = function (modKey) {
     var pre = modKey === 'core' ? 't_' : String(modKey || '').toLowerCase() + '_';
     var mine = waitQ.filter(function (x) { return x.fn.indexOf(pre) === 0; });
     if (!mine.length) return;
     waitQ = mine.concat(waitQ.filter(function (x) { return mine.indexOf(x) < 0; }));
-    if (flight < MAX_FLIGHT + 1) waitQ.shift().run();
+    if (flight < cap() + 1) waitQ.shift().run();
   };
   WEB.call = limited;
 
