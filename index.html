@@ -13,9 +13,9 @@
 <script>
 (function () {
   var q = location.search.replace(/^\?/, ''), done = false;
-  function go(v) { if (done) return; done = true; location.replace('app.html?v=' + encodeURIComponent(v || '3.3.8') + (q ? '&' + q : '')); }
+  function go(v, b) { if (done) return; done = true; location.replace('app.html?v=' + encodeURIComponent(v || '3.3.7') + '&b=' + encodeURIComponent(b || '202610111939') + (q ? '&' + q : '')); }
   setTimeout(function () { go(''); }, 4000);   // 판 확인이 늦으면 그냥 열기
-  fetch('ready.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) { go(j.version); }, function () { go(''); });
+  fetch('ready.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) { go(j.version, j.build); }, function () { go(''); });
 })();
 try { if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js'); } catch (e) {}
 </script></body></html>
