@@ -6,7 +6,7 @@
 <meta property="og:title" content="체육 매니저 — 선생님께는 체육 업무 비서, 학생에게는 체력 코치">
 <meta property="og:description" content="체육 업무 8가지를 한곳에서 — 수업 도우미 · 수행평가 · PAPS · 건강체력교실 · 줄넘기 · 색깔 매트 · FMS · 스포츠클럽. 무료, 자료는 내 구글 시트에만.">
 <meta property="og:url" content="https://musicalpe.github.io/pe-app/">
-<meta property="og:image" content="https://musicalpe.github.io/pe-app/img/og-app.jpg?v=2">
+<meta property="og:image" content="https://musicalpe.github.io/pe-app/img/og-app.jpg?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -23,7 +23,7 @@
 <script>
 (function () {
   var q = location.search.replace(/^\?/, ''), done = false;
-  function go(v, b) { if (done) return; done = true; location.replace('app.html?v=' + encodeURIComponent(v || '3.4.0') + '&b=' + encodeURIComponent(b || '202611041109') + (q ? '&' + q : '')); }
+  function go(v, b) { if (done) return; done = true; location.replace('app.html?v=' + encodeURIComponent(v || '3.4.0') + '&b=' + encodeURIComponent(b || '202611041110') + (q ? '&' + q : '')); }
   setTimeout(function () { go(''); }, 4000);   // 판 확인이 늦으면 그냥 열기
   fetch('ready.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) { go(j.version, j.build); }, function () { go(''); });
 })();
