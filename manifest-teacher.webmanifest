@@ -1,7 +1,7 @@
 {
-  "id": "/pe-app/?page=teacher",
-  "name": "체육교사 보조 프로그램",
-  "short_name": "체육 보조",
+  "id": "./?page=teacher",
+  "name": "체육 매니저",
+  "short_name": "체육 매니저",
   "start_url": "./?page=teacher",
   "scope": "./",
   "display": "standalone",
