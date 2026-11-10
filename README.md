@@ -25,3 +25,13 @@ v3.0 부터 **화면(html)은 이 저장소의 GitHub Pages 한 곳에서**, 저
 - 있는 그대로 제공되며, 쓰다가 생긴 문제에 대해 저작자는 책임지지 않습니다.
 - 위와 다르게 쓰고 싶으면 인디스쿨 글 댓글이나 이 저장소로 먼저 물어봐 주세요.
 - 함께 쓴 외부 구성요소: qrcode-generator(MIT), Tabler Icons(MIT), Pretendard·Black Han Sans 글꼴(SIL OFL 1.1)
+
+## 미리보기 (demo.html)
+
+https://musicalpe.github.io/pe-app/demo.html — 학교 시트 없이 지어낸 학교(5학년 두 반·6학년 한 반)로 둘러봅니다.
+지금 화면(app.html)을 그대로 쓰고, 학교 앱 주소로 가는 요청만 이 창 안의 가짜 학교 시트로 돌립니다.
+학교 프로그램은 MusicalPE/pe-assistant 의 .gs 를 그대로 불러 돌리므로, 라이브러리 소스를 올리면 미리보기도 따라갑니다.
+선생님·학생 비밀번호는 아무거나 넣어도 들어가고, 새로고침하면 처음으로 돌아갑니다. 이 기기에 기억된 진짜 학교 주소는 건드리지 않습니다.
+- demo/boot.js : 요청 가로채기 · 저장소 · 안내 줄
+- demo/engine.js : 구글 시트·드라이브·캐시 흉내, 라이브러리 불러오기
+- demo/seed.js : 지어낸 학교 자료 채우기

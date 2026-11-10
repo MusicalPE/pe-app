@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>체육 매니저 미리보기</title>
+<meta name="robots" content="noindex">
+<meta property="og:title" content="체육 매니저 미리보기">
+<meta property="og:description" content="지어낸 학교로 체육 매니저를 설치 없이 둘러봐요.">
+<meta property="og:image" content="https://musicalpe.github.io/pe-app/img/og-app.jpg?v=3">
+<link rel="icon" href="icons/favicon-64.png">
+<style>html,body{height:100%;margin:0}body{display:flex;align-items:center;justify-content:center;background:#F2FAF7;color:#557069;font:15px "Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif}</style></head>
+<body><div id="pv">미리보기를 준비하는 중…</div>
+<script>
+/* 체육 매니저 미리보기: 지금 화면(app.html)을 그대로 받아 와서, 맨 앞에 미리보기 장치(demo/)를 끼워 엽니다.
+   화면 파일은 고치지 않으므로 새 판이 나와도 미리보기가 그대로 따라갑니다. */
+(function () {
+  var v = Date.now();
+  fetch('app.html?demo=' + v, { cache: 'no-store' }).then(function (r) { return r.text(); }).then(function (html) {
+    var inject = '<script src="demo/boot.js?v=' + v + '"><\/script><script src="demo/seed.js?v=' + v + '"><\/script><script src="demo/engine.js?v=' + v + '"><\/script>';
+    html = html.replace(/<head>/i, '<head>' + inject);
+    document.open(); document.write(html); document.close();
+  }).catch(function () { document.getElementById('pv').textContent = '미리보기를 불러오지 못했어요. 새로고침해 주세요.'; });
+})();
+</script></body></html>
