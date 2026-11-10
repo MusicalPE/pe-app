@@ -30,7 +30,7 @@
         return wrap(function () { return window.PEDEMO.rpc(String(body.fn || ''), body.args || []); });
       }
       if (api === 'info') return wrap(function () { return window.PEDEMO.info(); });
-      if (api === 'ping') return wrap(function () { return { t: Date.now(), SERVER_API: 9 }; });
+      if (api === 'ping') return wrap(function () { return window.PEDEMO.info().then(function (i) { return { t: Date.now(), SERVER_API: i.SERVER_API }; }); });
       if (api === 'rpc') return wrap(function () { return window.PEDEMO.rpc(q.get('fn') || '', JSON.parse(q.get('args') || '[]')); });
       return wrap(function () { throw new Error('미리보기에서는 이 요청을 쓰지 않아요: ' + api); });
     }
